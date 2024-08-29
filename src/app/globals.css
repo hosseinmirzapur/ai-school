@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+   background-image: url("../../public/assets/background.png");
+   background-size: 1200%;
+   background-position: center;
+}
