@@ -1,5 +1,8 @@
+import { Poppins } from "next/font/google"
+
 import AppContainer from "./AppContainer"
 import "./globals.css"
+import "../../public/fonts/Yekan.css"
 
 export const metadata = {
    title: "AI school",
@@ -13,7 +16,11 @@ export default function RootLayout({
 }) {
    return (
       <html lang="en">
-         <body>
+         <body
+            style={{
+               fontFamily: "Yekan",
+            }}
+         >
             <AppContainer>{children}</AppContainer>
          </body>
       </html>
