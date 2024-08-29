@@ -6,4 +6,5 @@ html {
    background-image: url("../../public/assets/background.jpg");
    background-size: 1200%;
    background-position: center;
+   direction: rtl;
 }

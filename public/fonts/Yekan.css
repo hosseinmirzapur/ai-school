@@ -1,11 +1,3 @@
-# Yekan Font فونت یکان
-فونت استاندارد یکان، مناسب برای همه، رایگان
-
-Download: https://github.com/ParsMizban/Yekan-Font/releases
-
-استفاده از فونت یکان در وب
-
-```css
 /* Webfont: Yekan */
 @font-face {
 	font-family: 'Yekan';
@@ -20,8 +12,3 @@ Download: https://github.com/ParsMizban/Yekan-Font/releases
 	text-rendering: optimizeLegibility;
 	font-display: auto;
 }
-```
-
-Created on FontLab by Farhad Sakhaei (https://parsmizban.com)
-
-Analog letter design by Masood Sepehr (http://masoodsepehr.com)
