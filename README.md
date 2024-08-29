@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI SCHOOL
+
+This project is an e-learn platform utilizing AI to provide students with the best quality AI teaching/learning service.
 
 ## Getting Started
 
-First, run the development server:
+Run these commands to run the project locally:
 
 ```bash
+git clone git@github.com:hosseinmirzapur/ai-school.git
+
+cd ./ai-school
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contribution Guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Make sure you're on the main branch by running `git branch`
+  
+- Checkout to a `feat` branch following your name and the title of the change like this: `git checkout -b feat/hossein/readme`
 
-## Learn More
+> Note: In the example above, the word `readme` counts as the title
 
-To learn more about Next.js, take a look at the following resources:
+- Make all files staged on the current branch by running `git add -A`
+  
+- Commit your changes and for the commit message follow this pattern: `git commit -m "feat(title): short description"`
+  
+- Push branch to remote: `git push origin feat/your_name/title`
+  
+- Open a pull request on github and merge to main, and remove the feature branch on remote.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Get back to your code and run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+make sync
+```
 
-## Deploy on Vercel
+This will sync remote and local by running a bash script in the [Makefile](./Makefile)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> Note: If you cannot run `make` commands, run this: `sudo apt-get install build-essential`
