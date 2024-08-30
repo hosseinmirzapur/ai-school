@@ -75,100 +75,7 @@ const Navbar = () => {
    }: {
       item: NavbarItem
       expanded: boolean
-   }) => {
-      if (expanded) {
-         return (
-            <Link
-               href={item.href}
-               onClick={() => handleLink(item)}
-               className={`
-                  flex
-                  items-center
-                  ${expanded ? "" : "justify-center"}
-                  h-[60px]
-                  bg-none
-                  ${expanded ? "md:w-[180px] lg:w-[230px]" : "w-[60px]"}
-                  ${expanded ? "px-5" : "px-2"}
-                  gap-[8px]
-                  ${expanded ? "rounded-r-full" : "rounded-full"}
-                  rounded-r-full
-                  ${isActive(item) ? "bg-white" : "bg-none"}
-                  transition-all
-                  duration-400
-                  ease-in-out
-                  hover:shadow-2xl
-               `}
-            >
-               <item.Icon
-                  size={32}
-                  className={`${
-                     isActive(item) ? "text-black" : "text-white"
-                  } transition-all duration-400 ease-in-out`}
-               />
-               <span
-                  className={`
-                     ${isActive(item) ? "text-black" : "text-white"}
-                     text-xl
-                     transition-all
-                     duration-400
-                     ease-in-out
-                     ${expanded ? "block" : "hidden"}
-                     `}
-               >
-                  {item.title}
-               </span>
-            </Link>
-         )
-      }
-      return (
-         <Tooltip
-            placement="right"
-            content={expanded ? "" : item.title}
-            key={item.id}
-         >
-            <Link
-               href={item.href}
-               onClick={() => handleLink(item)}
-               className={`
-                  flex
-                  items-center
-                  ${expanded ? "" : "justify-center"}
-                  h-[60px]
-                  bg-none
-                  ${expanded ? "md:w-[180px] lg:w-[230px]" : "w-[60px]"}
-                  ${expanded ? "px-5" : "px-2"}
-                  gap-[8px]
-                  ${expanded ? "rounded-r-full" : "rounded-full"}
-                  rounded-r-full
-                  ${isActive(item) ? "bg-white" : "bg-none"}
-                  transition-all
-                  duration-400
-                  ease-in-out
-                  hover:shadow-2xl
-               `}
-            >
-               <item.Icon
-                  size={32}
-                  className={`${
-                     isActive(item) ? "text-black" : "text-white"
-                  } transition-all duration-400 ease-in-out`}
-               />
-               <span
-                  className={`
-                     ${isActive(item) ? "text-black" : "text-white"}
-                     text-xl
-                     transition-all
-                     duration-400
-                     ease-in-out
-                     ${expanded ? "block" : "hidden"}
-                  `}
-               >
-                  {item.title}
-               </span>
-            </Link>
-         </Tooltip>
-      )
-   }
+   }) => {}
    // ** states
    const [selected, setSelected] = useState(1)
    const [expanded, setExpanded] = useState(true)
@@ -242,13 +149,213 @@ const Navbar = () => {
 
          <div className="flex flex-col gap-6 mt-[80px] transition-all duration-400 ease-in-out">
             <hr className="text-white w-full h-[1px] opacity-50 mx-auto" />
-            {navbarItems.map((item) => (
-               <NavbarTooltip expanded={expanded} item={item} key={item.id} />
-            ))}
+            {navbarItems.map((item) => {
+               if (expanded) {
+                  return (
+                     <Link
+                        href={item.href}
+                        onClick={() => handleLink(item)}
+                        className={`
+                           flex
+                           items-center
+                           ${expanded ? "" : "justify-center"}
+                           h-[60px]
+                           bg-none
+                           ${
+                              expanded
+                                 ? "md:w-[180px] lg:w-[230px]"
+                                 : "w-[60px]"
+                           }
+                           ${expanded ? "px-5" : "px-2"}
+                           gap-[8px]
+                           ${expanded ? "rounded-r-full" : "rounded-full"}
+                           rounded-r-full
+                           ${isActive(item) ? "bg-white" : "bg-none"}
+                           transition-all
+                           duration-400
+                           ease-in-out
+                           hover:shadow-2xl
+                        `}
+                     >
+                        <item.Icon
+                           size={32}
+                           className={`${
+                              isActive(item) ? "text-black" : "text-white"
+                           } transition-all duration-400 ease-in-out`}
+                        />
+                        <span
+                           className={`
+                              ${isActive(item) ? "text-black" : "text-white"}
+                              text-xl
+                              transition-all
+                              duration-400
+                              ease-in-out
+                              ${expanded ? "block" : "hidden"}
+                              `}
+                        >
+                           {item.title}
+                        </span>
+                     </Link>
+                  )
+               }
+               return (
+                  <Tooltip
+                     placement="right"
+                     content={expanded ? "" : item.title}
+                     key={item.id}
+                     className="transition-all"
+                  >
+                     <Link
+                        href={item.href}
+                        onClick={() => handleLink(item)}
+                        className={`
+                           flex
+                           items-center
+                           ${expanded ? "" : "justify-center"}
+                           h-[60px]
+                           bg-none
+                           ${
+                              expanded
+                                 ? "md:w-[180px] lg:w-[230px]"
+                                 : "w-[60px]"
+                           }
+                           ${expanded ? "px-5" : "px-2"}
+                           gap-[8px]
+                           ${expanded ? "rounded-r-full" : "rounded-full"}
+                           rounded-r-full
+                           ${isActive(item) ? "bg-white" : "bg-none"}
+                           transition-all
+                           duration-400
+                           ease-in-out
+                           hover:shadow-2xl
+                        `}
+                     >
+                        <item.Icon
+                           size={32}
+                           className={`${
+                              isActive(item) ? "text-black" : "text-white"
+                           } transition-all duration-400 ease-in-out`}
+                        />
+                        <span
+                           className={`
+                              ${isActive(item) ? "text-black" : "text-white"}
+                              text-xl
+                              transition-all
+                              duration-400
+                              ease-in-out
+                              ${expanded ? "block" : "hidden"}
+                           `}
+                        >
+                           {item.title}
+                        </span>
+                     </Link>
+                  </Tooltip>
+               )
+            })}
             <hr className="text-white w-full h-[1px] opacity-50 mx-auto" />
-            {secondNavbarItems.map((item) => (
-               <NavbarTooltip expanded={expanded} item={item} key={item.id} />
-            ))}
+            {secondNavbarItems.map((item) => {
+               if (expanded) {
+                  return (
+                     <Link
+                        href={item.href}
+                        onClick={() => handleLink(item)}
+                        className={`
+                           flex
+                           items-center
+                           ${expanded ? "" : "justify-center"}
+                           h-[60px]
+                           bg-none
+                           ${
+                              expanded
+                                 ? "md:w-[180px] lg:w-[230px]"
+                                 : "w-[60px]"
+                           }
+                           ${expanded ? "px-5" : "px-2"}
+                           gap-[8px]
+                           ${expanded ? "rounded-r-full" : "rounded-full"}
+                           rounded-r-full
+                           ${isActive(item) ? "bg-white" : "bg-none"}
+                           transition-all
+                           duration-400
+                           ease-in-out
+                           hover:shadow-2xl
+                        `}
+                     >
+                        <item.Icon
+                           size={32}
+                           className={`${
+                              isActive(item) ? "text-black" : "text-white"
+                           } transition-all duration-400 ease-in-out`}
+                        />
+                        <span
+                           className={`
+                              ${isActive(item) ? "text-black" : "text-white"}
+                              text-xl
+                              transition-all
+                              duration-400
+                              ease-in-out
+                              ${expanded ? "block" : "hidden"}
+                              `}
+                        >
+                           {item.title}
+                        </span>
+                     </Link>
+                  )
+               }
+               return (
+                  <Tooltip
+                     placement="right"
+                     content={expanded ? "" : item.title}
+                     key={item.id}
+                     className="transition-all"
+                  >
+                     <Link
+                        href={item.href}
+                        onClick={() => handleLink(item)}
+                        className={`
+                           flex
+                           items-center
+                           ${expanded ? "" : "justify-center"}
+                           h-[60px]
+                           bg-none
+                           ${
+                              expanded
+                                 ? "md:w-[180px] lg:w-[230px]"
+                                 : "w-[60px]"
+                           }
+                           ${expanded ? "px-5" : "px-2"}
+                           gap-[8px]
+                           ${expanded ? "rounded-r-full" : "rounded-full"}
+                           rounded-r-full
+                           ${isActive(item) ? "bg-white" : "bg-none"}
+                           transition-all
+                           duration-400
+                           ease-in-out
+                           hover:shadow-2xl
+                        `}
+                     >
+                        <item.Icon
+                           size={32}
+                           className={`${
+                              isActive(item) ? "text-black" : "text-white"
+                           } transition-all duration-400 ease-in-out`}
+                        />
+                        <span
+                           className={`
+                              ${isActive(item) ? "text-black" : "text-white"}
+                              text-xl
+                              transition-all
+                              duration-400
+                              ease-in-out
+                              ${expanded ? "block" : "hidden"}
+                           `}
+                        >
+                           {item.title}
+                        </span>
+                     </Link>
+                  </Tooltip>
+               )
+            })}
          </div>
       </div>
    )
