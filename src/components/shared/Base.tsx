@@ -6,10 +6,10 @@ import Navbar from "./Navbar"
 const Base = () => {
    return (
       <>
-         <div className="block lg:hidden">
+         <div className="block md:hidden">
             <MobileNavbar />
          </div>
-         <div className="flex items-center justify-center h-[100vh] w-11/12 md:w-full mx-auto">
+         <div className="flex items-center justify-center h-[100vh] md:py-5 lg:py-2 w-11/12 mx-auto">
             <div
                className="
                   flex
@@ -20,7 +20,7 @@ const Base = () => {
                   rounded-[24px]
                "
             >
-               <div className="hidden lg:flex">
+               <div className="hidden md:flex">
                   <Navbar />
                </div>
             </div>
