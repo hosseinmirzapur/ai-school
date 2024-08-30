@@ -19,7 +19,7 @@ interface NavbarItem {
    Icon: IconType
 }
 
-const navbarItems: NavbarItem[] = [
+export const navbarItems: NavbarItem[] = [
    {
       id: 1,
       title: "خانه",
@@ -52,7 +52,7 @@ const navbarItems: NavbarItem[] = [
    },
 ]
 
-const secondNavbaritems: NavbarItem[] = [
+export const secondNavbarItems: NavbarItem[] = [
    {
       id: 6,
       title: "تنظیمات",
@@ -93,7 +93,7 @@ const Navbar = () => {
 				justify-end
         	"
       >
-         <div className="flex flex-col gap-8 mt-[100px] transition-all duration-400 ease-in-out">
+         <div className="flex flex-col gap-6 mt-[100px] transition-all duration-400 ease-in-out">
             {navbarItems.map((item) => (
                <Link
                   key={item.id}
@@ -130,8 +130,8 @@ const Navbar = () => {
                   </span>
                </Link>
             ))}
-            <Divider orientation="horizontal" className="text-white" />
-            {secondNavbaritems.map((item) => (
+            <hr className="text-white w-full h-[1px] opacity-50 mx-auto" />
+            {secondNavbarItems.map((item) => (
                <Link
                   key={item.id}
                   href={item.href}
