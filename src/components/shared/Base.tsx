@@ -4,7 +4,11 @@ import Image from "next/image"
 import MobileNavbar from "./MobileNavbar"
 import Navbar from "./Navbar"
 
-const Base = () => {
+interface IProps {
+   children: React.ReactNode
+}
+
+const Base: React.FC<IProps> = ({ children }) => {
    return (
       <div className="relative">
          <div className="block md:hidden bg-purple-900">
@@ -69,6 +73,7 @@ const Base = () => {
                <div className="hidden md:flex">
                   <Navbar />
                </div>
+               {children}
             </div>
          </div>
       </div>
