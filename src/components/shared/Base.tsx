@@ -11,7 +11,7 @@ interface IProps {
 const Base: React.FC<IProps> = ({ children }) => {
    return (
       <div className="relative">
-         <div className="block md:hidden bg-purple-900">
+         <div className="block md:hidden bg-purple-950">
             <MobileNavbar />
          </div>
          <div className="flex items-center justify-center h-[100vh] md:py-5 lg:py-2 w-11/12 mx-auto">
@@ -21,7 +21,7 @@ const Base: React.FC<IProps> = ({ children }) => {
                   w-[1400px]
                   min-h-[90%]
                   lg:h-[626px]
-                  bg-gray-100
+                  bg-gray-200
                   rounded-[24px]
                   z-10
                "
@@ -37,14 +37,14 @@ const Base: React.FC<IProps> = ({ children }) => {
                      h-[50px]
                      md:w-[80px]
                      md:h-[80px]
-                     lg:w-[100px]
-                     lg:h-[100px]
+                     lg:w-[110px]
+                     lg:h-[110px]
                      top-20
                      md:top-5
                      lg:top-2
                      right-1
                      md:right-1
-                     lg:right-[175px]
+                     lg:right-[160px]
                      z-20
                   "
                   draggable={false}
@@ -60,8 +60,8 @@ const Base: React.FC<IProps> = ({ children }) => {
                      h-[70px]
                      md:w-[100px]
                      md:h-[100px]
-                     lg:w-[120px]
-                     lg:h-[120px]
+                     lg:w-[130px]
+                     lg:h-[130px]
                      bottom-2
                      left-[20px]
                      lg:left-[186px]
