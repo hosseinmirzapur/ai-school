@@ -155,6 +155,7 @@ const Navbar = () => {
                      <Link
                         href={item.href}
                         onClick={() => handleLink(item)}
+                        key={item.id}
                         className={`
                            flex
                            items-center
@@ -259,6 +260,7 @@ const Navbar = () => {
                      <Link
                         href={item.href}
                         onClick={() => handleLink(item)}
+                        key={item.id}
                         className={`
                            flex
                            items-center
