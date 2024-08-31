@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+
+import { useEffect, useState } from "react"
 
 import { IconType } from "react-icons"
 import { BiSolidBook } from "react-icons/bi"
@@ -11,6 +12,7 @@ import { RiCompassFill, RiLogoutBoxFill } from "react-icons/ri"
 import { TbHomeFilled } from "react-icons/tb"
 import { PiGearSixFill } from "react-icons/pi"
 import { AiOutlineExpandAlt, AiOutlineShrink } from "react-icons/ai"
+
 import { Tooltip } from "@nextui-org/react"
 
 interface NavbarItem {
@@ -30,25 +32,25 @@ export const navbarItems: NavbarItem[] = [
    {
       id: 2,
       title: "جستجو",
-      href: "#",
+      href: "/search",
       Icon: RiCompassFill,
    },
    {
       id: 3,
       title: "منابع آموزشی",
-      href: "#",
+      href: "/sources",
       Icon: BiSolidBook,
    },
    {
       id: 4,
       title: "برنامه هفتگی",
-      href: "#",
+      href: "/schedule",
       Icon: FaCalendarAlt,
    },
    {
       id: 5,
       title: "صندوق پیام",
-      href: "#",
+      href: "/notifications",
       Icon: MdMail,
    },
 ]
@@ -57,39 +59,59 @@ export const secondNavbarItems: NavbarItem[] = [
    {
       id: 6,
       title: "تنظیمات",
-      href: "#",
+      href: "/settings",
       Icon: PiGearSixFill,
    },
    {
       id: 7,
       title: "خروج",
-      href: "#",
+      href: "#logout",
       Icon: RiLogoutBoxFill,
    },
 ]
 
 const Navbar = () => {
-   const NavbarTooltip = ({
-      item,
-      expanded,
-   }: {
-      item: NavbarItem
-      expanded: boolean
-   }) => {}
-   // ** states
-   const [selected, setSelected] = useState(1)
+   // ** states & variables
+   const [selected, setSelected] = useState(0)
    const [expanded, setExpanded] = useState(true)
 
    // ** functions
    const toggleExpansion = () => setExpanded(!expanded)
 
-   const handleLink = (item: NavbarItem) => {
-      setSelected(item.id)
-   }
-
    const isActive = (item: NavbarItem) => {
       return selected == item.id
    }
+
+   useEffect(() => {
+      const pathname = document.URL
+      const pathSegments = pathname.split("/")
+      const lastSegment = "/" + (pathSegments[pathSegments.length - 1] || "")
+      switch (lastSegment) {
+         case "/":
+            setSelected(1)
+            break
+         case "/search":
+            setSelected(2)
+            break
+         case "/sources":
+            setSelected(3)
+            break
+         case "/schedule":
+            setSelected(4)
+            break
+         case "/notifications":
+            setSelected(5)
+            break
+         case "/settings":
+            setSelected(6)
+            break
+         case "#logout":
+            break
+         default:
+            setSelected(0)
+            break
+      }
+   }, [selected])
 
    return (
       <div
@@ -154,7 +176,6 @@ const Navbar = () => {
                   return (
                      <Link
                         href={item.href}
-                        onClick={() => handleLink(item)}
                         key={item.id}
                         className={`
                            flex
@@ -208,7 +229,6 @@ const Navbar = () => {
                   >
                      <Link
                         href={item.href}
-                        onClick={() => handleLink(item)}
                         className={`
                            flex
                            items-center
@@ -259,7 +279,6 @@ const Navbar = () => {
                   return (
                      <Link
                         href={item.href}
-                        onClick={() => handleLink(item)}
                         key={item.id}
                         className={`
                            flex
@@ -313,7 +332,6 @@ const Navbar = () => {
                   >
                      <Link
                         href={item.href}
-                        onClick={() => handleLink(item)}
                         className={`
                            flex
                            items-center
