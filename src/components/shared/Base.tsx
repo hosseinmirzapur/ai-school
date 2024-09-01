@@ -60,17 +60,19 @@ const Base: React.FC<IProps> = ({ children }) => {
          </div>
          <div
             className="
+               container-xl
                flex
                items-center
                justify-center
                h-full
-               md:h-[100vh]
+               md:h-[100svh]
                py-10
                md:py-5
                lg:py-2
                w-11/12
                md:w-10/12
-               mx-auto"
+               m-auto
+            "
          >
             <div
                className="
