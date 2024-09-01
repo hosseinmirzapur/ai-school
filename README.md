@@ -1,27 +1,39 @@
-# Yekan Font فونت یکان
-فونت استاندارد یکان، مناسب برای همه، رایگان
+# AI SCHOOL
 
-Download: https://github.com/ParsMizban/Yekan-Font/releases
+This project is an e-learn platform utilizing AI to provide students with the best quality AI teaching/learning service.
 
-استفاده از فونت یکان در وب
+## Getting Started
 
-```css
-/* Webfont: Yekan */
-@font-face {
-	font-family: 'Yekan';
-	src:	url('Yekan.eot'); /* IE9 Compat Modes */
-	src:	url('Yekan.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-			url('Yekan.woff2') format('woff2'), /* Modern Browsers */
-			url('Yekan.woff') format('woff'), /* Modern Browsers */
-			url('Yekan.otf') format('opentype'), /* Open Type Font */	
-			url('Yekan.ttf') format('truetype'); /* Safari, Android, iOS */
-	font-weight: normal;
-	font-style: normal;
-	text-rendering: optimizeLegibility;
-	font-display: auto;
-}
+Run these commands to run the project locally:
+
+```bash
+git clone git@github.com:hosseinmirzapur/ai-school.git
+
+cd ./ai-school
+
+npm install
+
+npm run dev
 ```
 
-Created on FontLab by Farhad Sakhaei (https://parsmizban.com)
+## Contribution Guide
 
-Analog letter design by Masood Sepehr (http://masoodsepehr.com)
+Follow these steps:
+
+- Make sure you're on the main branch by running `git branch`
+
+- Checkout to a `feat` branch following your name and the title of the change like this: `git checkout -b feat/hossein/readme`
+
+> Note: In the example above, the word `readme` counts as the title
+- Make all files staged on the current branch by running `git add -A`
+
+- Commit your changes and for the commit message follow this pattern: `git commit -m "feat(title): short description"`
+
+- Push branch to remote: `git push origin feat/your_name/title`
+
+- Open a pull request on github and merge to main, and remove the feature branch on remote.
+
+- Get back to your code and run:
+
+```bash
+make sync
