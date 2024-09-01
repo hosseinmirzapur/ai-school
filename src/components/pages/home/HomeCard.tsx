@@ -11,7 +11,18 @@ interface IHomeCard {
 
 const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
    return (
-      <Card className="relative h-[180px] w-[240px] bg-gray-200">
+      <Card
+         className="
+            relative
+            h-[180px]
+            w-[240px]
+            bg-gray-200
+            hover:shadow-lg
+            transition-shadow
+            duration-400
+            cursor-pointer
+         "
+      >
          <Image
             src={backgroundSrc}
             alt=""
@@ -36,9 +47,11 @@ const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
             className="absolute right-[20px] top-[20px]"
             draggable={false}
          />
-         <span className="absolute text-center text-4xl bottom-4 left-[40px] text-white">
-            {text}
-         </span>
+         <div className="absolute bottom-4 w-full">
+            <span className="flex justify-center text-4xl font-bold text-gray-100 w-full">
+               {text}
+            </span>
+         </div>
       </Card>
    )
 }

@@ -135,7 +135,7 @@ const Navbar = () => {
          >
             <div
                className={`
-                  flex
+                  lg:flex
                   text-black
                   bg-white
                   hover:bg-purple-600
@@ -151,6 +151,7 @@ const Navbar = () => {
                   absolute
                   top-5
                   ${expanded ? "left-5" : "left-auto"}
+                  hidden
                `}
             >
                {expanded ? (
@@ -170,7 +171,7 @@ const Navbar = () => {
          </Tooltip>
 
          <div className="flex flex-col gap-6 mt-[80px] transition-all duration-400 ease-in-out">
-            <hr className="text-white w-full h-[1px] opacity-50 mx-auto" />
+            <hr className="text-white w-full h-[1px] opacity-50 mx-auto hidden lg:block" />
             {navbarItems.map((item) => {
                if (expanded) {
                   return (

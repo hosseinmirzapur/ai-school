@@ -11,14 +11,71 @@ interface IProps {
 const Base: React.FC<IProps> = ({ children }) => {
    return (
       <div className="relative">
+         <Image
+            src={"/assets/pen.png"}
+            alt="pen-icon"
+            width={100}
+            height={100}
+            className="
+                     absolute
+                     w-[55px]
+                     h-[55px]
+                     md:w-[70px]
+                     md:h-[70px]
+                     lg:w-[110px]
+                     lg:h-[110px]
+                     top-20
+                     md:top-4
+                     lg:top-2
+                     right-1
+                     md:-right-4
+                     lg:right-16
+                     z-20
+                  "
+            draggable={false}
+         />
+         <Image
+            src={"/assets/book.png"}
+            alt="book-icon"
+            width={100}
+            height={100}
+            className="
+               absolute
+               w-[85px]
+               h-[85px]
+               md:w-[100px]
+               md:h-[100px]
+               lg:w-[130px]
+               lg:h-[130px]
+               bottom-2
+               left-4
+               lg:left-16
+               z-20
+               rotate-[130deg]
+            "
+            draggable={false}
+         />
          <div className="block md:hidden bg-purple-950">
             <MobileNavbar />
          </div>
-         <div className="flex items-center justify-center h-[100vh] md:py-5 lg:py-2 w-11/12 mx-auto">
+         <div
+            className="
+               flex
+               items-center
+               justify-center
+               h-full
+               md:h-[100vh]
+               py-10
+               md:py-5
+               lg:py-2
+               w-11/12
+               md:w-10/12
+               mx-auto"
+         >
             <div
                className="
                   flex
-                  w-[1400px]
+                  w-[1600px]
                   min-h-[90%]
                   lg:h-[626px]
                   bg-gray-200
@@ -26,50 +83,6 @@ const Base: React.FC<IProps> = ({ children }) => {
                   z-10
                "
             >
-               <Image
-                  src={"/assets/pen.png"}
-                  alt="pen-icon"
-                  width={100}
-                  height={100}
-                  className="
-                     absolute
-                     w-[50px]
-                     h-[50px]
-                     md:w-[80px]
-                     md:h-[80px]
-                     lg:w-[110px]
-                     lg:h-[110px]
-                     top-20
-                     md:top-5
-                     lg:top-2
-                     right-1
-                     md:right-1
-                     lg:right-[160px]
-                     z-20
-                  "
-                  draggable={false}
-               />
-               <Image
-                  src={"/assets/book.png"}
-                  alt="book-icon"
-                  width={100}
-                  height={100}
-                  className="
-                     absolute
-                     w-[70px]
-                     h-[70px]
-                     md:w-[100px]
-                     md:h-[100px]
-                     lg:w-[130px]
-                     lg:h-[130px]
-                     bottom-2
-                     left-[20px]
-                     lg:left-[186px]
-                     z-20
-                     rotate-[130deg]
-                  "
-                  draggable={false}
-               />
                <div className="hidden md:flex">
                   <Navbar />
                </div>
