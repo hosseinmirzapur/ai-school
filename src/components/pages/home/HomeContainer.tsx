@@ -5,30 +5,35 @@ import Chat from "./Chat"
 import HomeCard from "./HomeCard"
 import Notifications, { INotification } from "./Notifications"
 import Search from "./Search"
-import ProfileCard from "@/components/students/ProfileCard"
-import { IFolder } from "@/components/students/Folder"
-import Folder from "@/components/students/Folder"
+import ProfileCard, { IProfile } from "@/components/students/ProfileCard"
+import Rankings, { IRanking } from "@/components/students/Rankings"
+import Folder from "@/components/students/Rankings"
 
-const folders: IFolder[] = [
+const rankings: IRanking[] = [
    {
       id: 1,
-      folderTitle: "زبان انگلیسی",
+      fullName: "ali momeni",
+      rank: 1,
    },
    {
       id: 2,
-      folderTitle: "علوم",
+      fullName: "reza ahmadi",
+      rank: 2,
    },
    {
       id: 3,
-      folderTitle: "ریاضی",
+      fullName: "morteza pashaei",
+      rank: 3,
    },
    {
       id: 4,
-      folderTitle: "فارسی",
+      fullName: "mohammad motamedi",
+      rank: 4,
    },
    {
       id: 5,
-      folderTitle: "مطالعات اجتماعی",
+      fullName: "ebrahim hatefi",
+      rank: 5,
    },
 ]
 
@@ -47,12 +52,18 @@ const notifications: INotification[] = [
    },
 ]
 
+const profile: IProfile = {
+   classNumber: "دوم",
+   email: "annie_leonchart@gmail.com",
+   fullName: "Annie Leonchart",
+}
+
 const HomeContainer = () => {
    return (
-      <div className="grid grid-cols-3 gap-3 w-10/12 mx-auto">
+      <div className="flex flex-col md:grid grid-cols-1 md:grid-cols-3 gap-3 w-11/12 mx-auto">
          <div className="col-span-2 gap-5">
             <div className="flex justify-between py-10">
-               <div className="flex gap-3 px-2">
+               <div className="flex gap-3 px-4">
                   <Notifications notifications={notifications} />
                   <Chat />
                </div>
@@ -60,7 +71,23 @@ const HomeContainer = () => {
                   <Search />
                </div>
             </div>
-            <div className="flex gap-5 pt-12 px-2">
+            <div
+               className="
+                  md:grid
+                  md:grid-cols-2
+                  lg:grid-cols-3
+                  flex
+                  flex-col
+                  justify-center
+                  items-center
+                  gap-x-44
+                  lg:gap-x-0
+                  gap-y-20
+                  pt-12
+                  px-4
+                  md:pr-4
+               "
+            >
                <HomeCard
                   backgroundSrc="/assets/background.jpg"
                   iconSrc="/assets/clock.png"
@@ -77,18 +104,14 @@ const HomeContainer = () => {
                   text="منابع آموزشی"
                />
             </div>
-            <div>
+            <div className="flex justify-center items-center">
                <Chart />
             </div>
          </div>
-         <div className="col-span-1 flex flex-col gap-5">
-            <div>
-               <ProfileCard />
-            </div>
-            <div className="flex flex-col gap-4">
-               {folders.map((folder) => (
-                  <Folder folder={folder} key={folder.id} />
-               ))}
+         <div className="grid grid-rows-3 col-span-1">
+            <ProfileCard profile={profile} />
+            <div className="lg:flex flex-col gap-4 row-span-2 pt-5 md:hidden">
+               <Rankings rankings={rankings} />
             </div>
          </div>
       </div>
