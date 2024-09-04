@@ -14,8 +14,12 @@ const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
       <Card
          className="
             relative
-            h-[180px]
-            w-[240px]
+            max-h-[160px]
+            max-w-[240px]
+            md:h-[130px]
+            md:w-[190px]
+            lg:h-[170px]
+            lg:w-[230px]
             rounded-3xl
             cursor-pointer
             hover:shadow-xl

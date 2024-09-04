@@ -16,7 +16,10 @@ const MobileNavbar = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
    return (
-      <Navbar onMenuOpenChange={setIsMenuOpen}>
+      <Navbar
+         onMenuOpenChange={setIsMenuOpen}
+         className="block md:hidden bg-purple-950"
+      >
          <NavbarMenuToggle className="lg:hidden" />
          <NavbarMenu className="lg:hidden">
             {navbarItems.map((item) => (

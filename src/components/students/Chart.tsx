@@ -8,11 +8,18 @@ import {
    YAxis,
    Tooltip,
    Line,
+   Legend,
 } from "recharts"
+import {
+   NameType,
+   ValueType,
+} from "recharts/types/component/DefaultTooltipContent"
+import { ContentType } from "recharts/types/component/Tooltip"
 
 export interface ChartItem {
    month: string
-   score: number
+   myScore: number
+   avgScore: number
 }
 
 interface IProps {
@@ -25,15 +32,31 @@ const Chart: React.FC<IProps> = ({ chartData }) => {
          <LineChart data={chartData}>
             <CartesianGrid vertical={false} strokeDasharray={"2 2"} />
             <XAxis dataKey={"month"} />
-            <YAxis />
-            <Tooltip />
+            <YAxis hide />
+            <Tooltip
+               contentStyle={{
+                  backgroundColor: "#242730",
+                  color: "white",
+                  borderRadius: "10px",
+                  opacity: "95%",
+               }}
+            />
+            <Legend />
             <Line
                type="monotone"
-               dataKey={"score"}
-               stroke="#8884d8"
-               fill="#8884d8"
+               dataKey="myScore"
+               stroke="rgb(59 130 246)"
                dot={false}
                strokeWidth={4}
+               name="نمره من"
+            />
+            <Line
+               type="monotone"
+               dataKey="avgScore"
+               stroke="rgb(126 34 206)"
+               dot={false}
+               strokeWidth={4}
+               name="نمره میانگین"
             />
          </LineChart>
       </ResponsiveContainer>

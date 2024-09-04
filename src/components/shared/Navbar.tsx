@@ -116,6 +116,8 @@ const Navbar = () => {
    return (
       <div
          className={`
+            hidden
+            md:flex
             ${expanded ? "md:w-[200px] lg:w-[272px]" : "w-[100px]"}
             rounded-tr-[24px]
             rounded-br-[24px]
@@ -127,6 +129,7 @@ const Navbar = () => {
             gap-x-14
             relative
             transition-all
+            h-[100vh]
          `}
       >
          <Tooltip

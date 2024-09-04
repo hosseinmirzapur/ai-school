@@ -61,65 +61,77 @@ const profile: IProfile = {
 const chartData: ChartItem[] = [
    {
       month: "مهر",
-      score: 15,
+      myScore: 15,
+      avgScore: 13,
    },
    {
       month: "آبان",
-      score: 12.5,
+      myScore: 12.5,
+      avgScore: 15,
    },
    {
       month: "آذر",
-      score: 20,
+      myScore: 20,
+      avgScore: 18.5,
    },
    {
       month: "دی",
-      score: 17,
+      myScore: 17,
+      avgScore: 19.5,
    },
    {
       month: "بهمن",
-      score: 18.75,
+      myScore: 18.75,
+      avgScore: 18.25,
    },
    {
       month: "اسفند",
-      score: 20,
+      myScore: 20,
+      avgScore: 12.75,
    },
    {
       month: "فروردین",
-      score: 15.25,
+      myScore: 15.25,
+      avgScore: 13,
    },
    {
       month: "اردیبهشت",
-      score: 13,
+      myScore: 13,
+      avgScore: 16.75,
    },
    {
       month: "خرداد",
-      score: 12,
+      myScore: 12,
+      avgScore: 7,
    },
    {
       month: "تیر",
-      score: 11,
+      myScore: 11,
+      avgScore: 13.5,
    },
    {
       month: "مرداد",
-      score: 16,
+      myScore: 16,
+      avgScore: 15,
    },
    {
       month: "شهریور",
-      score: 19.5,
+      myScore: 19.5,
+      avgScore: 18.75,
    },
 ]
 
 const HomeContainer = () => {
    return (
-      <div className="flex flex-col md:grid grid-cols-1 md:grid-cols-3 gap-3 w-11/12 mx-auto">
-         <div className="flex flex-col col-span-2 gap-5">
+      <div className="flex flex-col md:grid grid-cols-1 lg:grid-cols-3 w-full mx-auto h-[100vh]">
+         <div className="flex flex-col lg:col-span-2 gap-5 mx-auto w-11/12">
             {/* Header Section */}
-            <div className="flex justify-between pt-10">
-               <div className="flex gap-3 px-4">
+            <div className="flex justify-between pt-10 mx-auto w-11/12 gap-5 md:gap-2 lg:gap-0">
+               <div className="flex gap-2">
                   <Notifications notifications={notifications} />
                   <Chat />
                </div>
-               <div className="w-9/12">
+               <div className="w-10/12 mx-auto">
                   <Search />
                </div>
             </div>
@@ -127,18 +139,19 @@ const HomeContainer = () => {
             {/* Home Cards Section */}
             <div
                className="
-                  md:grid
-                  lg:grid-cols-3
                   flex
                   flex-col
-                  justify-center
+                  w-full
+                  md:w-11/12
+                  mx-auto
+                  md:grid
+                  md:grid-cols-2
+                  lg:flex
+                  lg:flex-row
+                  lg:w-11/12
                   items-center
-                  gap-x-44
-                  lg:gap-x-0
-                  gap-y-20
-                  pt-12
-                  px-4
-                  md:pr-4
+                  justify-center
+                  gap-4
                "
             >
                <HomeCard
@@ -159,13 +172,15 @@ const HomeContainer = () => {
             </div>
 
             {/* Chart Section */}
-            <Card className="min-h-[400px] w-[800px] mx-auto">
-               <CardBody className="w-full">
-                  <Chart chartData={chartData} />
-               </CardBody>
-            </Card>
+            <div className="flex w-11/12 mx-auto">
+               <Card className="h-[350px] w-[95%] mx-auto">
+                  <CardBody>
+                     <Chart chartData={chartData} />
+                  </CardBody>
+               </Card>
+            </div>
          </div>
-         <div className="grid grid-rows-3 col-span-1">
+         <div className="grid grid-rows-3 lg:col-span-1">
             <ProfileCard profile={profile} />
             <div className="lg:flex flex-col gap-4 row-span-2 pt-5 md:hidden">
                <Rankings rankings={rankings} />
