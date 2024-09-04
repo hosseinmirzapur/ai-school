@@ -18,9 +18,9 @@ const MobileNavbar = () => {
    return (
       <Navbar
          onMenuOpenChange={setIsMenuOpen}
-         className="block md:hidden bg-purple-950"
+         className="block md:hidden bg-purple-700 text-white"
       >
-         <NavbarMenuToggle className="lg:hidden" />
+         <NavbarMenuToggle className="lg:hidden font-bold" />
          <NavbarMenu className="lg:hidden">
             {navbarItems.map((item) => (
                <NavbarMenuItem key={item.id}>

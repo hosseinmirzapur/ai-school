@@ -10,26 +10,23 @@ import {
    Line,
    Legend,
 } from "recharts"
-import {
-   NameType,
-   ValueType,
-} from "recharts/types/component/DefaultTooltipContent"
-import { ContentType } from "recharts/types/component/Tooltip"
 
 export interface ChartItem {
    month: string
    myScore: number
    avgScore: number
+   year: number
 }
 
 interface IProps {
    chartData: ChartItem[]
+   year: number
 }
 
-const Chart: React.FC<IProps> = ({ chartData }) => {
+const Chart: React.FC<IProps> = ({ chartData, year }) => {
    return (
       <ResponsiveContainer>
-         <LineChart data={chartData}>
+         <LineChart data={chartData.filter((data) => data.year === year)}>
             <CartesianGrid vertical={false} strokeDasharray={"2 2"} />
             <XAxis dataKey={"month"} />
             <YAxis hide />
