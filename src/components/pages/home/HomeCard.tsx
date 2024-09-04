@@ -16,11 +16,12 @@ const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
             relative
             h-[180px]
             w-[240px]
-            bg-gray-200
-            hover:shadow-lg
-            transition-shadow
-            duration-400
+            rounded-3xl
             cursor-pointer
+            hover:shadow-xl
+            transition-all
+            ease-out
+            duration-400
          "
       >
          <Image
@@ -28,7 +29,12 @@ const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
             alt=""
             width={600}
             height={600}
-            className="w-[240px] h-[180px] overflow-hidden rounded-3xl"
+            className="
+               w-[240px]
+               h-[180px]
+               overflow-hidden
+               rounded-3xl
+            "
             draggable={false}
          />
          <Image

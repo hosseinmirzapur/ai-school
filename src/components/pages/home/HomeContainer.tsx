@@ -1,13 +1,13 @@
 "use client"
 
-import Chart from "@/components/students/Chart"
+import Chart, { ChartItem } from "@/components/students/Chart"
 import Chat from "./Chat"
 import HomeCard from "./HomeCard"
 import Notifications, { INotification } from "./Notifications"
 import Search from "./Search"
 import ProfileCard, { IProfile } from "@/components/students/ProfileCard"
 import Rankings, { IRanking } from "@/components/students/Rankings"
-import Folder from "@/components/students/Rankings"
+import { Card, CardBody } from "@nextui-org/react"
 
 const rankings: IRanking[] = [
    {
@@ -58,11 +58,63 @@ const profile: IProfile = {
    fullName: "Annie Leonchart",
 }
 
+const chartData: ChartItem[] = [
+   {
+      month: "مهر",
+      score: 15,
+   },
+   {
+      month: "آبان",
+      score: 12.5,
+   },
+   {
+      month: "آذر",
+      score: 20,
+   },
+   {
+      month: "دی",
+      score: 17,
+   },
+   {
+      month: "بهمن",
+      score: 18.75,
+   },
+   {
+      month: "اسفند",
+      score: 20,
+   },
+   {
+      month: "فروردین",
+      score: 15.25,
+   },
+   {
+      month: "اردیبهشت",
+      score: 13,
+   },
+   {
+      month: "خرداد",
+      score: 12,
+   },
+   {
+      month: "تیر",
+      score: 11,
+   },
+   {
+      month: "مرداد",
+      score: 16,
+   },
+   {
+      month: "شهریور",
+      score: 19.5,
+   },
+]
+
 const HomeContainer = () => {
    return (
       <div className="flex flex-col md:grid grid-cols-1 md:grid-cols-3 gap-3 w-11/12 mx-auto">
-         <div className="col-span-2 gap-5">
-            <div className="flex justify-between py-10">
+         <div className="flex flex-col col-span-2 gap-5">
+            {/* Header Section */}
+            <div className="flex justify-between pt-10">
                <div className="flex gap-3 px-4">
                   <Notifications notifications={notifications} />
                   <Chat />
@@ -71,6 +123,8 @@ const HomeContainer = () => {
                   <Search />
                </div>
             </div>
+
+            {/* Home Cards Section */}
             <div
                className="
                   md:grid
@@ -103,9 +157,13 @@ const HomeContainer = () => {
                   text="منابع آموزشی"
                />
             </div>
-            <div className="flex justify-center items-center">
-               <Chart />
-            </div>
+
+            {/* Chart Section */}
+            <Card className="min-h-[400px] w-[800px] mx-auto">
+               <CardBody className="w-full">
+                  <Chart chartData={chartData} />
+               </CardBody>
+            </Card>
          </div>
          <div className="grid grid-rows-3 col-span-1">
             <ProfileCard profile={profile} />
