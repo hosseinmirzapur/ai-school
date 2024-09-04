@@ -19,13 +19,12 @@ const Book = () => {
             lg:w-[150px]
             lg:h-[150px]
             -bottom-14
-            -left-14
+            left-1
+            md:-left-12
             lg:-bottom-20
             lg:-left-20
             z-20
             rotate-[130deg]
-            hidden
-            md:block
         "
          draggable={false}
       />

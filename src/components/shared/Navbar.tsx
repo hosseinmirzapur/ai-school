@@ -138,7 +138,7 @@ const Navbar = () => {
          >
             <div
                className={`
-                  lg:flex
+                  flex
                   text-black
                   bg-white
                   hover:bg-purple-600
@@ -154,7 +154,6 @@ const Navbar = () => {
                   absolute
                   top-5
                   ${expanded ? "left-5" : "left-auto"}
-                  hidden
                `}
             >
                {expanded ? (
