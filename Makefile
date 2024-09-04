@@ -6,4 +6,7 @@ sync:
 	@echo "Done syncing remote and local."
 	@echo "Feel free to remove local feature branch by running git branch -D branch_name"
 
+run-dev:
+	npm run dev
+
 .PHONY: sync
