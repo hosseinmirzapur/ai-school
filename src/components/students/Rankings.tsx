@@ -36,7 +36,7 @@ const Rankings: React.FC<IProps> = ({ chartData }) => {
                fillOpacity={0.6}
             />
             <Radar
-               name="معدل مدرسه"
+               name="معدل پایه"
                dataKey={"average"}
                fill="#60a5fa"
                fillOpacity={0.4}
