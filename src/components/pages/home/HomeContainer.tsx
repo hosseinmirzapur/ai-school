@@ -202,7 +202,7 @@ const HomeContainer = () => {
          </div>
          <div className="grid grid-rows-3 lg:col-span-1">
             <ProfileCard profile={profile} />
-            <div className="lg:flex flex-col gap-4 row-span-2 pt-5">
+            <div className="lg:flex flex-col gap-4 row-span-2 pt-5 h-[550px] w-[95%] mx-auto">
                <Rankings chartData={rankings} />
             </div>
          </div>
