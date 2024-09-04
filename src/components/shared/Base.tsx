@@ -20,7 +20,6 @@ const Base: React.FC<IProps> = ({ children }) => {
          <div
             className="
                flex
-               items-center
                justify-center
                w-11/12
                md:w-10/12
@@ -32,6 +31,7 @@ const Base: React.FC<IProps> = ({ children }) => {
                md:my-20
                lg:my-32
                relative
+               h-full
             "
          >
             {/* Corner Icons */}

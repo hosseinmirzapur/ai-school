@@ -129,7 +129,6 @@ const Navbar = () => {
             gap-x-14
             relative
             transition-all
-            h-[100vh]
          `}
       >
          <Tooltip
