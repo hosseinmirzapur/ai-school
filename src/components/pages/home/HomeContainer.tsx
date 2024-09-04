@@ -13,29 +13,29 @@ import { useState } from "react"
 
 const rankings: IRanking[] = [
    {
-      id: 1,
-      fullName: "ali momeni",
-      rank: 1,
+      subject: "زبان انگلیسی",
+      average: 15,
+      myGrade: 18,
    },
    {
-      id: 2,
-      fullName: "reza ahmadi",
-      rank: 2,
+      subject: "علوم",
+      average: 17,
+      myGrade: 16.5,
    },
    {
-      id: 3,
-      fullName: "morteza pashaei",
-      rank: 3,
+      subject: "ریاضی",
+      average: 16.38,
+      myGrade: 12.25,
    },
    {
-      id: 4,
-      fullName: "mohammad motamedi",
-      rank: 4,
+      subject: "فارسی",
+      average: 18.25,
+      myGrade: 16.5,
    },
    {
-      id: 5,
-      fullName: "ebrahim hatefi",
-      rank: 5,
+      subject: "مطالعات اجنماعی",
+      average: 14,
+      myGrade: 19.5,
    },
 ]
 
@@ -140,7 +140,7 @@ const HomeContainer = () => {
    const [year, setYear] = useState<number>(1403)
 
    return (
-      <div className="flex flex-col md:grid grid-cols-1 lg:grid-cols-3 w-full mx-auto h-full md:h-[100vh]">
+      <div className="flex flex-col md:grid grid-cols-1 lg:grid-cols-3 w-full mx-auto h-full lg:h-[100vh]">
          <div className="flex flex-col lg:col-span-2 gap-10 mx-auto w-11/12">
             {/* Header Section */}
             <div className="flex justify-between pt-10 mx-auto w-11/12 gap-5 md:gap-2 lg:gap-0">
@@ -202,8 +202,8 @@ const HomeContainer = () => {
          </div>
          <div className="grid grid-rows-3 lg:col-span-1">
             <ProfileCard profile={profile} />
-            <div className="lg:flex flex-col gap-4 row-span-2 pt-5 md:hidden">
-               <Rankings rankings={rankings} />
+            <div className="lg:flex flex-col gap-4 row-span-2 pt-5">
+               <Rankings chartData={rankings} />
             </div>
          </div>
       </div>

@@ -18,13 +18,13 @@ const EducationYear: React.FC<IProps> = ({ setYear, year }) => {
          <div className="flex gap-3 items-center font-bold transition-all duration-300">
             <GoChevronRight
                size={20}
-               className="hover:cursor-pointer"
+               className="hover:cursor-pointer hover:animate-pulse"
                onClick={increment}
             />
             <span className="transition-all duration-300">{year}</span>
             <GoChevronLeft
                size={20}
-               className="hover:cursor-pointer"
+               className="hover:cursor-pointer hover:animate-pulse"
                onClick={decrement}
             />
          </div>

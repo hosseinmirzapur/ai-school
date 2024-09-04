@@ -15,8 +15,22 @@ export interface IProfile {
 
 const ProfileCard: React.FC<IProps> = ({ profile }) => {
    return (
-      <div className="hidden row-span-1 lg:flex flex-col justify-center pt-5">
-         <div className="flex flex-col gap-5 shadow-xl bg-gray-200 rounded-[31px] p-10 w-[400px] h-[300px] m-auto relative">
+      <div className="hidden row-span-1 lg:flex flex-col justify-center">
+         <div
+            className="
+               lg:flex
+               flex-col
+               gap-5 shadow-xl
+               bg-gray-200
+               rounded-[31px]
+               p-10
+               w-[400px]
+               h-[300px]
+               m-auto
+               relative
+               hidden
+            "
+         >
             <div className="flex justify-center">
                <Avatar
                   isBordered
