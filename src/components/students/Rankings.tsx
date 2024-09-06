@@ -5,7 +5,6 @@ import {
    Legend,
    PolarAngleAxis,
    PolarGrid,
-   PolarRadiusAxis,
    Radar,
    RadarChart,
    ResponsiveContainer,
@@ -28,7 +27,6 @@ const Rankings: React.FC<IProps> = ({ chartData }) => {
          <RadarChart cx={"50%"} cy={"50%"} data={chartData}>
             <PolarGrid />
             <PolarAngleAxis dataKey={"subject"} className="text-xl font-bold" />
-            <PolarRadiusAxis />
             <Radar
                name="نمره من"
                dataKey={"myGrade"}
