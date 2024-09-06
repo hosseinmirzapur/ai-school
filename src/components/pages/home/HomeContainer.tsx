@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+
 import Chart, { ChartItem } from "@/components/students/Chart"
 import Chat from "./Chat"
 import HomeCard from "./HomeCard"
@@ -9,7 +11,6 @@ import ProfileCard, { IProfile } from "@/components/students/ProfileCard"
 import Rankings, { IRanking } from "@/components/students/Rankings"
 import { Card, CardBody } from "@nextui-org/react"
 import EducationYear from "./EducationYear"
-import { useState } from "react"
 
 const rankings: IRanking[] = [
    {
@@ -157,20 +158,20 @@ const HomeContainer = () => {
                {/* Home Cards Section */}
                <div
                   className="
-                  flex
-                  flex-col
-                  w-full
-                  md:w-11/12
-                  mx-auto
-                  md:grid
-                  md:grid-cols-2
-                  lg:flex
-                  lg:flex-row
-                  lg:w-11/12
-                  items-center
-                  justify-center
-                  gap-4
-               "
+                     flex
+                     flex-col
+                     w-full
+                     md:w-11/12
+                     mx-auto
+                     md:grid
+                     md:grid-cols-2
+                     lg:flex
+                     lg:flex-row
+                     lg:w-11/12
+                     items-center
+                     justify-center
+                     gap-4
+                  "
                >
                   <HomeCard
                      backgroundSrc="/assets/background.jpg"
