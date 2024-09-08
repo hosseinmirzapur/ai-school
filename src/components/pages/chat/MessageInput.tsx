@@ -8,6 +8,7 @@ const MessageInput = () => {
       <div className="flex justify-center w-full px-4 md:px-10 lg:px-16 mx-auto absolute bottom-10">
          <Textarea
             placeholder="اینجا بنویسید..."
+            minRows={1}
             startContent={
                <Button
                   size="md"
