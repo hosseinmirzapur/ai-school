@@ -1,8 +1,12 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { BsChatTextFill } from "react-icons/bs"
 
 const Chat = () => {
+   const { push } = useRouter()
+
+   const goChatPage = () => push("/chat")
    return (
       <div
          className="
@@ -17,6 +21,7 @@ const Chat = () => {
             hover:shadow-xl
          "
          dir="rtl"
+         onClick={goChatPage}
       >
          <BsChatTextFill size={22} className="rotate-y-180" />
       </div>
