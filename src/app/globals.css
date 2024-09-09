@@ -12,3 +12,29 @@ html {
 .rotate-y-180 {
    transform: rotateY(180deg);
 }
+
+/* Entire scrollbar */
+::-webkit-scrollbar {
+   width: 12px;
+   height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+   background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+   background: #a2f1f7;
+   border-radius: 6px;
+   transition: ease-in-out;
+   transition-duration: 400ms;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   background: #7d8fdf;
+   transition: ease-in-out;
+   transition-duration: 400ms;
+}

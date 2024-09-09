@@ -4,7 +4,7 @@ import Image from "next/image"
 
 const Bot = () => {
    return (
-      <div className="w-full flex justify-center absolute top-5">
+      <div className="w-full flex justify-center items-center py-5">
          <div
             className="
                flex
@@ -24,6 +24,7 @@ const Bot = () => {
                width={100}
                height={100}
                draggable={false}
+               className="w-[60px] md:w-[80px] lg:w-[100px]"
             />
          </div>
       </div>
