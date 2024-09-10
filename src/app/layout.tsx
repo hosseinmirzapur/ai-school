@@ -1,5 +1,3 @@
-import { Poppins } from "next/font/google"
-
 import AppContainer from "./AppContainer"
 import "./globals.css"
 import "../../public/fonts/Yekan.css"

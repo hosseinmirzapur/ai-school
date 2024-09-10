@@ -1,7 +1,9 @@
 "use client"
 
+import ComingSoon from "@/components/shared/ComingSoon"
+
 const SettingsContainer = () => {
-   return <div>SettingsContainer</div>
+   return <ComingSoon />
 }
 
 export default SettingsContainer
