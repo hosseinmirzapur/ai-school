@@ -1,7 +1,10 @@
 "use client"
 
+import ComingSoon from "@/components/shared/ComingSoon"
+
+// ** TODO: Use Autocomplete component from NextUI
 const SearchContainer = () => {
-   return <div>SearchContainer</div>
+   return <ComingSoon />
 }
 
 export default SearchContainer

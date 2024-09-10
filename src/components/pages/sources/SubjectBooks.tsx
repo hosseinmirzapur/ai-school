@@ -1,11 +1,18 @@
 "use client"
 
 import Image from "next/image"
+
 import { chunk } from "lodash"
+import { useRouter } from "next/navigation"
+
+export interface ILesson {
+   name: string
+}
 
 export interface ISubjectBook {
    imageSrc: string
    title: string
+   lessons: ILesson[]
 }
 
 interface IProps {
@@ -13,6 +20,9 @@ interface IProps {
 }
 
 const SubjectBooks: React.FC<IProps> = ({ data }) => {
+   // ** States and variables
+   const { push } = useRouter()
+
    return (
       <div className="grid grid-cols-1 lg:flex flex-col gap-10 h-full items-center justify-center">
          {chunk(data, 3).map((chunk, index) => (
@@ -42,6 +52,7 @@ const SubjectBooks: React.FC<IProps> = ({ data }) => {
                         transition-all
                         cursor-pointer
                      "
+                     onClick={() => push(`?source=${book.title}`)}
                   >
                      <div className="flex items-center justify-center text-lg font-[700]">
                         {book.title}

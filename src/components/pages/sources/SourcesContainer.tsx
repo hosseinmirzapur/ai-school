@@ -1,31 +1,15 @@
 "use client"
 
-import SubjectBooks, { ISubjectBook } from "./SubjectBooks"
-
-const subjectBooks: ISubjectBook[] = [
-   {
-      title: "ریاضی",
-      imageSrc: "/assets/math.png",
-   },
-   {
-      title: "علوم تجربی",
-      imageSrc: "/assets/science.png",
-   },
-   {
-      title: "فارسی",
-      imageSrc: "/assets/literature.png",
-   },
-   {
-      title: "مطالعات اجتماعی",
-      imageSrc: "/assets/social.png",
-   },
-   {
-      title: "زبان انگلیسی",
-      imageSrc: "/assets/english.png",
-   },
-]
+import { useSearchParams } from "next/navigation"
+import SubjectBooks from "./SubjectBooks"
+import Lessons from "./Lessons"
+import { subjectBooks } from "./data"
 
 const SourcesContainer = () => {
+   // ** States and variables
+   const params = useSearchParams()
+   const source = params.get("source")
+
    return (
       <div
          className="
@@ -70,7 +54,11 @@ const SourcesContainer = () => {
             >
                منابع آموزشی
             </div>
-            <SubjectBooks data={subjectBooks} />
+            {source && source != "" ? (
+               <Lessons source={source} />
+            ) : (
+               <SubjectBooks data={subjectBooks} />
+            )}
          </div>
       </div>
    )

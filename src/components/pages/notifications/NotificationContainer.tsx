@@ -1,7 +1,9 @@
 "use client"
 
+import ComingSoon from "@/components/shared/ComingSoon"
+
 const NotificationContainer = () => {
-   return <div>NotificationContainer</div>
+   return <ComingSoon />
 }
 
 export default NotificationContainer
