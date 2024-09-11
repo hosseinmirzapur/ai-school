@@ -10,7 +10,7 @@ interface IProps {
    source: string
 }
 
-const LessonsContainer: React.FC<IProps> = ({ source }) => {
+const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
    // ** States and variables
    const { back } = useRouter()
    const book = subjectBooks.find((book) => book.id == source)
@@ -76,7 +76,7 @@ const LessonsContainer: React.FC<IProps> = ({ source }) => {
                      "
                   >
                      {book.lessons.map((lesson, index) => (
-                        <LessonBox key={index} lesson={lesson} />
+                        <LessonBox key={index} lesson={lesson} book={book} />
                      ))}
                   </div>
                </div>
@@ -88,4 +88,4 @@ const LessonsContainer: React.FC<IProps> = ({ source }) => {
    return <></>
 }
 
-export default LessonsContainer
+export default AllLessonsContainer

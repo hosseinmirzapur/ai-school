@@ -1,6 +1,7 @@
 export interface ILesson {
    id: number | string
    name: string
+   imgSrcs?: string[]
 }
 
 export interface ISubjectBook {
@@ -9,6 +10,14 @@ export interface ISubjectBook {
    title: string
    lessons: ILesson[]
 }
+
+export const lessons: ILesson[] = [
+   {
+      id: 1,
+      name: "درس یک",
+      imgSrcs: ["/assets/lesson-image-1.png", "/assets/lesson-image-2.png"],
+   },
+]
 
 export const subjectBooks: ISubjectBook[] = [
    {
