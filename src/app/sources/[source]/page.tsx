@@ -1,4 +1,4 @@
-import LessonsContainer from "@/components/pages/sources/LessonsContainer"
+import AllLessonsContainer from "@/components/pages/sources/AllLessonsContainer"
 import Base from "@/components/shared/Base"
 
 interface IParams {
@@ -8,7 +8,7 @@ interface IParams {
 const Lesson = ({ params }: { params: IParams }) => {
    return (
       <Base>
-         <LessonsContainer source={params.source} />
+         <AllLessonsContainer source={params.source} />
       </Base>
    )
 }

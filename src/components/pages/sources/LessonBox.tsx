@@ -1,15 +1,19 @@
 "use client"
 
 import Image from "next/image"
-import { ILesson } from "./data"
+import Link from "next/link"
+
+import { ILesson, ISubjectBook } from "./data"
 
 interface IProps {
    lesson: ILesson
+   book: ISubjectBook
 }
 
-const LessonBox: React.FC<IProps> = ({ lesson }) => {
+const LessonBox: React.FC<IProps> = ({ book, lesson }) => {
    return (
-      <div
+      <Link
+         href={`/sources/${book.id}/lessons/${lesson.id}`}
          className="
             w-[250px]
             h-[100px]
@@ -32,7 +36,7 @@ const LessonBox: React.FC<IProps> = ({ lesson }) => {
          <div className="col-span-1">
             <Image src={"/assets/lesson.png"} alt="" width={50} height={50} />
          </div>
-      </div>
+      </Link>
    )
 }
 
