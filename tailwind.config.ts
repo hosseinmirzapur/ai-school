@@ -10,7 +10,17 @@ const config: Config = {
       "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
    ],
    theme: {
-      extend: {},
+      extend: {
+         animation: {
+            "spinner-ease-spin": "spinner-ease-spin 1.2s ease-in-out infinite",
+         },
+         keyframes: {
+            "spinner-ease-spin": {
+               "0%": { transform: "rotate(0deg)" },
+               "100%": { transform: "rotate(360deg)" },
+            },
+         },
+      },
    },
    plugins: [nextui()],
    darkMode: "class",
