@@ -1,15 +1,9 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
 import SubjectBooks from "./SubjectBooks"
-import Lessons from "./Lessons"
 import { subjectBooks } from "./data"
 
 const SourcesContainer = () => {
-   // ** States and variables
-   const params = useSearchParams()
-   const source = params.get("source")
-
    return (
       <div
          className="
@@ -25,13 +19,13 @@ const SourcesContainer = () => {
                bg-gradient-to-tr
                from-blue-200
                to-red-200
-               w-[95%]
+               w-11/12
                lg:py-10
                py-5
                h-auto
                lg:h-[100vh]
                mx-auto
-               rounded-[24px]
+               rounded-3xl
                shadow-md
                flex
                flex-col
@@ -54,11 +48,7 @@ const SourcesContainer = () => {
             >
                منابع آموزشی
             </div>
-            {source && source != "" ? (
-               <Lessons source={source} />
-            ) : (
-               <SubjectBooks data={subjectBooks} />
-            )}
+            <SubjectBooks data={subjectBooks} />
          </div>
       </div>
    )
