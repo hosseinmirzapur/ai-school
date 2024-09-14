@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import { lessons } from "../data"
 
 import Screen from "./Screen"
-import LessonSlider from "./LessonSlider"
+import LessonSlider from "./slider/LessonSlider"
 
 import { Button } from "@nextui-org/react"
 
@@ -38,10 +38,11 @@ const LessonContainer: React.FC<IProps> = ({ lessonID }) => {
                       grid
                       grid-rows-5
                       py-5
+                      space-y-5
                   "
             >
                {/* Top */}
-               <div className="flex flex-col-reverse md:flex-row items-center justify-around">
+               <div className="flex flex-col-reverse gap-5 md:gap-0 md:flex-row items-center justify-between md:px-10">
                   <Button
                      color="secondary"
                      variant="light"
@@ -50,7 +51,18 @@ const LessonContainer: React.FC<IProps> = ({ lessonID }) => {
                   >
                      صفحه قبل
                   </Button>
-                  <div className="row-span-1 text-3xl font-semibold text-[#4B185C] hidden lg:block">
+                  <div
+                     className="
+                        row-span-1
+                        text-3xl
+                        font-semibold
+                        text-[#4B185C]
+                        hidden
+                        lg:flex
+                        justify-center
+                        items-center
+                     "
+                  >
                      {lesson.name}
                   </div>
                   <Image

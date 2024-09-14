@@ -15,7 +15,11 @@ export const lessons: ILesson[] = [
    {
       id: 1,
       name: "درس یک",
-      imgSrcs: ["/assets/lesson-image-1.png", "/assets/lesson-image-2.png"],
+      imgSrcs: [
+         "/assets/lesson-image-1.png",
+         "/assets/lesson-image-2.png",
+         "/assets/kid.png",
+      ],
    },
 ]
 

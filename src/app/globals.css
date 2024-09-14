@@ -38,3 +38,26 @@ html {
    transition: ease-in-out;
    transition-duration: 400ms;
 }
+
+/* embla styles */
+.embla {
+   overflow: hidden;
+}
+
+.embla__viewport {
+   overflow: hidden;
+   width: 100%;
+}
+
+.embla__container {
+   display: flex;
+   align-items: center;
+}
+
+.embla__slide {
+   position: relative;
+   min-width: 100%;
+   padding: 10px;
+   text-align: center;
+   align-items: center;
+}
