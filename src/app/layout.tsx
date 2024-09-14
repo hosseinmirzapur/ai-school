@@ -1,7 +1,6 @@
 import AppContainer from "./AppContainer"
 import "./globals.css"
 import "../../public/fonts/Yekan.css"
-import "react-multi-carousel/lib/styles.css"
 
 export const metadata = {
    title: "AI school",
