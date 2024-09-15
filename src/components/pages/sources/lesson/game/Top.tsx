@@ -21,7 +21,6 @@ const Top: React.FC<IProps> = ({ lesson, source }) => {
             separator={<GoChevronLeft size={18} />}
             className="p-4 md:p-2 lg:p-0"
             size="lg"
-            color="secondary"
          >
             <BreadcrumbItem href="/sources">منابع آموزشی</BreadcrumbItem>
             <BreadcrumbItem href={`/sources/${source?.id}`}>
@@ -36,7 +35,7 @@ const Top: React.FC<IProps> = ({ lesson, source }) => {
          </Breadcrumbs>
 
          {/* Title */}
-         <div className="text-xl font-bold hidden lg:block">بازی کن</div>
+         <div className="text-3xl font-bold hidden lg:block">بازی کن</div>
 
          {/* Book Icon */}
          <Image
