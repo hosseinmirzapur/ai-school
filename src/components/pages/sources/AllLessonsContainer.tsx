@@ -50,9 +50,9 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
                   {/* Breadcrumbs */}
                   <div className="w-full flex gap-4 items-center">
                      <Breadcrumbs
-                        className="text-[#4B185C]"
                         size="lg"
                         separator={<GoChevronLeft size={22} />}
+                        color="secondary"
                      >
                         <BreadcrumbItem href="/sources">
                            <span className="text-lg">منابع آموزشی</span>
