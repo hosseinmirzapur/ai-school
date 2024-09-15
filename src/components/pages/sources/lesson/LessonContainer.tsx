@@ -11,6 +11,7 @@ import LessonSlider from "./slider/LessonSlider"
 import { Button } from "@nextui-org/react"
 
 import { GoChevronRight } from "react-icons/go"
+import NextStep from "./NextStep"
 
 interface IProps {
    lessonID?: number | string
@@ -78,6 +79,11 @@ const LessonContainer: React.FC<IProps> = ({ lessonID }) => {
                   <Screen>
                      <LessonSlider imgSrcs={lesson.imgSrcs} />
                   </Screen>
+               </div>
+
+               {/* Next Steps */}
+               <div>
+                  <NextStep />
                </div>
             </div>
          </div>
