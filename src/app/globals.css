@@ -57,7 +57,7 @@ html {
 .embla__slide {
    position: relative;
    min-width: 100%;
-   padding: 10px;
+   padding: 3px;
    text-align: center;
    align-items: center;
 }

@@ -20,8 +20,8 @@ const ProgressBar: React.FC<IProps> = ({ sliders, index }) => {
    useEffect(() => {
       const markArray: Mark[] = []
       const step = 100 / sliders.length
-      sliders.map((_, index) => {
-         let num = step * (index + 1)
+      sliders.map((_, i) => {
+         let num = step * (i + 1)
          markArray.push({
             label: ``,
             value: num,
@@ -30,17 +30,13 @@ const ProgressBar: React.FC<IProps> = ({ sliders, index }) => {
       setMarks(markArray)
    }, [sliders])
 
-   useEffect(() => {
-      console.log(index)
-   }, [index])
-
    return (
       <div className="flex justify-center items-center w-full py-5">
          <Slider
             color="secondary"
             size="sm"
-            marks={marks}
-            className="max-w-md"
+            // marks={marks}
+            className="max-w-md px-5 md:px-2 lg:p-0"
             step={100 / sliders.length}
             value={(index + 1) * (100 / sliders.length)}
             aria-label="same"

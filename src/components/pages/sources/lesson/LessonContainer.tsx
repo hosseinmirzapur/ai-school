@@ -82,7 +82,7 @@ const LessonContainer: React.FC<IProps> = ({ lessonID }) => {
                </div>
 
                {/* Next Steps */}
-               <div>
+               <div className="w-10/12 mx-auto flex justify-center md:justify-start">
                   <NextStep />
                </div>
             </div>
