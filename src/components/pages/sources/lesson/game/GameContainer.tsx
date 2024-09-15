@@ -24,7 +24,8 @@ const GameContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
                w-11/12
                lg:w-10/12
                mx-auto
-               h-[100vh]
+               min-h-[100vh]
+               h-full
                bg-gradient-to-tr
                from-primary-200
                to-danger-100
