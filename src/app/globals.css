@@ -61,3 +61,21 @@ html {
    text-align: center;
    align-items: center;
 }
+
+.flashcard {
+   transform-style: preserve-3d;
+   transition: all 0.8s ease-in-out;
+}
+
+.flashcard-front {
+   backface-visibility: hidden;
+}
+
+.flashcard-back {
+   backface-visibility: hidden;
+   transform: rotateY(180deg);
+}
+
+.flip {
+   transform: rotateY(180deg);
+}
