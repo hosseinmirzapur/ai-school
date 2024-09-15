@@ -38,10 +38,16 @@ const LessonSlider: React.FC<IProps> = ({ imgSrcs }) => {
       }
    }, [emblaApi])
 
+   useEffect(() => {
+      if (emblaApi) {
+         setCurrent(emblaApi.selectedScrollSnap())
+      }
+   }, [emblaApi && emblaApi.selectedScrollSnap()])
+
    return imgSrcs && imgSrcs.length > 0 ? (
       <div className="flex flex-col justify-center items-center">
          {/* Slider */}
-         <div className="flex justify-center items-center w-full py-5 px-3 gap-3 mx-auto embla">
+         <div className="flex justify-center items-center w-full py-5 px-3 gap-1 mx-auto embla">
             <SliderButtons direction="next" onClick={scrollNext} />
             <div className="embla__viewport" ref={emblaRef}>
                <div className="embla__container" dir="ltr">

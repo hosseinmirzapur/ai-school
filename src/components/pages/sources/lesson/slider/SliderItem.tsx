@@ -27,6 +27,7 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
             justify-center
             ${isGrabbing ? "cursor-grabbing" : "cursor-grab"}
             embla__slide
+            w-full
          `}
       >
          <Image
@@ -34,7 +35,7 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
             alt="slider-image"
             width={500}
             height={500}
-            className="object-contain"
+            className="w-full"
             draggable={false}
          />
       </div>
