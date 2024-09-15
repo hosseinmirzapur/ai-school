@@ -14,10 +14,11 @@ import { GoChevronRight } from "react-icons/go"
 import NextStep from "./NextStep"
 
 interface IProps {
-   lessonID?: number | string
+   sourceID: number | string
+   lessonID: number | string
 }
 
-const LessonContainer: React.FC<IProps> = ({ lessonID }) => {
+const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
    // ** States and variables
    const { back } = useRouter()
 
@@ -83,7 +84,7 @@ const LessonContainer: React.FC<IProps> = ({ lessonID }) => {
 
                {/* Next Steps */}
                <div className="w-10/12 mx-auto flex justify-center md:justify-start">
-                  <NextStep />
+                  <NextStep lessonID={lessonID} sourceID={sourceID} />
                </div>
             </div>
          </div>
