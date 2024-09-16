@@ -1,35 +1,43 @@
 "use client"
 
 import { Button } from "@nextui-org/react"
-import { useState } from "react"
+import { IFlashCard } from "./data"
 
 interface IProps {
-   question: string
-   answer: string
-   img?: string
+   item: IFlashCard
    hidden: boolean
+   flipped: boolean
+   onFault: (flashcard: IFlashCard) => void
    increment: () => void
+   flip: () => void
 }
 const Flashcard: React.FC<IProps> = ({
-   question,
-   answer,
-   img,
+   item,
    hidden,
+   flipped,
+   onFault,
    increment,
+   flip,
 }) => {
-   const [flipped, setFlipped] = useState(false)
-
-   // ** Functions
-   const flip = () => setFlipped(true)
-   const reset = () => setFlipped(false)
-
    return hidden ? (
       <></>
    ) : (
       <div
-         className={`w-full grid grid-rows-3 h-full flashcard ${
-            flipped ? "flip" : ""
-         }`}
+         className={`
+            w-10/12
+            md:w-10/12
+            lg:w-9/12
+            h-full
+            mx-auto
+            grid
+            grid-rows-3
+            flashcard
+            ${flipped ? "flip" : ""}
+            bg-gradient-to-br
+            from-warning-300
+            to-primary-300
+            rounded-xl
+         `}
       >
          {/* Type of flashcard */}
          <div
@@ -57,9 +65,9 @@ const Flashcard: React.FC<IProps> = ({
                `}
          >
             {flipped ? (
-               <span className="text-lg lg:text-2xl">{answer}</span>
+               <span className="text-lg lg:text-2xl">{item.answer}</span>
             ) : (
-               <span className="text-lg lg:text-2xl">{question}</span>
+               <span className="text-lg lg:text-2xl">{item.question}</span>
             )}
          </div>
 
@@ -76,22 +84,18 @@ const Flashcard: React.FC<IProps> = ({
             {flipped ? (
                <div className="flex justify-around w-full">
                   <Button
-                     className="bg-[#96FFC5] font-bold"
-                     variant="shadow"
+                     className="bg-[#59f9a1] font-bold shadow-lg"
                      radius="full"
-                     size="lg"
                      onClick={increment}
                   >
                      یاد گرفتم
                   </Button>
                   <Button
-                     className="bg-[#FCAA8D] font-bold"
-                     variant="shadow"
-                     onClick={reset}
+                     className="bg-danger-400 text-white font-bold shadow-lg"
+                     onClick={() => onFault(item)}
                      radius="full"
-                     size="lg"
                   >
-                     دوباره
+                     اشتباه کردم
                   </Button>
                </div>
             ) : (
@@ -102,7 +106,6 @@ const Flashcard: React.FC<IProps> = ({
                      variant="ghost"
                      onClick={flip}
                      radius="full"
-                     size="lg"
                   >
                      دیدن جواب
                   </Button>

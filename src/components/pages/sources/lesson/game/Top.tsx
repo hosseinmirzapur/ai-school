@@ -18,6 +18,9 @@ const Top: React.FC<IProps> = ({ lesson, source }) => {
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center row-span-1">
          {/* BreadCrumbs */}
          <Breadcrumbs
+            maxItems={3}
+            itemsBeforeCollapse={0}
+            itemsAfterCollapse={2}
             separator={<GoChevronLeft size={18} />}
             className="p-4 md:p-2 lg:p-0"
             size="lg"
@@ -35,7 +38,9 @@ const Top: React.FC<IProps> = ({ lesson, source }) => {
          </Breadcrumbs>
 
          {/* Title */}
-         <div className="text-3xl font-bold hidden lg:block">بازی کن</div>
+         <div className="text-3xl md:text-xl font-bold hidden lg:block">
+            بازی کن
+         </div>
 
          {/* Book Icon */}
          <Image

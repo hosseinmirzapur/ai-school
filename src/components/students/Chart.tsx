@@ -10,13 +10,7 @@ import {
    Line,
    Legend,
 } from "recharts"
-
-export interface ChartItem {
-   month: string
-   myScore: number
-   avgScore: number
-   year: number
-}
+import { ChartItem } from "../pages/home/data"
 
 interface IProps {
    chartData: ChartItem[]
