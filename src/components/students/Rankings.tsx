@@ -10,12 +10,7 @@ import {
    ResponsiveContainer,
    Tooltip,
 } from "recharts"
-
-export interface IRanking {
-   subject: string
-   myGrade: number
-   average: number
-}
+import { IRanking } from "../pages/home/data"
 
 interface IProps {
    chartData: IRanking[]

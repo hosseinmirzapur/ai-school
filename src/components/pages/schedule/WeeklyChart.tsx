@@ -19,7 +19,7 @@ interface IProps {
 
 const WeeklyChart: React.FC<IProps> = ({ chartData }) => {
    return (
-      <div className="flex flex-col w-11/12 md:w-10/12 mx-auto">
+      <div className="flex flex-col w-11/12 md:w-10/12 mx-auto h-full">
          {chartData.map((data, index) => (
             <div key={index} className="lg:grid grid-cols-10 gap-5">
                <div className="flex items-center justify-center text-[#6A2E7ECC] opacity-80 text-xl col-span-1">
@@ -29,8 +29,7 @@ const WeeklyChart: React.FC<IProps> = ({ chartData }) => {
                   className={`
                      flex
                      items-center
-                     ${index % 2 == 1 ? "" : "border-t-2 border-b-2"}
-                     ${index == chartData.length - 1 ? "border-b-2" : ""}
+                     border-t-1
                      border-black
                      border-opacity-20
                      gap-1

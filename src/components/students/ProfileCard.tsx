@@ -1,16 +1,10 @@
 "use client"
 
 import { Avatar, Divider } from "@nextui-org/react"
+import { IProfile } from "../pages/home/data"
 
 interface IProps {
    profile: IProfile
-}
-
-export interface IProfile {
-   fullName?: string
-   email: string
-   classNumber: number | string
-   avatar?: string
 }
 
 const ProfileCard: React.FC<IProps> = ({ profile }) => {

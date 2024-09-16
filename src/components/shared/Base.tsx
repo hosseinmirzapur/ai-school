@@ -31,6 +31,7 @@ const Base: React.FC<IProps> = ({ children }) => {
                md:my-20
                lg:my-32
                relative
+               min-h-[100vh]
                h-full
             "
          >

@@ -4,22 +4,20 @@ import { Card, CardBody } from "@nextui-org/react"
 import Image from "next/image"
 
 interface IHomeCard {
-   backgroundSrc: string
    iconSrc: string
    text: string
+   backgroundSrc: string
 }
 
-const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
+const HomeCard: React.FC<IHomeCard> = ({ iconSrc, text, backgroundSrc }) => {
    return (
       <Card
          className="
             relative
-            max-h-[160px]
-            max-w-[240px]
-            md:h-[130px]
-            md:w-[190px]
-            lg:h-[170px]
-            lg:w-[230px]
+            w-[250px]
+            h-[180px]
+            md:w-[220px]
+            md:h-[150px]
             rounded-3xl
             cursor-pointer
             hover:shadow-xl
@@ -34,8 +32,8 @@ const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
             width={600}
             height={600}
             className="
-               w-[240px]
-               h-[180px]
+               w-full
+               h-full
                overflow-hidden
                rounded-3xl
             "
@@ -58,7 +56,7 @@ const HomeCard: React.FC<IHomeCard> = ({ backgroundSrc, iconSrc, text }) => {
             draggable={false}
          />
          <div className="absolute bottom-4 w-full">
-            <span className="flex justify-center text-4xl font-bold text-gray-100 w-full">
+            <span className="flex justify-center text-3xl font-bold text-gray-100 w-full">
                {text}
             </span>
          </div>

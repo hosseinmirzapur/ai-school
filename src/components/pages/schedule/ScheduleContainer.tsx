@@ -110,7 +110,7 @@ const weeklySchedule: DailySchedule[] = [
 
 const ScheduleContainer = () => {
    return (
-      <div className="flex w-full items-center h-full lg:h-[100vh] py-5 md:py-3 lg:py-0">
+      <div className="flex w-full items-center h-full min-h-[100vh] py-10 md:py-3 lg:py-0">
          <div
             className="
                flex
@@ -121,7 +121,7 @@ const ScheduleContainer = () => {
                lg:w-9/12
                mx-auto
                h-full
-               lg:h-[700px]
+               min-h-[100vh]
                rounded-[40px]
                bg-[#EDFBFF]
                shadow-md

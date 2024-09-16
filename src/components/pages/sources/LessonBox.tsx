@@ -16,6 +16,8 @@ const LessonBox: React.FC<IProps> = ({ book, lesson }) => {
          href={`/sources/${book.id}/lessons/${lesson.id}`}
          className="
             w-[250px]
+            md:w-[210px]
+            lg:w-[190px]
             h-[100px]
             bg-gradient-to-tr
             from-primary-300

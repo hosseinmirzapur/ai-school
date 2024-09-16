@@ -9,13 +9,7 @@ import {
    DropdownTrigger,
 } from "@nextui-org/react"
 import { GoBellFill } from "react-icons/go"
-
-export interface INotification {
-   id: number | string
-   text: string
-   type: "system" | "teacher"
-   seen: boolean
-}
+import { INotification } from "./data"
 
 interface IProps {
    notifications: INotification[]
