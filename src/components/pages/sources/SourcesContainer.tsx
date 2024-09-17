@@ -21,8 +21,6 @@ const SourcesContainer = () => {
                from-blue-200
                to-red-200
                w-11/12
-               lg:py-10
-               py-5
                h-full
                min-h-[100vh]
                mx-auto
@@ -30,9 +28,11 @@ const SourcesContainer = () => {
                shadow-md
                flex
                flex-col
-               justify-center
                items-center
+               justify-evenly
                gap-10
+               py-10
+               lg:py-0
             "
          >
             <div
@@ -42,7 +42,8 @@ const SourcesContainer = () => {
                   text-[50px]
                   text-[#4B185C]
                   font-bold
-                  text-center
+                  w-full
+                  h-full
                "
             >
                منابع آموزشی
