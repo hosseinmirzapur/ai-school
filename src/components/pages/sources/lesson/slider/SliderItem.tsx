@@ -1,8 +1,10 @@
 "use client"
 
+import { useDisclosure } from "@nextui-org/react"
 import Image from "next/image"
 
 import { useState } from "react"
+import ItemModal from "./ItemModal"
 
 interface IProps {
    src: string
@@ -11,6 +13,7 @@ interface IProps {
 const SliderItem: React.FC<IProps> = ({ src }) => {
    // ** States and variables
    const [isGrabbing, setIsGrabbing] = useState(false)
+   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
    // ** Functions
    const grab = () => setIsGrabbing(true)
@@ -25,18 +28,35 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
             flex
             items-center
             justify-center
-            ${isGrabbing ? "cursor-grabbing" : "cursor-grab"}
+            ${isGrabbing ? "cursor-grabbing" : "cursor-zoom-in"}
             embla__slide
             w-full
          `}
       >
-         <Image
-            src={src}
-            alt="slider-image"
-            width={500}
-            height={500}
-            className="w-full"
-            draggable={false}
+         <ItemModal
+            Content={
+               <Image
+                  src={src}
+                  alt="slider-image"
+                  width={800}
+                  height={800}
+                  className="w-full"
+                  draggable={false}
+               />
+            }
+            Trigger={
+               <Image
+                  src={src}
+                  alt="slider-image"
+                  width={500}
+                  height={500}
+                  className="w-full"
+                  draggable={false}
+                  onClick={onOpen}
+               />
+            }
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
          />
       </div>
    )

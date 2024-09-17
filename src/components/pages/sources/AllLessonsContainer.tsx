@@ -21,63 +21,63 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
             className="
                flex
                w-full
-               items-center
                h-full
+               min-h-[100vh]
                py-[54px]
             "
          >
             <div
                className="
+                  grid
+                  grid-rows-1
+                  space-y-10
+                  lg:grid-rows-5
+                  lg:space-y-0
                   bg-gradient-to-tr
                   from-blue-200
                   to-red-200
                   w-11/12
                   lg:py-10
-                  py-5
-                  h-auto
-                  lg:h-[100vh]
                   mx-auto
                   rounded-3xl
                   shadow-md
-                  flex
-                  flex-col
-                  justify-center
-                  items-center
-                  gap-10
+                  py-10
                "
             >
-               <div className="w-11/12 mx-auto h-full space-y-10">
-                  {/* Breadcrumbs */}
-                  <div className="w-full flex gap-4 items-center">
-                     <Breadcrumbs
-                        size="lg"
-                        separator={<GoChevronLeft size={22} />}
-                     >
-                        <BreadcrumbItem href="/sources">
-                           <span className="text-lg">منابع آموزشی</span>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem>
-                           <span className="text-lg">{book.title}</span>
-                        </BreadcrumbItem>
-                     </Breadcrumbs>
-                  </div>
-
-                  {/* Lessons Container */}
-                  <div
-                     className="
-                        w-full
-                        grid
-                        grid-cols-1
-                        md:grid-cols-2
-                        lg:grid-cols-3
-                        place-items-center
-                        gap-10
-                     "
+               {/* Breadcrumbs */}
+               <div className="w-10/12 mx-auto flex items-center row-span-1">
+                  <Breadcrumbs
+                     size="lg"
+                     separator={<GoChevronLeft size={22} />}
                   >
-                     {book.lessons.map((lesson, index) => (
-                        <LessonBox key={index} lesson={lesson} book={book} />
-                     ))}
-                  </div>
+                     <BreadcrumbItem href="/sources">
+                        <span className="text-lg">منابع آموزشی</span>
+                     </BreadcrumbItem>
+                     <BreadcrumbItem>
+                        <span className="text-lg">{book.title}</span>
+                     </BreadcrumbItem>
+                  </Breadcrumbs>
+               </div>
+
+               {/* Lessons Container */}
+               <div
+                  className="
+                        w-full
+                        md:w-11/12
+                        mx-auto
+                        flex
+                        flex-col
+                        md:flex-row
+                        flex-wrap
+                        justify-center
+                        items-center
+                        gap-10
+                        row-span-2
+                     "
+               >
+                  {book.lessons.map((lesson, index) => (
+                     <LessonBox key={index} lesson={lesson} book={book} />
+                  ))}
                </div>
             </div>
          </div>
