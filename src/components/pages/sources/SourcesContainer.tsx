@@ -11,6 +11,7 @@ const SourcesContainer = () => {
             w-full
             items-center
             h-full
+            min-h-[100vh]
             py-[54px]
          "
       >
@@ -22,8 +23,8 @@ const SourcesContainer = () => {
                w-11/12
                lg:py-10
                py-5
-               h-auto
-               lg:h-[100vh]
+               h-full
+               min-h-[100vh]
                mx-auto
                rounded-3xl
                shadow-md
@@ -39,8 +40,6 @@ const SourcesContainer = () => {
                   flex
                   justify-center
                   text-[50px]
-                  md:text-[57px]
-                  lg:text-[64px]
                   text-[#4B185C]
                   font-bold
                   text-center

@@ -11,7 +11,7 @@ interface IProps {
 
 const Header: React.FC<IProps> = ({ notifications }) => {
    return (
-      <div className="flex justify-between pt-10 mx-auto w-11/12 gap-5 md:gap-2 lg:gap-0">
+      <div className="flex justify-between pt-10 mx-auto w-10/12 gap-5 md:gap-3">
          <div className="flex gap-2">
             <Notifications notifications={notifications} />
             <Chat />

@@ -14,7 +14,7 @@ const EducationYear: React.FC<IProps> = ({ setYear, year }) => {
    const decrement = () => setYear((year) => year - 1)
 
    return (
-      <div className="flex justify-between w-11/12">
+      <div className="flex justify-between w-10/12">
          <div className="flex gap-3 items-center font-bold transition-all duration-300">
             <GoChevronRight
                size={20}
