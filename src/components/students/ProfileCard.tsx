@@ -15,7 +15,7 @@ interface IProps {
 
 const ProfileCard: React.FC<IProps> = ({ profile }) => {
    return (
-      <Popover placement="bottom" showArrow arrowSize={32}>
+      <Popover placement="bottom" arrowSize={32} showArrow>
          <PopoverTrigger>
             <Avatar
                isBordered
@@ -29,6 +29,10 @@ const ProfileCard: React.FC<IProps> = ({ profile }) => {
                   from-blue-300
                   to-red-200
                   p-4
+                  cursor-pointer
+                  shadow-lg
+                  hover:shadow-2xl
+                  transition-shadow
                "
             />
          </PopoverTrigger>
