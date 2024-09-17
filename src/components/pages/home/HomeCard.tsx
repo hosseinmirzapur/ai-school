@@ -1,15 +1,21 @@
 "use client"
 
-import { Card, CardBody } from "@nextui-org/react"
+import { Card } from "@nextui-org/react"
 import Image from "next/image"
 
 interface IHomeCard {
    iconSrc: string
    text: string
    backgroundSrc: string
+   onClick: () => void
 }
 
-const HomeCard: React.FC<IHomeCard> = ({ iconSrc, text, backgroundSrc }) => {
+const HomeCard: React.FC<IHomeCard> = ({
+   iconSrc,
+   text,
+   backgroundSrc,
+   onClick,
+}) => {
    return (
       <Card
          className="
@@ -25,10 +31,11 @@ const HomeCard: React.FC<IHomeCard> = ({ iconSrc, text, backgroundSrc }) => {
             ease-out
             duration-400
          "
+         onClick={onClick}
       >
          <Image
             src={backgroundSrc}
-            alt=""
+            alt="background-src"
             width={600}
             height={600}
             className="
@@ -41,7 +48,7 @@ const HomeCard: React.FC<IHomeCard> = ({ iconSrc, text, backgroundSrc }) => {
          />
          <Image
             src={iconSrc}
-            alt=""
+            alt="icon-src"
             width={132}
             height={132}
             className="absolute left-[16px] -rotate-12 bg-none"
@@ -49,7 +56,7 @@ const HomeCard: React.FC<IHomeCard> = ({ iconSrc, text, backgroundSrc }) => {
          />
          <Image
             src={"/assets/heart.png"}
-            alt=""
+            alt="heart-icon"
             width={40}
             height={40}
             className="absolute right-[20px] top-[20px]"

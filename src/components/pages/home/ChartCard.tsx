@@ -11,7 +11,7 @@ interface IProps {
 
 const ChartCard: React.FC<IProps> = ({ chartData, year }) => {
    return (
-      <Card className="w-11/12 h-[400px]">
+      <Card className="w-10/12 h-[350px]">
          <CardBody>
             <Chart chartData={chartData} year={year} />
          </CardBody>
