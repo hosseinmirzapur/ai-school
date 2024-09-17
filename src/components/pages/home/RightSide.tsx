@@ -18,7 +18,7 @@ const RightSide = () => {
             flex
             flex-col
             space-y-28
-            max-h-[100vh]
+            h-full
          "
       >
          <Header notifications={notifications} />
