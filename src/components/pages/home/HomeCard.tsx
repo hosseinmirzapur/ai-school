@@ -1,7 +1,8 @@
 "use client"
 
-import { Card } from "@nextui-org/react"
 import Image from "next/image"
+
+import { Card } from "@nextui-org/react"
 
 interface IHomeCard {
    iconSrc: string
@@ -26,9 +27,10 @@ const HomeCard: React.FC<IHomeCard> = ({
             md:h-[150px]
             rounded-3xl
             cursor-pointer
+            shadow-lg
             hover:shadow-xl
             transition-all
-            ease-out
+            ease-in-out
             duration-400
          "
          onClick={onClick}

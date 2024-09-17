@@ -18,13 +18,18 @@ interface IProps {
 
 const Rankings: React.FC<IProps> = ({ chartData }) => {
    return (
-      <div className="w-[300px] h-[300px]">
+      <div
+         className="
+            w-[300px]
+            h-[300px]
+         "
+      >
          <ResponsiveContainer>
             <RadarChart cx={"50%"} cy={"50%"} data={chartData}>
                <PolarGrid />
                <PolarAngleAxis
                   dataKey={"subject"}
-                  className="text-xl font-bold"
+                  className="text-base font-bold"
                />
                <Radar
                   name="نمره من"
