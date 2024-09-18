@@ -23,10 +23,11 @@ const HomeCard: React.FC<IHomeCard> = ({
          href={href}
          className="
             shadow-lg
-            hover:shadow-xl
+            hover:shadow-2xl
             transition-all
             ease-in-out
             duration-400
+            rounded-3xl
          "
       >
          <Card
