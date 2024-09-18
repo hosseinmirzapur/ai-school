@@ -105,7 +105,7 @@ const MessageInput: React.FC<IProps> = ({ append }) => {
 						addMessage()
 					}
 				}}
-				placeholder={recordedBlob == null ? "اینجا بنویسید..." : ""}
+				placeholder={recordedBlob == null ? "اینجا بنویسید..." : "صدای شما"}
 				startContent={
 					<>
 						<Button
