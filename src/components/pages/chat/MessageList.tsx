@@ -1,21 +1,20 @@
 "use client"
 
+import { RefObject } from "react"
+
 import MessageCloud from "./MessageCloud"
 
-export interface Message {
-   text: string
-   hasFile: boolean
-   role: "user" | "system"
-}
+import { IMessage } from "./data"
 
 interface IProps {
-   messages: Message[]
+	messages: IMessage[]
+	messageListRef: RefObject<HTMLDivElement>
 }
 
-const MessageList: React.FC<IProps> = ({ messages }) => {
-   return (
-      <div
-         className="
+const MessageList: React.FC<IProps> = ({ messages, messageListRef }) => {
+	return (
+		<div
+			className="
             w-full
             h-[600px]
             md:w-11/12
@@ -30,22 +29,23 @@ const MessageList: React.FC<IProps> = ({ messages }) => {
             p-10
             overflow-auto
          "
-      >
-         {messages.map((message, index) => (
-            <div
-               className={`
+			ref={messageListRef}
+		>
+			{messages.map((message, index) => (
+				<div
+					className={`
                   w-full
                   flex
                   flex-col
                   ${message.role === "user" ? "items-start" : "items-end"}
                `}
-               key={index}
-            >
-               <MessageCloud message={message} />
-            </div>
-         ))}
-      </div>
-   )
+					key={index}
+				>
+					<MessageCloud message={message} />
+				</div>
+			))}
+		</div>
+	)
 }
 
 export default MessageList

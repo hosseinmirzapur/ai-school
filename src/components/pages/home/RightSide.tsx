@@ -1,11 +1,13 @@
 "use client"
 
-import { chartData, notifications } from "./data"
-import Header from "./Header"
-import HomeCard from "./HomeCard"
-import EducationYear from "./EducationYear"
 import { useState } from "react"
-import ChartCard from "./ChartCard"
+
+import Header from "./right/Header"
+import HomeCard from "./right/HomeCard"
+import EducationYear from "./right/EducationYear"
+import ChartCard from "./right/ChartCard"
+
+import { chartData, notifications } from "./data"
 
 const RightSide = () => {
    // ** States and variables
