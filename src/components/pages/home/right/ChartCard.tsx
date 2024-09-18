@@ -1,8 +1,10 @@
 "use client"
 
 import Chart from "@/components/students/Chart"
+
 import { Card, CardBody } from "@nextui-org/react"
-import { ChartItem } from "./data"
+
+import { ChartItem } from "../data"
 
 interface IProps {
    chartData: ChartItem[]

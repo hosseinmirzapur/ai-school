@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 
 import { Card } from "@nextui-org/react"
-import Link from "next/link"
 
 interface IHomeCard {
    iconSrc: string

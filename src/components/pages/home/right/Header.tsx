@@ -1,9 +1,10 @@
 "use client"
 
 import Chat from "./Chat"
-import { INotification } from "./data"
 import Notifications from "./Notifications"
 import Search from "./Search"
+
+import { INotification } from "../data"
 
 interface IProps {
    notifications: INotification[]

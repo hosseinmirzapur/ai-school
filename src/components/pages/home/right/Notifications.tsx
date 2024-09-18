@@ -2,14 +2,15 @@
 
 import {
    Badge,
-   Button,
    Dropdown,
    DropdownItem,
    DropdownMenu,
    DropdownTrigger,
 } from "@nextui-org/react"
+
 import { GoBellFill } from "react-icons/go"
-import { INotification } from "./data"
+
+import { INotification } from "../data"
 
 interface IProps {
    notifications: INotification[]

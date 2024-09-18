@@ -1,6 +1,7 @@
 "use client"
 
 import { Input } from "@nextui-org/react"
+
 import { BsSearch } from "react-icons/bs"
 
 const Search = () => {
