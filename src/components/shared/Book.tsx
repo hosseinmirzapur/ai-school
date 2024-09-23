@@ -1,16 +1,17 @@
 "use client"
 
+import { blurDataUrl } from "@/utils"
 import Image from "next/image"
 import React from "react"
 
 const Book = () => {
-   return (
-      <Image
-         src={"/assets/book.png"}
-         alt="book-icon"
-         width={100}
-         height={100}
-         className="
+	return (
+		<Image
+			src={"/assets/book.png"}
+			alt="book-icon"
+			width={100}
+			height={100}
+			className="
             absolute
             w-[85px]
             h-[85px]
@@ -25,10 +26,12 @@ const Book = () => {
             lg:-left-20
             z-20
             rotate-[130deg]
-        "
-         draggable={false}
-      />
-   )
+         "
+			draggable={false}
+			placeholder="blur"
+			blurDataURL={blurDataUrl}
+		/>
+	)
 }
 
 export default Book

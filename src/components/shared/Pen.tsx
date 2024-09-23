@@ -1,15 +1,16 @@
 "use client"
 
+import { blurDataUrl } from "@/utils"
 import Image from "next/image"
 
 const Pen = () => {
-   return (
-      <Image
-         src={"/assets/pen.png"}
-         alt="pen-icon"
-         width={100}
-         height={100}
-         className="
+	return (
+		<Image
+			src={"/assets/pen.png"}
+			alt="pen-icon"
+			width={100}
+			height={100}
+			className="
             absolute
             w-[55px]
             h-[55px]
@@ -24,10 +25,12 @@ const Pen = () => {
             lg:-top-24
             lg:-right-24
             z-20
-        "
-         draggable={false}
-      />
-   )
+         "
+			draggable={false}
+			placeholder="blur"
+			blurDataURL={blurDataUrl}
+		/>
+	)
 }
 
 export default Pen
