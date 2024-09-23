@@ -4,15 +4,16 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { ISubjectBook } from "./data"
+import { blurDataUrl } from "@/utils"
 
 interface IProps {
-   data: ISubjectBook[]
+	data: ISubjectBook[]
 }
 
 const SubjectBooks: React.FC<IProps> = ({ data }) => {
-   return (
-      <div
-         className="
+	return (
+		<div
+			className="
             flex
             flex-col
             flex-wrap
@@ -23,11 +24,11 @@ const SubjectBooks: React.FC<IProps> = ({ data }) => {
             w-10/12
             h-full
          "
-      >
-         {data.map((book, index) => (
-            <Link
-               key={index}
-               className="
+		>
+			{data.map((book, index) => (
+				<Link
+					key={index}
+					className="
                   grid
                   grid-cols-2
                   md:w-[280px]
@@ -45,13 +46,13 @@ const SubjectBooks: React.FC<IProps> = ({ data }) => {
                   transition-all
                   cursor-pointer
                "
-               href={`/sources/${book.id}`}
-            >
-               <div className="flex items-center justify-center text-lg font-[700]">
-                  {book.title}
-               </div>
-               <div
-                  className="
+					href={`/sources/${book.id}`}
+				>
+					<div className="flex items-center justify-center text-lg font-[700]">
+						{book.title}
+					</div>
+					<div
+						className="
                      flex
                      justify-center
                      bg-gradient-to-r
@@ -60,19 +61,21 @@ const SubjectBooks: React.FC<IProps> = ({ data }) => {
                      rounded-[16px]
                      p-3
                   "
-               >
-                  <Image
-                     src={book.imageSrc}
-                     alt={book.title}
-                     width={80}
-                     height={96}
-                     draggable={false}
-                  />
-               </div>
-            </Link>
-         ))}
-      </div>
-   )
+					>
+						<Image
+							src={book.imageSrc}
+							alt={book.title}
+							width={80}
+							height={96}
+							draggable={false}
+							placeholder="blur"
+							blurDataURL={blurDataUrl}
+						/>
+					</div>
+				</Link>
+			))}
+		</div>
+	)
 }
 
 export default SubjectBooks

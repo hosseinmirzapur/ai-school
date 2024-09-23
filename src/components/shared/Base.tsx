@@ -1,24 +1,23 @@
 "use client"
 
-import Image from "next/image"
 import MobileNavbar from "./MobileNavbar"
 import Navbar from "./Navbar"
 import Pen from "./Pen"
 import Book from "./Book"
 
 interface IProps {
-   children: React.ReactNode
+	children: React.ReactNode
 }
 
 const Base: React.FC<IProps> = ({ children }) => {
-   return (
-      <>
-         {/* Mobile Navbar */}
-         <MobileNavbar />
+	return (
+		<>
+			{/* Mobile Navbar */}
+			<MobileNavbar />
 
-         {/* Base Container */}
-         <div
-            className="
+			{/* Base Container */}
+			<div
+				className="
                flex
                justify-center
                w-11/12
@@ -34,19 +33,19 @@ const Base: React.FC<IProps> = ({ children }) => {
                min-h-[100vh]
                h-full
             "
-         >
-            {/* Corner Icons */}
-            <Pen />
-            <Book />
+			>
+				{/* Corner Icons */}
+				<Pen />
+				<Book />
 
-            {/* Main Navbar */}
-            <Navbar />
+				{/* Main Navbar */}
+				<Navbar />
 
-            {/* Inside Components */}
-            {children}
-         </div>
-      </>
-   )
+				{/* Inside Components */}
+				{children}
+			</div>
+		</>
+	)
 }
 
 export default Base
