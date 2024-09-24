@@ -13,9 +13,10 @@ import EndText from "./EndText"
 
 interface IProps {
 	flashCards: IFlashCard[]
+	source: number | string
 }
 
-const Middle: React.FC<IProps> = ({ flashCards }) => {
+const Middle: React.FC<IProps> = ({ flashCards, source }) => {
 	// ** States and variables
 	const [current, setCurrent] = useState(0)
 	const [flipped, setFlipped] = useState(false)
@@ -81,7 +82,9 @@ const Middle: React.FC<IProps> = ({ flashCards }) => {
 			))}
 
 			{/* End Text */}
-			{endText != "" && <EndText reset={reset} text={endText} />}
+			{endText != "" && (
+				<EndText reset={reset} text={endText} source={source} />
+			)}
 		</div>
 	)
 }
