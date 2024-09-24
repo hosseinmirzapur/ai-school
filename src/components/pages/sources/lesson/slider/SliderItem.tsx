@@ -39,11 +39,12 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
 					<Image
 						src={src}
 						alt="slider-image"
+						className="w-full"
 						width={800}
 						height={800}
-						className="w-full"
 						draggable={false}
 						placeholder="blur"
+						blurDataURL={blurDataUrl}
 					/>
 				}
 				Trigger={

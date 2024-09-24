@@ -8,19 +8,19 @@ import Top from "./Top"
 import { lessons, subjectBooks } from "../../data"
 
 interface IProps {
-   sourceID: number | string
-   lessonID: number | string
+	sourceID: number | string
+	lessonID: number | string
 }
 
 const GameContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
-   // ** States and variables
-   const lesson = lessons.find((lesson) => lesson.id == lessonID)
-   const source = subjectBooks.find((book) => book.id == sourceID)
+	// ** States and variables
+	const lesson = lessons.find((lesson) => lesson.id == lessonID)
+	const source = subjectBooks.find((book) => book.id == sourceID)
 
-   return (
-      <div className="w-full h-full py-[54px]">
-         <div
-            className="
+	return (
+		<div className="w-full h-full py-[54px]">
+			<div
+				className="
                w-11/12
                lg:w-10/12
                mx-auto
@@ -34,13 +34,13 @@ const GameContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
                grid
                grid-rows-5
             "
-         >
-            <Top source={source} lesson={lesson} />
-            <Middle flashCards={flashCards} />
-            <Bottom />
-         </div>
-      </div>
-   )
+			>
+				<Top source={source} lesson={lesson} />
+				<Middle flashCards={flashCards} source={sourceID} />
+				<Bottom />
+			</div>
+		</div>
+	)
 }
 
 export default GameContainer

@@ -13,10 +13,11 @@ import { blurDataUrl } from "@/utils"
 interface IProps {
 	text: string
 	reset: () => void
+	source: number | string
 }
 
-const EndText: React.FC<IProps> = ({ reset, text }) => {
-	const { back } = useRouter()
+const EndText: React.FC<IProps> = ({ reset, text, source }) => {
+	const { push } = useRouter()
 	return (
 		<div
 			className="
@@ -55,7 +56,7 @@ const EndText: React.FC<IProps> = ({ reset, text }) => {
 					color="primary"
 					variant="shadow"
 					startContent={<TiArrowBack size={20} />}
-					onClick={() => back()}
+					onClick={() => push(`/sources/${source}`)}
 				>
 					درس های دیگر
 				</Button>
