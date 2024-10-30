@@ -40,7 +40,9 @@ const HomeContainer = () => {
 				<LeftSide />
 			</div>
 		</div>
-	) : null
+	) : (
+		<div className="container" />
+	)
 }
 
 export default HomeContainer
