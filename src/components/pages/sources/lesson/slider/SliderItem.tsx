@@ -26,13 +26,13 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
 			onMouseUp={letGo}
 			onMouseLeave={letGo}
 			className={`
-            flex
-            items-center
-            justify-center
-            ${isGrabbing ? "cursor-grabbing" : "cursor-zoom-in"}
-            embla__slide
-            w-full
-         `}
+				flex
+				items-center
+				justify-center
+				${isGrabbing ? "cursor-grabbing" : "cursor-zoom-in"}
+				embla__slide
+				w-full
+			`}
 		>
 			<ItemModal
 				Content={
