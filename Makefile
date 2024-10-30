@@ -9,7 +9,10 @@ sync:
 run:
 	@npm run dev
 
+lint:
+	@npm run lint
+
 clear-cache:
 	@rm -rf .next
  
-.PHONY: sync run clear-cache
+.PHONY: sync run clear-cache lint
