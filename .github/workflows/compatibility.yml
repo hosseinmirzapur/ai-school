@@ -69,10 +69,10 @@ jobs:
 
          - name: Build Docker image
            run: |
-              docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }} .
-              docker tag ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+              docker build -t ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }} .
+              docker tag ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/ai-school:latest
 
          - name: Push Docker image
            run: |
-              docker push ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}
-              docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+              docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }}
+              docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:latest
