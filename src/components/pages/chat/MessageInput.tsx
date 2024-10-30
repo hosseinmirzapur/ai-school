@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { Button, Textarea, Tooltip } from "@nextui-org/react"
+import { Button, Textarea } from "@nextui-org/react"
 
 import { GrAttachment } from "react-icons/gr"
 import { IoMdSend } from "react-icons/io"

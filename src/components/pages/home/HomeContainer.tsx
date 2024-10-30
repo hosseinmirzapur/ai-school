@@ -2,12 +2,25 @@
 
 import RightSide from "./RightSide"
 import LeftSide from "./LeftSide"
+import useAuthStore from "@/libs/store/authStore"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 const HomeContainer = () => {
-   return (
-      <div className="container h-full min-h-[100vh]">
-         <div
-            className="
+	// ** States and variables
+	const { isAuthenticated } = useAuthStore()
+	const router = useRouter()
+
+	useEffect(() => {
+		if (!isAuthenticated) {
+			router.push("/auth")
+		}
+	}, [isAuthenticated, router])
+
+	return isAuthenticated ? (
+		<div className="container h-full min-h-[100vh]">
+			<div
+				className="
                w-11/12
                mx-auto
                grid
@@ -19,15 +32,15 @@ const HomeContainer = () => {
                place-items-center
                space-y-20
             "
-         >
-            {/* Right Side */}
-            <RightSide />
+			>
+				{/* Right Side */}
+				<RightSide />
 
-            {/* Left Side */}
-            <LeftSide />
-         </div>
-      </div>
-   )
+				{/* Left Side */}
+				<LeftSide />
+			</div>
+		</div>
+	) : null
 }
 
 export default HomeContainer
