@@ -48,6 +48,7 @@ const VoiceRecorder: React.FC<IProps> = ({ fillRecordedBlob }) => {
 			}
 			mediaRecorder.current.start()
 		} catch (error) {
+			console.log(error)
 			toast.error("شما دسترسی میکروفون را مسدود کرده اید", {
 				duration: 5000,
 				icon: <MdKeyboardVoice size={22} />,

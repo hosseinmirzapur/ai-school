@@ -1,7 +1,5 @@
 "use client"
 
-import { useMemo } from "react"
-
 import Bar from "./Bar"
 
 import { barColor, persianDate } from "./utils"

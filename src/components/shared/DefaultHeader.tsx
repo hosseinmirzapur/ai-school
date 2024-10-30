@@ -1,13 +1,6 @@
 "use client"
 
-import {
-	Navbar,
-	NavbarContent,
-	NavbarItem,
-	NavbarMenu,
-	NavbarMenuItem,
-	NavbarMenuToggle,
-} from "@nextui-org/react"
+import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react"
 import Link from "next/link"
 
 interface Header {

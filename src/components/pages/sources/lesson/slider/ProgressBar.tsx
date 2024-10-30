@@ -21,13 +21,15 @@ const ProgressBar: React.FC<IProps> = ({ sliders, index }) => {
 		const markArray: Mark[] = []
 		const step = 100 / sliders.length
 		sliders.map((_, i) => {
-			let num = step * (i + 1)
+			const num = step * (i + 1)
 			markArray.push({
 				label: ``,
 				value: num,
 			})
 		})
 		setMarks(markArray)
+		console.log(marks)
+		console.clear()
 	}, [sliders, index])
 
 	return (
