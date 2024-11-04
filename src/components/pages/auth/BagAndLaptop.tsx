@@ -6,24 +6,34 @@ import { motion } from "framer-motion"
 const BagAndLaptop = () => {
 	return (
 		<motion.div
-			className="hidden lg:flex justify-center items-center relative w-11/12 mx-auto"
+			className="lg:flex justify-center items-center lg:relative w-11/12 mx-auto z-[-1] h-full"
 			initial={{
 				opacity: 0,
 			}}
 			animate={{
-				opacity: 1,
+				opacity: "100%",
 			}}
 			transition={{
 				duration: 0.8,
+				ease: "easeInOut",
 			}}
 		>
-			<Image
-				src={"/assets/bagnlap-bg.png"}
-				alt="bagnlap-bg"
-				width={624}
-				height={624}
-			/>
-			<div className="absolute top-0 right-0 w-[400px] h-[400px]">
+			<div
+				className="
+					absolute
+					top-10
+					right-10
+					w-[250px]
+					h-[250px]
+					md:w-[300px]
+					md:h-[300px]
+					lg:w-[350px]
+					lg:h-[350px]
+					opacity-60
+					md:opacity-80
+					lg:opacity-100
+				"
+			>
 				<Image
 					src={"/assets/school-bag.png"}
 					alt="school-bag"
@@ -31,7 +41,23 @@ const BagAndLaptop = () => {
 					className="object-contain"
 				/>
 			</div>
-			<div className="absolute bottom-20 w-[543px] h-[543px]">
+			<div
+				className="
+					absolute
+					bottom-0
+					left-0
+					lg:bottom-24
+					w-[343px]
+					h-[343px]
+					md:w-[443px]
+					md:h-[443px]
+					lg:w-[520px]
+					lg:h-[520px]
+					opacity-60
+					md:opacity-80
+					lg:opacity-100
+				"
+			>
 				<Image
 					src={"/assets/online-study.png"}
 					alt="online-study"
