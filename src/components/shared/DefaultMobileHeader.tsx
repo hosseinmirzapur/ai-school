@@ -31,9 +31,18 @@ const DefaultMobileHeader = () => {
 			{/* Mobile View */}
 			<NavbarContent>
 				<NavbarMenuToggle className="md:hidden" />
-				<NavbarMenu>
+				<NavbarMenu className="space-y-5">
 					{headers.map((header, index) => (
-						<NavbarMenuItem key={index}>
+						<NavbarMenuItem
+							key={index}
+							className="
+								flex justify-center items-center
+								bg-secondary-100 hover:bg-secondary-200
+								rounded-xl
+								h-14
+								cursor-pointer
+							"
+						>
 							<Link href={header.href}>{header.title}</Link>
 						</NavbarMenuItem>
 					))}
