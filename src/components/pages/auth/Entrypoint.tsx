@@ -14,9 +14,9 @@ const Entrypoint = () => {
 
 	return (
 		<>
-			<div className="flex flex-col justify-center w-10/12 mx-auto gap-10">
+			<div className="flex flex-col justify-center w-10/12 mx-auto gap-10 min-h-screen">
 				<motion.div
-					className="flex justify-start h-[80px] text-[50px] font-bold"
+					className="flex justify-start h-[80px] text-[40px] md:text-[45px] lg:text-[50px] font-bold"
 					initial={{
 						x: 100,
 						opacity: 0,
@@ -32,7 +32,7 @@ const Entrypoint = () => {
 					سامانه هوشمند
 				</motion.div>
 				<motion.div
-					className="flex justify-end h-[150px] text-[96px] font-extrabold"
+					className="flex justify-end h-[150px] text-[76px] md:text-[86px] lg:text-[96px] font-extrabold"
 					initial={{
 						x: -100,
 						opacity: 0,
@@ -48,7 +48,7 @@ const Entrypoint = () => {
 					هوشیار
 				</motion.div>
 				<motion.div
-					className="flex justify-center items-center h-[115px] pt-10 lg:pr-32"
+					className="flex justify-center items-center h-[80px] md:h-[95px] lg:h-[115px] pt-10 lg:pr-32"
 					initial={{
 						y: 100,
 						opacity: 0,
@@ -64,12 +64,11 @@ const Entrypoint = () => {
 					<Button
 						size="lg"
 						className="
-                            h-[115px]
-                            w-[283px]
-                            bg-[#624BE1]
-                            hover:bg-[#624BE1]/90
+                            h-[80px] md:h-[95px] lg:h-[115px]
+                            w-[250px] md:w-[265px] lg:w-[283px]
+                            bg-[#624BE1] hover:bg-[#624BE1]/90
                             text-white
-                            text-[50px]
+                            text-[40px] md:text-[45px] lg:text-[50px]
                             font-bold
                         "
 						variant="shadow"
