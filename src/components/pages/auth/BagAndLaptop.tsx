@@ -6,12 +6,25 @@ import { motion } from "framer-motion"
 const BagAndLaptop = () => {
 	return (
 		<motion.div
-			className="lg:flex justify-center items-center lg:relative w-11/12 mx-auto z-[-1] h-full"
+			className="
+				lg:flex
+				justify-center
+				items-center
+				lg:relative
+				w-11/12
+				mx-auto
+				z-[-1]
+				h-full
+			"
 			initial={{
 				opacity: 0,
+				scale: 0.9,
+				rotate: -5,
 			}}
 			animate={{
-				opacity: "100%",
+				opacity: 1,
+				scale: 1,
+				rotate: 0,
 			}}
 			transition={{
 				duration: 0.8,
