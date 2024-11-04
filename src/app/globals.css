@@ -8,6 +8,9 @@ html {
 	background-position: center;
 	direction: rtl;
 	scroll-behavior: smooth;
+	button {
+		touch-action: manipulation;
+	}
 }
 
 .rotate-y-180 {
