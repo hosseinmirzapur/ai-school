@@ -2,7 +2,7 @@
 
 import RightSide from "./RightSide"
 import LeftSide from "./LeftSide"
-import useAuthStore from "@/libs/store/authStore"
+import { useAuthStore } from "@/libs/store/authStore"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 
