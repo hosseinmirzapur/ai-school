@@ -1,6 +1,6 @@
 "use client"
 
-import useAuthStore from "@/libs/store/authStore"
+import { useAuthStore } from "@/libs/store"
 import {
 	Button,
 	Input,
