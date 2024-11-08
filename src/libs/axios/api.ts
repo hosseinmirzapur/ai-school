@@ -7,7 +7,6 @@ const api = axios.create({
 			Accept: "application/json",
 		},
 	},
-	withCredentials: true,
 })
 api.interceptors.request.use((config) => {
 	const token = localStorage.getItem("token")
@@ -20,7 +19,17 @@ api.interceptors.request.use((config) => {
 })
 
 api.interceptors.response.use(
-	(response) => response,
+	(response) => {
+		if (response.data?.status != 200) {
+			switch (response.data?.message) {
+				case "auth_err":
+					return Promise.reject(
+						new Error("نام کاربری یا رمز عبور وارد شده صحیح نمیباشد"),
+					)
+			}
+		}
+		return response
+	},
 	(error) => {
 		const { response } = error
 		if (!response) {
