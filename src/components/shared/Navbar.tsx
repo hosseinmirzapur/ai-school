@@ -14,108 +14,112 @@ import { PiGearSixFill } from "react-icons/pi"
 import { AiOutlineExpandAlt, AiOutlineShrink } from "react-icons/ai"
 
 import { Tooltip } from "@nextui-org/react"
+import { useRouter } from "next/navigation"
 
 interface NavbarItem {
-   id: number
-   title: string
-   href: string
-   Icon: IconType
+	id: number
+	title: string
+	href: string
+	Icon: IconType
 }
 
 export const navbarItems: NavbarItem[] = [
-   {
-      id: 1,
-      title: "خانه",
-      href: "/",
-      Icon: TbHomeFilled,
-   },
-   {
-      id: 2,
-      title: "جستجو",
-      href: "/search",
-      Icon: RiCompassFill,
-   },
-   {
-      id: 3,
-      title: "منابع آموزشی",
-      href: "/sources",
-      Icon: BiSolidBook,
-   },
-   {
-      id: 4,
-      title: "برنامه هفتگی",
-      href: "/schedule",
-      Icon: FaCalendarAlt,
-   },
-   {
-      id: 5,
-      title: "صندوق پیام",
-      href: "/notifications",
-      Icon: MdMail,
-   },
+	{
+		id: 1,
+		title: "خانه",
+		href: "/",
+		Icon: TbHomeFilled,
+	},
+	{
+		id: 2,
+		title: "جستجو",
+		href: "/search",
+		Icon: RiCompassFill,
+	},
+	{
+		id: 3,
+		title: "منابع آموزشی",
+		href: "/sources",
+		Icon: BiSolidBook,
+	},
+	{
+		id: 4,
+		title: "برنامه هفتگی",
+		href: "/schedule",
+		Icon: FaCalendarAlt,
+	},
+	{
+		id: 5,
+		title: "صندوق پیام",
+		href: "/notifications",
+		Icon: MdMail,
+	},
 ]
 
 export const secondNavbarItems: NavbarItem[] = [
-   {
-      id: 6,
-      title: "تنظیمات",
-      href: "/settings",
-      Icon: PiGearSixFill,
-   },
-   {
-      id: 7,
-      title: "خروج",
-      href: "#logout",
-      Icon: RiLogoutBoxFill,
-   },
+	{
+		id: 6,
+		title: "تنظیمات",
+		href: "/settings",
+		Icon: PiGearSixFill,
+	},
+	{
+		id: 7,
+		title: "خروج",
+		href: "#logout",
+		Icon: RiLogoutBoxFill,
+	},
 ]
 
 const Navbar = () => {
-   // ** states & variables
-   const [selected, setSelected] = useState(0)
-   const [expanded, setExpanded] = useState(true)
+	// ** states & variables
+	const [selected, setSelected] = useState(0)
+	const [expanded, setExpanded] = useState(true)
+	const router = useRouter()
 
-   // ** functions
-   const toggleExpansion = () => setExpanded(!expanded)
+	// ** functions
+	const toggleExpansion = () => setExpanded(!expanded)
 
-   const isActive = (item: NavbarItem) => {
-      return selected == item.id
-   }
+	const isActive = (item: NavbarItem) => {
+		return selected == item.id
+	}
 
-   useEffect(() => {
-      const pathname = document.URL
-      const pathSegments = pathname.split("/")
-      const lastSegment = "/" + (pathSegments[pathSegments.length - 1] || "")
-      switch (lastSegment) {
-         case "/":
-            setSelected(1)
-            break
-         case "/search":
-            setSelected(2)
-            break
-         case "/sources":
-            setSelected(3)
-            break
-         case "/schedule":
-            setSelected(4)
-            break
-         case "/notifications":
-            setSelected(5)
-            break
-         case "/settings":
-            setSelected(6)
-            break
-         case "#logout":
-            break
-         default:
-            setSelected(0)
-            break
-      }
-   }, [selected])
+	useEffect(() => {
+		const pathname = document.URL
+		const pathSegments = pathname.split("/")
+		const lastSegment = "/" + (pathSegments[pathSegments.length - 1] || "")
+		switch (lastSegment) {
+			case "/":
+				setSelected(1)
+				break
+			case "/search":
+				setSelected(2)
+				break
+			case "/sources":
+				setSelected(3)
+				break
+			case "/schedule":
+				setSelected(4)
+				break
+			case "/notifications":
+				setSelected(5)
+				break
+			case "/settings":
+				setSelected(6)
+				break
+			case "#logout":
+				localStorage.clear()
+				router.push("/auth")
+				break
+			default:
+				setSelected(0)
+				break
+		}
+	}, [selected, router])
 
-   return (
-      <div
-         className={`
+	return (
+		<div
+			className={`
             hidden
             md:flex
             ${expanded ? "md:w-[200px] lg:w-[272px]" : "w-[100px]"}
@@ -130,13 +134,13 @@ const Navbar = () => {
             relative
             transition-all
          `}
-      >
-         <Tooltip
-            content={expanded ? "جمع کردن منو" : "باز کردن منو"}
-            placement="right-end"
-         >
-            <div
-               className={`
+		>
+			<Tooltip
+				content={expanded ? "جمع کردن منو" : "باز کردن منو"}
+				placement="right-end"
+			>
+				<div
+					className={`
                   flex
                   text-black
                   bg-white
@@ -154,42 +158,42 @@ const Navbar = () => {
                   top-5
                   ${expanded ? "left-5" : "left-auto"}
                `}
-            >
-               {expanded ? (
-                  <AiOutlineShrink
-                     size={28}
-                     className="cursor-pointer"
-                     onClick={toggleExpansion}
-                  />
-               ) : (
-                  <AiOutlineExpandAlt
-                     size={28}
-                     className="cursor-pointer"
-                     onClick={toggleExpansion}
-                  />
-               )}
-            </div>
-         </Tooltip>
+				>
+					{expanded ? (
+						<AiOutlineShrink
+							size={28}
+							className="cursor-pointer"
+							onClick={toggleExpansion}
+						/>
+					) : (
+						<AiOutlineExpandAlt
+							size={28}
+							className="cursor-pointer"
+							onClick={toggleExpansion}
+						/>
+					)}
+				</div>
+			</Tooltip>
 
-         <div className="flex flex-col gap-6 mt-[80px] transition-all duration-400 ease-in-out">
-            <hr className="text-white w-full h-[1px] opacity-50 mx-auto hidden lg:block" />
-            {navbarItems.map((item) => {
-               if (expanded) {
-                  return (
-                     <Link
-                        href={item.href}
-                        key={item.id}
-                        className={`
+			<div className="flex flex-col gap-6 mt-[80px] transition-all duration-400 ease-in-out">
+				<hr className="text-white w-full h-[1px] opacity-50 mx-auto hidden lg:block" />
+				{navbarItems.map((item) => {
+					if (expanded) {
+						return (
+							<Link
+								href={item.href}
+								key={item.id}
+								className={`
                            flex
                            items-center
                            ${expanded ? "" : "justify-center"}
                            h-[60px]
                            bg-none
                            ${
-                              expanded
-                                 ? "md:w-[180px] lg:w-[230px]"
-                                 : "w-[60px]"
-                           }
+										expanded
+											? "md:w-[180px] lg:w-[230px]"
+											: "w-[60px]"
+									}
                            ${expanded ? "px-5" : "px-2"}
                            gap-[8px]
                            ${expanded ? "rounded-r-full" : "rounded-full"}
@@ -200,15 +204,15 @@ const Navbar = () => {
                            ease-in-out
                            hover:shadow-2xl
                         `}
-                     >
-                        <item.Icon
-                           size={32}
-                           className={`${
-                              isActive(item) ? "text-black" : "text-white"
-                           } transition-all duration-400 ease-in-out`}
-                        />
-                        <span
-                           className={`
+							>
+								<item.Icon
+									size={32}
+									className={`${
+										isActive(item) ? "text-black" : "text-white"
+									} transition-all duration-400 ease-in-out`}
+								/>
+								<span
+									className={`
                               ${isActive(item) ? "text-black" : "text-white"}
                               text-xl
                               transition-all
@@ -216,32 +220,32 @@ const Navbar = () => {
                               ease-in-out
                               ${expanded ? "block" : "hidden"}
                               `}
-                        >
-                           {item.title}
-                        </span>
-                     </Link>
-                  )
-               }
-               return (
-                  <Tooltip
-                     placement="right"
-                     content={expanded ? "" : item.title}
-                     key={item.id}
-                     className="transition-all"
-                  >
-                     <Link
-                        href={item.href}
-                        className={`
+								>
+									{item.title}
+								</span>
+							</Link>
+						)
+					}
+					return (
+						<Tooltip
+							placement="right"
+							content={expanded ? "" : item.title}
+							key={item.id}
+							className="transition-all"
+						>
+							<Link
+								href={item.href}
+								className={`
                            flex
                            items-center
                            ${expanded ? "" : "justify-center"}
                            h-[60px]
                            bg-none
                            ${
-                              expanded
-                                 ? "md:w-[180px] lg:w-[230px]"
-                                 : "w-[60px]"
-                           }
+										expanded
+											? "md:w-[180px] lg:w-[230px]"
+											: "w-[60px]"
+									}
                            ${expanded ? "px-5" : "px-2"}
                            gap-[8px]
                            ${expanded ? "rounded-r-full" : "rounded-full"}
@@ -252,15 +256,15 @@ const Navbar = () => {
                            ease-in-out
                            hover:shadow-2xl
                         `}
-                     >
-                        <item.Icon
-                           size={32}
-                           className={`${
-                              isActive(item) ? "text-black" : "text-white"
-                           } transition-all duration-400 ease-in-out`}
-                        />
-                        <span
-                           className={`
+							>
+								<item.Icon
+									size={32}
+									className={`${
+										isActive(item) ? "text-black" : "text-white"
+									} transition-all duration-400 ease-in-out`}
+								/>
+								<span
+									className={`
                               ${isActive(item) ? "text-black" : "text-white"}
                               text-xl
                               transition-all
@@ -268,31 +272,31 @@ const Navbar = () => {
                               ease-in-out
                               ${expanded ? "block" : "hidden"}
                            `}
-                        >
-                           {item.title}
-                        </span>
-                     </Link>
-                  </Tooltip>
-               )
-            })}
-            <hr className="text-white w-full h-[1px] opacity-50 mx-auto" />
-            {secondNavbarItems.map((item) => {
-               if (expanded) {
-                  return (
-                     <Link
-                        href={item.href}
-                        key={item.id}
-                        className={`
+								>
+									{item.title}
+								</span>
+							</Link>
+						</Tooltip>
+					)
+				})}
+				<hr className="text-white w-full h-[1px] opacity-50 mx-auto" />
+				{secondNavbarItems.map((item) => {
+					if (expanded) {
+						return (
+							<Link
+								href={item.href}
+								key={item.id}
+								className={`
                            flex
                            items-center
                            ${expanded ? "" : "justify-center"}
                            h-[60px]
                            bg-none
                            ${
-                              expanded
-                                 ? "md:w-[180px] lg:w-[230px]"
-                                 : "w-[60px]"
-                           }
+										expanded
+											? "md:w-[180px] lg:w-[230px]"
+											: "w-[60px]"
+									}
                            ${expanded ? "px-5" : "px-2"}
                            gap-[8px]
                            ${expanded ? "rounded-r-full" : "rounded-full"}
@@ -303,15 +307,15 @@ const Navbar = () => {
                            ease-in-out
                            hover:shadow-2xl
                         `}
-                     >
-                        <item.Icon
-                           size={32}
-                           className={`${
-                              isActive(item) ? "text-black" : "text-white"
-                           } transition-all duration-400 ease-in-out`}
-                        />
-                        <span
-                           className={`
+							>
+								<item.Icon
+									size={32}
+									className={`${
+										isActive(item) ? "text-black" : "text-white"
+									} transition-all duration-400 ease-in-out`}
+								/>
+								<span
+									className={`
                               ${isActive(item) ? "text-black" : "text-white"}
                               text-xl
                               transition-all
@@ -319,32 +323,32 @@ const Navbar = () => {
                               ease-in-out
                               ${expanded ? "block" : "hidden"}
                               `}
-                        >
-                           {item.title}
-                        </span>
-                     </Link>
-                  )
-               }
-               return (
-                  <Tooltip
-                     placement="right"
-                     content={expanded ? "" : item.title}
-                     key={item.id}
-                     className="transition-all"
-                  >
-                     <Link
-                        href={item.href}
-                        className={`
+								>
+									{item.title}
+								</span>
+							</Link>
+						)
+					}
+					return (
+						<Tooltip
+							placement="right"
+							content={expanded ? "" : item.title}
+							key={item.id}
+							className="transition-all"
+						>
+							<Link
+								href={item.href}
+								className={`
                            flex
                            items-center
                            ${expanded ? "" : "justify-center"}
                            h-[60px]
                            bg-none
                            ${
-                              expanded
-                                 ? "md:w-[180px] lg:w-[230px]"
-                                 : "w-[60px]"
-                           }
+										expanded
+											? "md:w-[180px] lg:w-[230px]"
+											: "w-[60px]"
+									}
                            ${expanded ? "px-5" : "px-2"}
                            gap-[8px]
                            ${expanded ? "rounded-r-full" : "rounded-full"}
@@ -355,15 +359,15 @@ const Navbar = () => {
                            ease-in-out
                            hover:shadow-2xl
                         `}
-                     >
-                        <item.Icon
-                           size={32}
-                           className={`${
-                              isActive(item) ? "text-black" : "text-white"
-                           } transition-all duration-400 ease-in-out`}
-                        />
-                        <span
-                           className={`
+							>
+								<item.Icon
+									size={32}
+									className={`${
+										isActive(item) ? "text-black" : "text-white"
+									} transition-all duration-400 ease-in-out`}
+								/>
+								<span
+									className={`
                               ${isActive(item) ? "text-black" : "text-white"}
                               text-xl
                               transition-all
@@ -371,16 +375,16 @@ const Navbar = () => {
                               ease-in-out
                               ${expanded ? "block" : "hidden"}
                            `}
-                        >
-                           {item.title}
-                        </span>
-                     </Link>
-                  </Tooltip>
-               )
-            })}
-         </div>
-      </div>
-   )
+								>
+									{item.title}
+								</span>
+							</Link>
+						</Tooltip>
+					)
+				})}
+			</div>
+		</div>
+	)
 }
 
 export default Navbar
