@@ -90,7 +90,7 @@ jobs:
               chmod 600 private_key
               ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USER@$SERVER_IP << 'EOF'
                 cd /var/www/school
-                docker compose down && docker compose pull && docker compose up -d --build && docker image prune -a -f
+                docker compose down && docker compose pull && docker compose up -d && docker image prune -a -f
                 
               EOF
 
