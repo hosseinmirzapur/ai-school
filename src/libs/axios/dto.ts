@@ -1,3 +1,5 @@
+import { IDailySchedule } from "@/components/pages/schedule/data"
+
 export interface HomeResponse {
 	profile: {
 		fullname?: string
@@ -43,21 +45,8 @@ export interface LessonFlashcardsResponse {
 	flashcards: []
 }
 
-interface DailySchedule {
-	subject: {
-		name: string
-		slug: string
-	}
-	duration: number | string
-}
-
-type DaysOfWeek = "sat" | "sun" | "mon" | "tue" | "wed" | "thu"
-type WeeklyScheduleType = {
-	[day in DaysOfWeek]: DailySchedule[]
-}
-
 export interface WeeklyScheduleResponse {
-	schedule: WeeklyScheduleType
+	schedule: IDailySchedule[]
 }
 
 export interface NotificationsResponse {

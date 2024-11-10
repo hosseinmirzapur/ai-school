@@ -2,9 +2,28 @@
 
 import { FaArrowUp } from "react-icons/fa"
 import WeeklyChart from "./WeeklyChart"
-import { weeklySchedule } from "./data"
+import { IDailySchedule } from "./data"
+import { useEffect, useState } from "react"
+import { getWeeklySchedule } from "@/libs/axios"
 
 const ScheduleContainer = () => {
+	// ** states and variables
+	const [schedule, setSchedule] = useState<IDailySchedule[]>([])
+
+	// ** Functions
+	const fetchData = async () => {
+		try {
+			const res = await getWeeklySchedule()
+			setSchedule(res.data.schedule)
+		} catch (error) {
+			if (error instanceof Error) {
+				console.log(error)
+			}
+		}
+	}
+	useEffect(() => {
+		fetchData()
+	}, [])
 	return (
 		<div className="flex w-full items-center min-h-[100vh] h-full py-12 md:py-3 lg:py-10">
 			<div
@@ -30,7 +49,7 @@ const ScheduleContainer = () => {
 						<FaArrowUp className="rotate-[-45deg]" size={40} />
 					</div>
 				</div>
-				<WeeklyChart chartData={weeklySchedule} />
+				<WeeklyChart chartData={schedule} />
 			</div>
 		</div>
 	)
