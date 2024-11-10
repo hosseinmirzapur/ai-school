@@ -76,3 +76,26 @@ jobs:
            run: |
               docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }}
               docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:latest
+   server-deploy:
+      runs-on: ubuntu-latest
+      needs: docker-push
+      steps:
+         - name: ssh to server
+           env:
+              SERVER_PRIVATE_KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
+              SERVER_IP: ${{ secrets.SERVER_IP }}
+              SERVER_USER: ${{ secrets.SERVER_USER }}
+           run: |
+              echo "$SERVER_PRIVATE_KEY" | tr -d '\r' > private_key
+              chmod 600 private_key
+              ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USER@$SERVER_IP << 'EOF'
+                cd /var/www/school
+                docker compose down
+                docker compose pull
+                docker compose up -d --build
+                docker image prune -a -f
+                
+              EOF
+
+              # Clean up the temporary key file
+              rm -f private_key
