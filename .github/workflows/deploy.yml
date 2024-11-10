@@ -1,5 +1,5 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code, run tests, and push the Docker image to Docker Hub
-name: Node.js CI
+name: AI School Frontend Deployment
 
 on:
    push:
@@ -69,13 +69,13 @@ jobs:
 
          - name: Build Docker image
            run: |
-              docker build -t ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }} .
+              docker build --no-cache -t ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }} .
               docker tag ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/ai-school:latest
 
          - name: Push Docker image
            run: |
-              docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }}
-              docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:latest
+              docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:${{ github.sha }} || exit 1
+              docker push ${{ secrets.DOCKER_USERNAME }}/ai-school:latest || exit 1
    server-deploy:
       runs-on: ubuntu-latest
       needs: docker-push
@@ -90,8 +90,7 @@ jobs:
               chmod 600 private_key
               ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USER@$SERVER_IP << 'EOF'
                 cd /var/www/school
-                docker compose down && docker compose pull && docker compose up -d && docker image prune -a -f
-                
+                docker compose down && docker compose up -d --pull always && docker image prune -a -f
               EOF
 
               # Clean up the temporary key file
