@@ -3,8 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { ISubjectBook } from "./data"
 import { blurDataUrl } from "@/utils"
+import { ISubjectBook } from "@/types"
 
 interface IProps {
 	data: ISubjectBook[]

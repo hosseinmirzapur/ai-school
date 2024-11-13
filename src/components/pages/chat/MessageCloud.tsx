@@ -14,8 +14,7 @@ import { GoCopy } from "react-icons/go"
 import { FcInfo } from "react-icons/fc"
 
 import toast from "react-hot-toast"
-
-import { IMessage } from "./data"
+import { IMessage } from "@/types"
 
 interface IProps {
 	message: IMessage

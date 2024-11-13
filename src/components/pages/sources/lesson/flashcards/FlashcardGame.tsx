@@ -2,21 +2,20 @@
 
 import { useState } from "react"
 
-import { IFlashCard } from "./data"
-
 import Flashcard from "./Flashcard"
 
 import toast from "react-hot-toast"
 
 import { VscGame } from "react-icons/vsc"
 import EndText from "./EndText"
+import { IFlashCard } from "@/types"
 
 interface IProps {
 	flashCards: IFlashCard[]
 	source: number | string
 }
 
-const Middle: React.FC<IProps> = ({ flashCards, source }) => {
+const FlashcardGame: React.FC<IProps> = ({ flashCards, source }) => {
 	// ** States and variables
 	const [current, setCurrent] = useState(0)
 	const [flipped, setFlipped] = useState(false)
@@ -89,4 +88,4 @@ const Middle: React.FC<IProps> = ({ flashCards, source }) => {
 	)
 }
 
-export default Middle
+export default FlashcardGame

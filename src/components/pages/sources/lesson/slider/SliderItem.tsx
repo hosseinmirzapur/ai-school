@@ -8,7 +8,7 @@ import ItemModal from "./ItemModal"
 import { blurDataUrl } from "@/utils"
 
 interface IProps {
-	src: string
+	src?: string
 }
 
 const SliderItem: React.FC<IProps> = ({ src }) => {
@@ -37,7 +37,7 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
 			<ItemModal
 				Content={
 					<Image
-						src={src}
+						src={src || "/assets/no-img.png"}
 						alt="slider-image"
 						className="w-full"
 						width={800}
@@ -49,7 +49,7 @@ const SliderItem: React.FC<IProps> = ({ src }) => {
 				}
 				Trigger={
 					<Image
-						src={src}
+						src={src || "/assets/no-img.png"}
 						alt="slider-image"
 						width={500}
 						height={500}

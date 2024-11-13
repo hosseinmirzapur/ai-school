@@ -34,8 +34,13 @@ export const getAllSources = async (): Promise<
 
 export const getOneSource = async (
 	source: number | string,
+	load: boolean,
 ): Promise<AxiosResponse<OneSourceResponse, Error>> => {
-	return await api.get(`/pages/sources/${source}`)
+	return await api.get(`/pages/sources/${source}`, {
+		params: {
+			load,
+		},
+	})
 }
 
 export const getLessonSliders = async (

@@ -1,33 +1,58 @@
 "use client"
 
-import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react"
+import { BreadcrumbItem, Breadcrumbs, Spinner } from "@nextui-org/react"
 import { GoChevronLeft } from "react-icons/go"
-import { subjectBooks } from "./data"
-import { useRouter } from "next/navigation"
 import LessonBox from "./LessonBox"
+import { useEffect, useState } from "react"
+import { getOneSource } from "@/libs/axios"
+import { useAuthStore } from "@/libs/store"
+import { ILesson, ISubjectBook } from "@/types"
 
 interface IProps {
-   source: string
+	source: string | number
 }
 
 const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
-   // ** States and variables
-   const { back } = useRouter()
-   const book = subjectBooks.find((book) => book.id == source)
+	// ** States and variables
+	const [lessons, setLessons] = useState<ILesson[]>([])
+	const [book, setbook] = useState<ISubjectBook>()
+	const [isLoading, setIsLoading] = useState(false)
+	const { isAuthenticated } = useAuthStore()
 
-   if (book) {
-      return (
-         <div
-            className="
+	// ** Functions
+	const getLessons = async () => {
+		setIsLoading(true)
+		try {
+			const res = await getOneSource(source, false)
+			setLessons(res.data.lessons)
+			setbook(res.data.subject)
+			setIsLoading(false)
+		} catch (error) {
+			if (error instanceof Error) {
+				console.log(error)
+			}
+			setIsLoading(false)
+		}
+	}
+
+	useEffect(() => {
+		getLessons()
+	}, [])
+
+	useEffect(() => {}, [])
+
+	return isAuthenticated ? (
+		<div
+			className="
                flex
                w-full
                h-full
                min-h-[100vh]
                py-[54px]
             "
-         >
-            <div
-               className="
+		>
+			<div
+				className="
                   grid
                   grid-rows-1
                   space-y-10
@@ -43,48 +68,48 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
                   shadow-md
                   py-10
                "
-            >
-               {/* Breadcrumbs */}
-               <div className="w-10/12 mx-auto flex items-center row-span-1">
-                  <Breadcrumbs
-                     size="lg"
-                     separator={<GoChevronLeft size={22} />}
-                  >
-                     <BreadcrumbItem href="/sources">
-                        <span className="text-lg">منابع آموزشی</span>
-                     </BreadcrumbItem>
-                     <BreadcrumbItem>
-                        <span className="text-lg">{book.title}</span>
-                     </BreadcrumbItem>
-                  </Breadcrumbs>
-               </div>
+			>
+				{/* Breadcrumbs */}
+				<div className="w-10/12 mx-auto flex items-center row-span-1">
+					<Breadcrumbs size="lg" separator={<GoChevronLeft size={22} />}>
+						<BreadcrumbItem href="/sources">
+							<span className="text-lg">منابع آموزشی</span>
+						</BreadcrumbItem>
+						<BreadcrumbItem>
+							<span className="text-lg">{book?.title}</span>
+						</BreadcrumbItem>
+					</Breadcrumbs>
+				</div>
 
-               {/* Lessons Container */}
-               <div
-                  className="
-                        w-full
-                        md:w-11/12
-                        mx-auto
-                        flex
-                        flex-col
-                        md:flex-row
-                        flex-wrap
-                        justify-center
-                        items-center
-                        gap-10
-                        row-span-2
-                     "
-               >
-                  {book.lessons.map((lesson, index) => (
-                     <LessonBox key={index} lesson={lesson} book={book} />
-                  ))}
-               </div>
-            </div>
-         </div>
-      )
-   }
-   back()
-   return <></>
+				{/* Lessons Container */}
+				<div
+					className="
+                     w-full
+                     md:w-11/12
+                     mx-auto
+                     flex
+                     flex-col
+                     md:flex-row
+                     flex-wrap
+                     justify-center
+                     items-center
+                     gap-10
+                     row-span-2
+                  "
+				>
+					{isLoading ? (
+						<Spinner color="secondary" size="lg" />
+					) : (
+						lessons.map((lesson, index) => (
+							<LessonBox key={index} lesson={lesson} book={book} />
+						))
+					)}
+				</div>
+			</div>
+		</div>
+	) : (
+		<div className="container" />
+	)
 }
 
 export default AllLessonsContainer

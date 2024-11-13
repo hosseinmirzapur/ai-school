@@ -11,8 +11,7 @@ import FileUploadButton from "./FileUploadButton"
 import UploadedFile from "./UploadedFile"
 import VoiceRecorder from "./VoiceRecorder"
 import RecordedFile from "./RecordedFile"
-
-import { IMessage } from "./data"
+import { IMessage } from "@/types"
 
 interface IProps {
 	append: (message: IMessage) => void

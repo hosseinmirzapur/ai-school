@@ -3,8 +3,7 @@
 import { RefObject } from "react"
 
 import MessageCloud from "./MessageCloud"
-
-import { IMessage } from "./data"
+import { IMessage } from "@/types"
 
 interface IProps {
 	messages: IMessage[]
