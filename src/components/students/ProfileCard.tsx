@@ -9,8 +9,7 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "@nextui-org/react"
-
-import { IProfile } from "../pages/home/data"
+import { IProfile } from "@/types"
 
 interface IProps {
 	profile: IProfile

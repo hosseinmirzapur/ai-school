@@ -1,10 +1,9 @@
 "use client"
 
+import { IDailySchedule } from "@/types"
 import Bar from "./Bar"
 
 import { barColor, persianDate } from "./utils"
-
-import { IDailySchedule } from "./data"
 
 interface IProps {
 	chartData: IDailySchedule[]

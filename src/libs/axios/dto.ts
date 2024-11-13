@@ -1,4 +1,4 @@
-import { IDailySchedule } from "@/components/pages/schedule/data"
+import { IDailySchedule, ILesson, ISubjectBook } from "@/types"
 
 export interface HomeResponse {
 	profile: {
@@ -18,19 +18,12 @@ export interface HomeResponse {
 }
 
 export interface AllSourcesResponse {
-	sources: {
-		name: string
-		slug: string
-		image?: string
-	}[]
+	sources: ISubjectBook[]
 }
 
 export interface OneSourceResponse {
-	source: {
-		name: string
-		slug: string
-		image?: string
-	}
+	lessons: ILesson[]
+	subject: ISubjectBook
 }
 
 export interface LessonSlidersResponse {

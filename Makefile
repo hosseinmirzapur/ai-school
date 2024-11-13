@@ -12,10 +12,13 @@ run:
 lint:
 	@npm run lint
 
-build: lint
+build:
 	@npm run build
+
+start:
+	@npm run start
 
 clear-cache:
 	@rm -rf .next
  
-.PHONY: sync run clear-cache lint build
+.PHONY: sync run clear-cache lint build start

@@ -1,8 +1,7 @@
 "use client"
 
+import { ISubject } from "@/types"
 import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react"
-
-import { ISubject } from "./data"
 
 interface IProps {
 	subject: ISubject

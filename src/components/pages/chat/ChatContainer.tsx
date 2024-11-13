@@ -5,8 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import Bot from "./Bot"
 import MessageInput from "./MessageInput"
 import MessageList from "./MessageList"
-
-import { IMessage, messages } from "./data"
+import { IMessage } from "@/types"
 
 const ChatContainer = () => {
 	// ** States and variables
@@ -23,8 +22,8 @@ const ChatContainer = () => {
 	}
 
 	useEffect(() => {
-		setChatMessages(messages)
-	}, [messages])
+		setChatMessages([])
+	}, [])
 
 	useEffect(() => {
 		if (messageListRef.current) {

@@ -3,18 +3,18 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { ILesson, ISubjectBook } from "./data"
 import { blurDataUrl } from "@/utils"
+import { ILesson, ISubjectBook } from "@/types"
 
 interface IProps {
 	lesson: ILesson
-	book: ISubjectBook
+	book?: ISubjectBook
 }
 
 const LessonBox: React.FC<IProps> = ({ book, lesson }) => {
 	return (
 		<Link
-			href={`/sources/${book.id}/lessons/${lesson.id}`}
+			href={`/sources/${book?.id}/lessons/${lesson.id}`}
 			className="
             w-[250px]
             h-[100px]

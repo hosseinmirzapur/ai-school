@@ -1,18 +1,24 @@
 "use client"
 
 import Image from "next/image"
-import { useRouter } from "next/navigation"
 
-import { lessons } from "../data"
-
-import Screen from "./Screen"
-import LessonSlider from "./slider/LessonSlider"
-
-import { Button } from "@nextui-org/react"
+import { Button, Tab, Tabs } from "@nextui-org/react"
 
 import { GoChevronRight } from "react-icons/go"
-import NextStep from "./NextStep"
 import { blurDataUrl } from "@/utils"
+import { getOneSource } from "@/libs/axios"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
+import { useAuthStore } from "@/libs/store"
+import { RxVideo } from "react-icons/rx"
+import { TfiLayoutSlider } from "react-icons/tfi"
+import { TbCards } from "react-icons/tb"
+import { PiBookOpenText } from "react-icons/pi"
+import Videos from "./videos/Videos"
+import LessonSlider from "./slider/LessonSlider"
+import FlashcardGame from "./flashcards/FlashcardGame"
+import Dictations from "./dictations/Dictations"
+import { ILesson } from "@/types"
 
 interface IProps {
 	sourceID: number | string
@@ -21,15 +27,35 @@ interface IProps {
 
 const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 	// ** States and variables
-	const { back } = useRouter()
+	const [lesson, setLesson] = useState<ILesson>()
+	const { isAuthenticated } = useAuthStore()
+	const router = useRouter()
 
-	const lesson = lessons.find((l) => l.id == lessonID)
+	// ** Functions
+	const getLessonData = async () => {
+		try {
+			const res = await getOneSource(sourceID, true)
+			const lessonData = res.data.lessons.find(
+				(lesson) => lesson.id == lessonID,
+			)
+			setLesson(lessonData)
+		} catch (error) {
+			if (error instanceof Error) {
+				console.log(error)
+			}
+		}
+	}
 
-	if (lesson) {
-		return (
-			<div className="w-full h-full py-[54px]">
-				<div
-					className="
+	useEffect(() => {
+		getLessonData()
+	}, [])
+
+	return isAuthenticated ? (
+		<div className="w-full h-full py-[54px]">
+			<div
+				className="
+					  flex
+					  flex-col
                       w-10/12
                       mx-auto
                       h-full
@@ -38,24 +64,22 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
                       to-danger-100
                       relative
                       rounded-3xl
-                      grid
-                      grid-rows-5
                       py-5
                       space-y-5
                   "
-				>
-					{/* Top */}
-					<div className="flex flex-col-reverse gap-5 md:gap-0 md:flex-row items-center justify-between md:px-10">
-						<Button
-							color="secondary"
-							variant="light"
-							startContent={<GoChevronRight size={22} />}
-							onClick={back}
-						>
-							صفحه قبل
-						</Button>
-						<div
-							className="
+			>
+				{/* Top */}
+				<div className="flex flex-col-reverse gap-5 md:gap-0 md:flex-row items-center justify-between md:px-10">
+					<Button
+						color="secondary"
+						variant="light"
+						startContent={<GoChevronRight size={22} />}
+						onClick={() => router.back()}
+					>
+						صفحه قبل
+					</Button>
+					<div
+						className="
                         row-span-1
                         text-3xl
                         font-semibold
@@ -65,36 +89,86 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
                         justify-center
                         items-center
                      "
-						>
-							{lesson.name}
-						</div>
-						<Image
-							src={"/assets/lesson.png"}
-							alt="lesson-icon"
-							width={66}
-							height={66}
-							placeholder="blur"
-							blurDataURL={blurDataUrl}
-						/>
+					>
+						{lesson?.name}
 					</div>
-
-					{/* Slider in a Screen */}
-					<div className="row-span-4 pb-10">
-						<Screen>
-							<LessonSlider imgSrcs={lesson.imgSrcs} />
-						</Screen>
-					</div>
-
-					{/* Next Steps */}
-					<div className="w-10/12 mx-auto flex justify-center md:justify-start">
-						<NextStep lessonID={lessonID} sourceID={sourceID} />
-					</div>
+					<Image
+						src={"/assets/lesson.png"}
+						alt="lesson-icon"
+						width={66}
+						height={66}
+						placeholder="blur"
+						blurDataURL={blurDataUrl}
+					/>
 				</div>
+
+				<Tabs
+					color="secondary"
+					size="lg"
+					variant="underlined"
+					className="w-full flex items-center justify-center"
+				>
+					{lesson?.videos && (
+						<Tab
+							key="video"
+							title={
+								<div className="flex items-center gap-5">
+									<RxVideo size={22} />
+									<span>ویدئو ها</span>
+								</div>
+							}
+						>
+							<Videos videos={lesson.videos} />
+						</Tab>
+					)}
+					{lesson?.sliders && (
+						<Tab
+							key="slider"
+							title={
+								<div className="flex items-center gap-5">
+									<TfiLayoutSlider size={22} />
+									<span>اسلایدر ها</span>
+								</div>
+							}
+						>
+							<LessonSlider sliders={lesson.sliders} />
+						</Tab>
+					)}
+					{lesson?.flashcards && (
+						<Tab
+							key="flashcards"
+							title={
+								<div className="flex items-center gap-5">
+									<TbCards size={22} />
+									<span>فلش کارت ها</span>
+								</div>
+							}
+						>
+							<FlashcardGame
+								flashCards={lesson.flashcards}
+								source={sourceID}
+							/>
+						</Tab>
+					)}
+					{lesson?.dictations && (
+						<Tab
+							key="dictation"
+							title={
+								<div className="flex items-center gap-5">
+									<PiBookOpenText size={22} />
+									<span>دیکته(املا)</span>
+								</div>
+							}
+						>
+							<Dictations dictations={lesson.dictations} />
+						</Tab>
+					)}
+				</Tabs>
 			</div>
-		)
-	}
-	back()
-	return <></>
+		</div>
+	) : (
+		<div className="container" />
+	)
 }
 
 export default LessonContainer
