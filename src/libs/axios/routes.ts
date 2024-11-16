@@ -6,6 +6,7 @@ import {
 	ChatHistoryResponse,
 	ChatMessagesResponse,
 	ContactUsResponse,
+	DictationSubmissionResponse,
 	HomeResponse,
 	LessonFlashcardsResponse,
 	LessonSlidersResponse,
@@ -114,6 +115,14 @@ export const loginStudent = async (data: {
 
 export const logoutStudent = async () => {
 	return await api.post("/auth/logout")
+}
+
+// dictation submission
+export const dictationSubmit = async (
+	dictationID: string | number,
+	data: FormData | { text: string },
+): Promise<AxiosResponse<DictationSubmissionResponse>> => {
+	return await api.post(`/dictation/${dictationID}/submit`, data)
 }
 
 // chat

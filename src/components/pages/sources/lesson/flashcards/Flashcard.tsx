@@ -26,8 +26,7 @@ const Flashcard: React.FC<IProps> = ({
 			className={`
             w-10/12
             md:w-10/12
-            lg:w-9/12
-            h-full
+            min-h-[50vh]
             mx-auto
             grid
             grid-rows-3
@@ -65,9 +64,13 @@ const Flashcard: React.FC<IProps> = ({
                `}
 			>
 				{flipped ? (
-					<span className="text-lg lg:text-2xl">{item.answer}</span>
+					<span className="text-lg lg:text-2xl text-center">
+						{item.answer}
+					</span>
 				) : (
-					<span className="text-lg lg:text-2xl">{item.question}</span>
+					<span className="text-lg lg:text-2xl text-center">
+						{item.question}
+					</span>
 				)}
 			</div>
 

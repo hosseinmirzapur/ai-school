@@ -1,4 +1,4 @@
-import { IDailySchedule, ILesson, ISubjectBook } from "@/types"
+import { IDailySchedule, IDictation, ILesson, ISubjectBook } from "@/types"
 
 export interface HomeResponse {
 	profile: {
@@ -86,6 +86,10 @@ export interface LoginStudentResponse {
 		dob?: string | Date
 	}
 	token: string
+}
+
+export interface DictationSubmissionResponse {
+	dictation: IDictation
 }
 
 export interface NewChatResponse {

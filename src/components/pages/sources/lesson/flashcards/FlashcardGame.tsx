@@ -55,17 +55,20 @@ const FlashcardGame: React.FC<IProps> = ({ flashCards, source }) => {
 	return (
 		<div
 			className={`
-            row-span-3
-            bg-[#F9F8FC80]/50
-            w-11/12
-            mx-auto
-            rounded-3xl
-            py-10
-            md:py-8
-            lg:p-6
-            ${flipped ? "flip" : ""}
-            flashcard-container
-         `}
+				row-span-3
+				bg-[#F9F8FC80]/50
+				w-11/12
+				mx-auto
+				rounded-3xl
+				py-10
+				md:py-8
+				lg:p-6
+				${flipped ? "flip" : ""}
+				flashcard-container
+				min-h-[80vh]
+				flex
+				items-center
+			`}
 		>
 			{/* Flashcard Container */}
 			{flashCards.map((item, index) => (
