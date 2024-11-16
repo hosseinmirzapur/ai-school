@@ -90,7 +90,8 @@ jobs:
               chmod 600 private_key
               ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USER@$SERVER_IP << 'EOF'
                 cd /var/www/school
-                docker compose down && docker compose up -d --pull always
+                docker image rm hosseinmirzapur/ai-school:latest || true
+                docker compose down && docker compose up -d --pull always --force-recreate || exit 1
               EOF
 
               # Clean up the temporary key file
