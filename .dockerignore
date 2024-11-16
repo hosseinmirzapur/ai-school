@@ -1,5 +1,3 @@
-.github
-.next
 .vscode
 node_modules
 Makefile
