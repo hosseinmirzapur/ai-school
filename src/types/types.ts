@@ -24,7 +24,9 @@ export interface IFlashCard {
 export interface IDictation {
 	id: string | number
 	title: string
-	text: string
+	created_at: string | Date
+	voice?: string
+	status: "scored" | "not_scored" | "undone"
 }
 
 export interface ISlider {

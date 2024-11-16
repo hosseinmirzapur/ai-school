@@ -28,10 +28,13 @@ interface IProps {
 const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 	// ** States and variables
 	const [lesson, setLesson] = useState<ILesson>()
+	const [changed, setChanged] = useState(false)
 	const { isAuthenticated } = useAuthStore()
 	const router = useRouter()
 
 	// ** Functions
+	const toggleChange = () => setChanged((prev) => !prev)
+
 	const getLessonData = async () => {
 		try {
 			const res = await getOneSource(sourceID, true)
@@ -48,7 +51,7 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 
 	useEffect(() => {
 		getLessonData()
-	}, [])
+	}, [changed])
 
 	return isAuthenticated ? (
 		<div className="w-full h-full py-[54px]">
@@ -160,7 +163,10 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 								</div>
 							}
 						>
-							<Dictations dictations={lesson.dictations} />
+							<Dictations
+								dictations={lesson.dictations}
+								toggleChange={toggleChange}
+							/>
 						</Tab>
 					)}
 				</Tabs>

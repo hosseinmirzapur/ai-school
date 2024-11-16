@@ -3,19 +3,10 @@
 import RightSide from "./RightSide"
 import LeftSide from "./LeftSide"
 import { useAuthStore } from "@/libs/store/authStore"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 
 const HomeContainer = () => {
 	// ** States and variables
 	const { isAuthenticated } = useAuthStore()
-	const router = useRouter()
-
-	useEffect(() => {
-		if (!isAuthenticated) {
-			router.push("/auth")
-		}
-	}, [isAuthenticated, router])
 
 	return isAuthenticated ? (
 		<div className="container h-full min-h-[100vh]">
