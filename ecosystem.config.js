@@ -8,8 +8,6 @@ module.exports = {
 			instances: 1, // Number of instances to run (use "max" for cluster mode)
 			autorestart: true, // Automatically restart if the app crashes
 			watch: false, // Disable file watching (optional)
-			error_file: "./logs/error.log", // Log error messages
-			out_file: "./logs/out.log", // Log standard output
 		},
 	],
 }
