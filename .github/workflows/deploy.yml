@@ -74,17 +74,17 @@ jobs:
                   git clone https://github.com/hosseinmirzapur/ai-school.git .
 
                   # Use nvm to set the Node version and install dependencies
-                  nvm exec 20 npm install
+                  npm install
 
-                  nvm exec 20 npm run build
+                  npm run build
                else
                   echo "Git repository already cloned. Pulling latest changes..."
                   git fetch origin
                   git checkout main
                   git pull origin main
                   # Install any new dependencies and rebuild the project
-                  nvm exec 20 npm ci
-                  nvm exec 20 npm run build
+                  npm ci
+                  npm run build
                fi
 
                # Set up PM2 and start the app using the ecosystem file
