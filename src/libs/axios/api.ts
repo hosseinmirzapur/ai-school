@@ -56,6 +56,7 @@ api.interceptors.response.use(
 
 			case 401:
 				// Unauthorized: possibly redirect to login
+				window.location.href = "/auth"
 				return Promise.reject(
 					new Error(
 						"دسترسی غیرمجاز. لطفاً وارد حساب کاربری خود شوید و دوباره تلاش کنید.",
@@ -64,6 +65,7 @@ api.interceptors.response.use(
 
 			case 403:
 				// Forbidden: user doesn’t have permission
+				window.location.href = "/auth"
 				return Promise.reject(
 					new Error("دسترسی مسدود است. شما مجاز به انجام این عمل نیستید."),
 				)

@@ -2,9 +2,9 @@ import NotificationContainer from "@/components/pages/notifications/Notification
 import Base from "@/components/shared/Base"
 
 export default function Notifications() {
-   return (
-      <Base>
-         <NotificationContainer />
-      </Base>
-   )
+	return (
+		<Base needsAuth>
+			<NotificationContainer />
+		</Base>
+	)
 }

@@ -2,15 +2,15 @@ import AllLessonsContainer from "@/components/pages/sources/AllLessonsContainer"
 import Base from "@/components/shared/Base"
 
 interface IParams {
-   source: string
+	source: string
 }
 
 const Lesson = ({ params }: { params: IParams }) => {
-   return (
-      <Base>
-         <AllLessonsContainer source={params.source} />
-      </Base>
-   )
+	return (
+		<Base needsAuth>
+			<AllLessonsContainer source={params.source} />
+		</Base>
+	)
 }
 
 export default Lesson

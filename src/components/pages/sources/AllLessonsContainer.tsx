@@ -5,7 +5,6 @@ import { GoChevronLeft } from "react-icons/go"
 import LessonBox from "./LessonBox"
 import { useEffect, useState } from "react"
 import { getOneSource } from "@/libs/axios"
-import { useAuthStore } from "@/libs/store"
 import { ILesson, ISubjectBook } from "@/types"
 
 interface IProps {
@@ -17,7 +16,6 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
 	const [lessons, setLessons] = useState<ILesson[]>([])
 	const [book, setbook] = useState<ISubjectBook>()
 	const [isLoading, setIsLoading] = useState(false)
-	const { isAuthenticated } = useAuthStore()
 
 	// ** Functions
 	const getLessons = async () => {
@@ -39,9 +37,7 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
 		getLessons()
 	}, [])
 
-	useEffect(() => {}, [])
-
-	return isAuthenticated ? (
+	return (
 		<div
 			className="
                flex
@@ -107,8 +103,6 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
 				</div>
 			</div>
 		</div>
-	) : (
-		<div className="container" />
 	)
 }
 

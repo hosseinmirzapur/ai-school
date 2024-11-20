@@ -4,14 +4,12 @@ import { useEffect, useState } from "react"
 import SubjectBooks from "./SubjectBooks"
 import { getAllSources } from "@/libs/axios"
 import { Spinner } from "@nextui-org/react"
-import { useAuthStore } from "@/libs/store"
 import { ISubjectBook } from "@/types"
 
 const SourcesContainer = () => {
 	// ** States and variables
 	const [sources, setSources] = useState<ISubjectBook[]>([])
 	const [isLoading, setisLoading] = useState(false)
-	const { isAuthenticated } = useAuthStore()
 
 	// ** Functions
 	const getSources = async () => {
@@ -32,7 +30,7 @@ const SourcesContainer = () => {
 		getSources()
 	}, [])
 
-	return isAuthenticated ? (
+	return (
 		<div
 			className="
             flex
@@ -83,8 +81,6 @@ const SourcesContainer = () => {
 				)}
 			</div>
 		</div>
-	) : (
-		<div className="container" />
 	)
 }
 

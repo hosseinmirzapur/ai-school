@@ -4,14 +4,12 @@ import { FaArrowUp } from "react-icons/fa"
 import WeeklyChart from "./WeeklyChart"
 import { useEffect, useState } from "react"
 import { getWeeklySchedule } from "@/libs/axios"
-import { useAuthStore } from "@/libs/store"
 import { Spinner } from "@nextui-org/react"
 import { IDailySchedule } from "@/types"
 
 const ScheduleContainer = () => {
 	// ** states and variables
 	const [schedule, setSchedule] = useState<IDailySchedule[]>([])
-	const { isAuthenticated } = useAuthStore()
 	const [isLoading, setIsLoading] = useState(false)
 
 	// ** Functions
@@ -31,7 +29,7 @@ const ScheduleContainer = () => {
 	useEffect(() => {
 		fetchData()
 	}, [])
-	return isAuthenticated ? (
+	return (
 		<div className="flex w-full items-center min-h-[100vh] h-full py-12 md:py-3 lg:py-10">
 			<div
 				className="
@@ -63,8 +61,6 @@ const ScheduleContainer = () => {
 				)}
 			</div>
 		</div>
-	) : (
-		<div className="container" />
 	)
 }
 

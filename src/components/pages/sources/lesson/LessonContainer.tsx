@@ -9,7 +9,6 @@ import { blurDataUrl } from "@/utils"
 import { getOneSource } from "@/libs/axios"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { useAuthStore } from "@/libs/store"
 import { RxVideo } from "react-icons/rx"
 import { TfiLayoutSlider } from "react-icons/tfi"
 import { TbCards } from "react-icons/tb"
@@ -29,7 +28,6 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 	// ** States and variables
 	const [lesson, setLesson] = useState<ILesson>()
 	const [changed, setChanged] = useState(false)
-	const { isAuthenticated } = useAuthStore()
 	const router = useRouter()
 
 	// ** Functions
@@ -53,7 +51,7 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 		getLessonData()
 	}, [changed])
 
-	return isAuthenticated ? (
+	return (
 		<div className="w-full h-full py-[54px]">
 			<div
 				className="
@@ -172,8 +170,6 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 				</Tabs>
 			</div>
 		</div>
-	) : (
-		<div className="container" />
 	)
 }
 

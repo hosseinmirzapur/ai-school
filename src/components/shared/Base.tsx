@@ -4,12 +4,18 @@ import MobileNavbar from "./MobileNavbar"
 import Navbar from "./Navbar"
 import Pen from "./Pen"
 import Book from "./Book"
+import { useAuthStore } from "@/libs/store"
+import AccessDenied from "./AccessDenied"
 
 interface IProps {
 	children: React.ReactNode
+	needsAuth: boolean
 }
 
-const Base: React.FC<IProps> = ({ children }) => {
+const Base: React.FC<IProps> = ({ children, needsAuth }) => {
+	// ** States and variables
+	const { isAuthenticated } = useAuthStore()
+
 	return (
 		<>
 			{/* Mobile Navbar */}
@@ -42,7 +48,7 @@ const Base: React.FC<IProps> = ({ children }) => {
 				<Navbar />
 
 				{/* Inside Components */}
-				{children}
+				{needsAuth && isAuthenticated ? <>{children}</> : <AccessDenied />}
 			</div>
 		</>
 	)
