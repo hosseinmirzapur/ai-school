@@ -8,6 +8,7 @@ import {
 	NavbarMenuItem,
 	NavbarMenuToggle,
 } from "@nextui-org/react"
+import { useRouter } from "next/navigation"
 
 interface Header {
 	title: string
@@ -26,6 +27,9 @@ const headers: Header[] = [
 ]
 
 const DefaultMobileHeader = () => {
+	// ** States and variables
+	const router = useRouter()
+
 	return (
 		<Navbar className="md:hidden">
 			{/* Mobile View */}
@@ -42,6 +46,7 @@ const DefaultMobileHeader = () => {
 								h-14
 								cursor-pointer
 							"
+							onClick={() => router.push(`/${header.href}`)}
 						>
 							<Link href={header.href}>{header.title}</Link>
 						</NavbarMenuItem>
