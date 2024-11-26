@@ -18,23 +18,7 @@ const RecordedFile: React.FC<IProps> = ({ blob }) => {
 	return (
 		<Tooltip content="برای گوش دادن کلیک کنید">
 			<div
-				className="
-					flex
-					items-center
-					justify-center
-					gap-5
-					bg-purple-300
-					rounded-full
-					w-auto
-					mr-auto
-					ml-0
-					z-50
-					p-3
-					cursor-pointer
-					shadow-lg
-					hover:shadow-2xl
-					transition-shadow
-				"
+				className="flex items-center justify-center gap-5 bg-purple-300 rounded-full w-auto mr-auto ml-0 z-50 p-3 cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
 				onClick={() => {
 					if (audioRef.current) {
 						audioRef.current.play()

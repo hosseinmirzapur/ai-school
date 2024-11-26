@@ -56,26 +56,7 @@ const UploadedFile: React.FC<IProps> = ({ file, empty }) => {
 	return (
 		<div className="w-full flex" dir="ltr">
 			{file && (
-				<div
-					className="
-                  grid
-                  grid-rows-2
-                  justify-center
-                  w-[200px]
-                  h-[100px]
-                  shadow-lg
-                  hover:shadow-2xl
-                  rounded-xl
-                  p-5
-                  relative
-                  opacity-80
-                  bg-gradient-to-br
-                  from-purple-300
-                  to-blue-300
-                  transition-all
-                  cursor-pointer
-               "
-				>
+				<div className="grid grid-rows-2 justify-center w-[200px] h-[100px] shadow-lg hover:shadow-2xl rounded-xl p-5 relative opacity-80 bg-gradient-to-br from-purple-300 to-blue-300 transition-all cursor-pointer">
 					<div className="flex items-center justify-center">
 						<Chip
 							endContent={<CiFileOn size={24} />}

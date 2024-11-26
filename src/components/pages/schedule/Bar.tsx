@@ -15,19 +15,7 @@ const Bar: React.FC<IProps> = ({ subject, bgColor, textColor, width }) => {
 		<Popover showArrow color="secondary">
 			<PopoverTrigger>
 				<div
-					className="
-						flex
-						items-center
-						justify-center
-						h-20
-						md:h-14
-						p-2
-						rounded-[8px]
-						cursor-pointer
-						shadow-lg
-						hover:shadow-2xl
-						transition-shadow
-					"
+					className="flex items-center justify-center h-20 md:h-14 p-2 rounded-[8px] cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
 					style={{
 						backgroundColor: bgColor,
 						color: textColor,

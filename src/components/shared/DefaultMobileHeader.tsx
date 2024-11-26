@@ -39,13 +39,7 @@ const DefaultMobileHeader = () => {
 					{headers.map((header, index) => (
 						<NavbarMenuItem
 							key={index}
-							className="
-								flex justify-center items-center
-								bg-secondary-100 hover:bg-secondary-200
-								rounded-xl
-								h-14
-								cursor-pointer
-							"
+							className="flex justify-center items-center bg-secondary-100 hover:bg-secondary-200 rounded-xl h-14 cursor-pointer"
 							onClick={() => router.push(`/${header.href}`)}
 						>
 							<Link href={header.href}>{header.title}</Link>

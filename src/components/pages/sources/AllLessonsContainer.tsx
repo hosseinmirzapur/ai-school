@@ -38,33 +38,8 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
 	}, [])
 
 	return (
-		<div
-			className="
-               flex
-               w-full
-               h-full
-               min-h-[100vh]
-               py-[54px]
-            "
-		>
-			<div
-				className="
-                  grid
-                  grid-rows-1
-                  space-y-10
-                  lg:grid-rows-5
-                  lg:space-y-0
-                  bg-gradient-to-tr
-                  from-blue-200
-                  to-red-200
-                  w-11/12
-                  lg:py-10
-                  mx-auto
-                  rounded-3xl
-                  shadow-md
-                  py-10
-               "
-			>
+		<div className="flex w-full h-full min-h-[100vh] py-[54px]">
+			<div className="grid grid-rows-1 space-y-10 lg:grid-rows-5 lg:space-y-0 bg-gradient-to-tr from-blue-200 to-red-200 w-11/12 lg:py-10 mx-auto rounded-3xl shadow-md py-10">
 				{/* Breadcrumbs */}
 				<div className="w-10/12 mx-auto flex items-center row-span-1">
 					<Breadcrumbs size="lg" separator={<GoChevronLeft size={22} />}>
@@ -78,21 +53,7 @@ const AllLessonsContainer: React.FC<IProps> = ({ source }) => {
 				</div>
 
 				{/* Lessons Container */}
-				<div
-					className="
-                     w-full
-                     md:w-11/12
-                     mx-auto
-                     flex
-                     flex-col
-                     md:flex-row
-                     flex-wrap
-                     justify-center
-                     items-center
-                     gap-10
-                     row-span-2
-                  "
-				>
+				<div className="w-full md:w-11/12 mx-auto flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 row-span-2">
 					{isLoading ? (
 						<Spinner color="secondary" size="lg" />
 					) : (

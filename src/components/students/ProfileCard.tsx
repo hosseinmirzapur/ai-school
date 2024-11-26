@@ -24,35 +24,13 @@ const ProfileCard: React.FC<IProps> = ({ profile }) => {
 					color="secondary"
 					src={profile.avatar || "/assets/avatar.png"}
 					size="md"
-					className="
-                  w-32
-                  h-32
-                  object-cover
-                  bg-gradient-to-br
-                  from-blue-300
-                  to-red-200
-                  p-4
-                  cursor-pointer
-                  shadow-lg
-                  hover:shadow-2xl
-                  transition-shadow
-               "
+					className="w-32 h-32 object-cover bg-gradient-to-br from-blue-300 to-red-200 p-4 cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
 					showFallback
 					fallback={<Image src={"/assets/loader.svg"} alt="loader" fill />}
 				/>
 			</PopoverTrigger>
 			<PopoverContent>
-				<div
-					className="
-                  grid
-                  grid-rows-3
-                  w-[300px]
-                  h-[200px]
-                  place-items-center
-                  rounded-3xl
-                  z-30
-               "
-				>
+				<div className="grid grid-rows-3 w-[300px] h-[200px] place-items-center rounded-3xl z-30">
 					<div className="text-[#242730] text-xl font-bold">
 						{profile.fullName || "هنوز ثبت نشده"}
 					</div>

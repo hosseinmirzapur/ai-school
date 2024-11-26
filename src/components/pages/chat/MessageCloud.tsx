@@ -36,18 +36,7 @@ const MessageCloud: React.FC<IProps> = ({ message }) => {
 	return (
 		<>
 			<div
-				className="
-               flex
-               flex-col
-               gap-5
-               w-auto
-               mx-0
-               bg-white/60
-               px-5
-               py-3
-               rounded-3xl
-               shadow-lg
-            "
+				className="flex flex-col gap-5 w-auto mx-0 bg-white/60 px-5 py-3 rounded-3xl shadow-lg"
 				dir={message.role === "system" ? "ltr" : "rtl"}
 			>
 				<div className="col-span-1 flex items-center justify-between">

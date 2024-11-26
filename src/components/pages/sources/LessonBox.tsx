@@ -15,21 +15,7 @@ const LessonBox: React.FC<IProps> = ({ book, lesson }) => {
 	return (
 		<Link
 			href={`/sources/${book?.id}/lessons/${lesson.id}`}
-			className="
-            w-[250px]
-            h-[100px]
-            bg-gradient-to-tr
-            from-primary-300
-            to-secondary-300
-            grid
-            grid-cols-3
-            place-items-center
-            rounded-2xl
-            shadow-lg
-            cursor-pointer
-            hover:shadow-2xl
-            transition-all
-         "
+			className="w-[250px] h-[100px] bg-gradient-to-tr from-primary-300 to-secondary-300 grid grid-cols-3 place-items-center rounded-2xl shadow-lg cursor-pointer hover:shadow-2xl transition-all"
 		>
 			<div className="col-span-2 text-xl font-semibold text-white/90">
 				{lesson.name}

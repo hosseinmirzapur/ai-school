@@ -18,12 +18,7 @@ interface IProps {
 
 const Rankings: React.FC<IProps> = ({ chartData }) => {
 	return (
-		<div
-			className="
-            w-[300px]
-            h-[300px]
-         "
-		>
+		<div className="w-[300px] h-[300px]">
 			<ResponsiveContainer>
 				<RadarChart cx={"50%"} cy={"50%"} data={chartData}>
 					<PolarGrid />

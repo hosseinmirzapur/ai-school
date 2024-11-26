@@ -35,21 +35,7 @@ const ChatContainer = () => {
 	}, [appended])
 	return (
 		<div className="w-full h-full py-20">
-			<div
-				className="
-                    w-11/12
-                    md:w-10/12
-                    h-full
-                    mx-auto
-                    bg-gradient-to-tr
-                    from-pink-400
-                    to-purple-400
-                    rounded-[24px]
-                    relative
-                    shadow-lg
-                    pb-32
-                "
-			>
+			<div className="w-11/12 md:w-10/12 h-full mx-auto bg-gradient-to-tr from-pink-400 to-purple-400 rounded-[24px] relative shadow-lg pb-32">
 				<Bot />
 				<MessageList
 					messages={chatMessages}

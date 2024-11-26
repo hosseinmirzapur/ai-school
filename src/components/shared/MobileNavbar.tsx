@@ -51,18 +51,7 @@ const MobileNavbar = () => {
 								<NavbarMenuItem key={item.id}>
 									<Link
 										href={item.href}
-										className={`
-										flex
-										items-center
-										h-[65px]
-										bg-none
-										px-5
-										gap-[8px]
-										rounded-2xl
-										hover:bg-purple-500
-										hover:text-white
-										transition-all
-									`}
+										className={`flex items-center h-[65px] bg-none px-5 gap-[8px] rounded-2xl hover:bg-purple-500 hover:text-white transition-all`}
 									>
 										<item.Icon size={24} />
 										<span className={`text-xl`}>{item.title}</span>
@@ -80,18 +69,7 @@ const MobileNavbar = () => {
 												handleLogout()
 											}
 										}}
-										className={`
-										flex
-										items-center
-										h-[65px]
-										bg-none
-										px-5
-										gap-[8px]
-										rounded-2xl
-										hover:bg-purple-500
-										hover:text-white
-										transition-all
-									`}
+										className={`flex items-center h-[65px] bg-none px-5 gap-[8px] rounded-2xl hover:bg-purple-500 hover:text-white transition-all`}
 									>
 										<item.Icon size={24} />
 										<span className={`text-xl`}>{item.title}</span>

@@ -23,37 +23,15 @@ const HomeCard: React.FC<IHomeCard> = ({
 	return (
 		<Link
 			href={href}
-			className="
-				shadow-lg
-				hover:shadow-2xl
-				transition-all
-				ease-in-out
-				duration-400
-				rounded-3xl
-			"
+			className="shadow-lg hover:shadow-2xl transition-all ease-in-out duration-400 rounded-3xl"
 		>
-			<Card
-				className="
-					relative
-					w-[250px]
-					h-[180px]
-					md:w-[220px]
-					md:h-[150px]
-					rounded-3xl
-					cursor-pointer
-				"
-			>
+			<Card className="relative w-[250px] h-[180px] md:w-[220px] md:h-[150px] rounded-3xl cursor-pointer">
 				<Image
 					src={backgroundSrc}
 					alt="background-src"
 					width={600}
 					height={600}
-					className="
-						w-full
-						h-full
-						overflow-hidden
-						rounded-3xl
-					"
+					className="w-full h-full overflow-hidden rounded-3xl"
 					draggable={false}
 					placeholder="blur"
 					blurDataURL={blurDataUrl}

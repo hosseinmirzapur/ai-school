@@ -12,27 +12,11 @@ const RightSide = () => {
 	const [year, setYear] = useState<number>(1403)
 
 	return (
-		<div
-			className="
-            lg:col-span-2
-            col-span-full
-            flex
-            flex-col
-            space-y-28
-            h-full
-         "
-		>
+		<div className="lg:col-span-2 col-span-full flex flex-col space-y-28 h-full">
 			<Header notifications={[]} />
 
 			{/* Middle Content */}
-			<div
-				className="
-               flex
-               flex-wrap
-               gap-5
-               justify-center
-            "
-			>
+			<div className="flex flex-wrap gap-5 justify-center">
 				<HomeCard
 					backgroundSrc="/assets/background.jpg"
 					iconSrc="/assets/clock.png"

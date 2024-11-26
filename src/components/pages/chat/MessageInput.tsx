@@ -64,21 +64,7 @@ const MessageInput: React.FC<IProps> = ({ append }) => {
 	}
 
 	return (
-		<div
-			className="
-				flex
-				flex-col
-				gap-2
-				justify-center
-				w-full
-				px-4
-				md:px-10
-				lg:px-16
-				mx-auto
-				absolute
-				bottom-10
-			"
-		>
+		<div className="flex flex-col gap-2 justify-center w-full px-4 md:px-10 lg:px-16 mx-auto absolute bottom-10">
 			{recordedBlob ? (
 				<RecordedFile blob={recordedBlob} />
 			) : (

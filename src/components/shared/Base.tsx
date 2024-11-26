@@ -22,24 +22,7 @@ const Base: React.FC<IProps> = ({ children, needsAuth }) => {
 			<MobileNavbar />
 
 			{/* Base Container */}
-			<div
-				className="
-					flex
-					justify-center
-					w-11/12
-					md:w-10/12
-					mx-auto
-					bg-gray-200
-					rounded-[24px]
-					z-10
-					my-14
-					md:my-20
-					lg:my-32
-					relative
-					min-h-[100vh]
-					h-full
-				"
-			>
+			<div className="flex justify-center w-11/12 md:w-10/12 mx-auto bg-gray-200 rounded-[24px] z-10 my-14 md:my-20 lg:my-32 relative min-h-[100vh] h-full">
 				{/* Corner Icons */}
 				<Pen />
 				<Book />

@@ -94,14 +94,7 @@ const Entrypoint = () => {
 				>
 					<Button
 						size="lg"
-						className="
-                            h-[80px] md:h-[95px] lg:h-[115px]
-                            w-[250px] md:w-[265px] lg:w-[283px]
-                            bg-[#624BE1] hover:bg-[#624BE1]/90
-                            text-white
-                            text-[40px] md:text-[45px] lg:text-[50px]
-                            font-bold
-                        "
+						className="h-[80px] md:h-[95px] lg:h-[115px] w-[250px] md:w-[265px] lg:w-[283px] bg-[#624BE1] hover:bg-[#624BE1]/90 text-white text-[40px] md:text-[45px] lg:text-[50px] font-bold"
 						variant="shadow"
 						onPress={toggleLoginModal}
 					>

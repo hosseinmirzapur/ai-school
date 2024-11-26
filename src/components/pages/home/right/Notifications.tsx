@@ -30,19 +30,7 @@ const Notifications: React.FC<IProps> = ({ notifications }) => {
 	return (
 		<Dropdown>
 			<DropdownTrigger>
-				<div
-					className="
-                  h-10
-                  w-10
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                  bg-gray-100
-                  cursor-pointer
-                  hover:shadow-xl
-               "
-				>
+				<div className="h-10 w-10 rounded-full flex items-center justify-center bg-gray-100 cursor-pointer hover:shadow-xl">
 					{checkSeen() === false ? (
 						<Badge content={""} color="success">
 							<GoBellFill size={22} />

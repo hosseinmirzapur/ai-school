@@ -9,19 +9,7 @@ const AccessDenied = () => {
 	const router = useRouter()
 
 	return (
-		<div
-			className="
-				flex
-				items-center
-				justify-center
-				h-screen
-				bg-gradient-to-br
-				from-blue-50
-				to-blue-100
-				w-full
-				px-5
-			"
-		>
+		<div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-50 to-blue-100 w-full px-5">
 			<Card
 				isHoverable
 				className="cursor-pointer max-w-md p-14 bg-white shadow-xl rounded-xl text-center relative"
