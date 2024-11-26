@@ -31,18 +31,20 @@ const SourcesContainer = () => {
 	}, [])
 
 	return (
-		<div className="flex w-full items-center h-full min-h-[100vh] py-[54px]">
-			<div className="bg-gradient-to-tr from-blue-200 to-red-200 w-11/12 h-full min-h-[100vh] mx-auto rounded-3xl shadow-md flex flex-col items-center justify-evenly gap-10 py-10 lg:py-0">
-				<div className="flex justify-center text-[50px] text-[#4B185C] font-bold w-full h-full">
-					منابع آموزشی
+		<>
+			<div className="w-full py-[54px]">
+				<div className="grid place-items-center bg-gradient-to-tr from-blue-200 to-red-200 w-11/12 min-h-screen mx-auto rounded-3xl shadow-md py-5 relative">
+					<div className="flex justify-center text-3xl text-[#4B185C] font-bold w-full my-5">
+						منابع آموزشی
+					</div>
+					{isLoading ? (
+						<Spinner color="secondary" size="lg" />
+					) : (
+						<SubjectBooks data={sources} />
+					)}
 				</div>
-				{isLoading ? (
-					<Spinner color="secondary" size="lg" />
-				) : (
-					<SubjectBooks data={sources} />
-				)}
 			</div>
-		</div>
+		</>
 	)
 }
 

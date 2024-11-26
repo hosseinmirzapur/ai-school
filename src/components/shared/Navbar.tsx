@@ -103,7 +103,7 @@ const Navbar = () => {
 	return (
 		<>
 			<div
-				className={`hidden min-h-screen h-full relative md:flex flex-col gap-6 transition-all ${
+				className={`hidden min-h-screen relative md:flex flex-col gap-6 transition-all ${
 					expanded ? "w-[272px]" : "w-[100px] justify-center"
 				} bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-tr-2xl rounded-br-2xl`}
 			>

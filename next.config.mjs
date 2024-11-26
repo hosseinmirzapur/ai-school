@@ -6,6 +6,10 @@ const nextConfig = {
 				hostname: "api.school.irapardaz.ir/**",
 				protocol: "https",
 			},
+			{
+				hostname: "i.pravatar.cc/**",
+				protocol: "https",
+			},
 		],
 	},
 }
