@@ -88,10 +88,8 @@ const HomeworkUpload: React.FC<IProps> = ({ homework }) => {
 					<Input
 						type="file"
 						onChange={handleFileChange}
-						placeholder="فایل خود را انتخاب کنید"
-						className="w-full"
-						label="فایل تکلیف خود را در این قسمت بارگذاری نمایید"
-						radius="lg"
+						label="فایل تکلیف"
+						radius="md"
 						accept="application/pdf, image/png, image/jpg, image/jpeg, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 					/>
 					{file && (
