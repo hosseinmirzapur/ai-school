@@ -20,5 +20,11 @@ start:
 
 clear-cache:
 	@rm -rf .next
+
+pm2-stop:
+	@pm2 stop ai-school
+
+pm2-start:
+	@pm2 start ecosystem.config.js
  
-.PHONY: sync run clear-cache lint build start
+.PHONY: sync run clear-cache lint build start pm2-stop pm2-start
