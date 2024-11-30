@@ -68,7 +68,7 @@ const HomeworkUpload: React.FC<IProps> = ({ homework }) => {
 					</p>
 				</div>
 			</CardHeader>
-			<CardBody className="flex flex-col gap-5 items-center justify-center">
+			<CardBody className="flex flex-col gap-10">
 				<Autocomplete
 					label="تکلیف مورد نظر را انتخاب نمایید"
 					className="max-w-md"
