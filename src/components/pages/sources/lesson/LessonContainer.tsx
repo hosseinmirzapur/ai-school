@@ -12,11 +12,9 @@ import { useRouter } from "next/navigation"
 import { RxVideo } from "react-icons/rx"
 import { TfiLayoutSlider } from "react-icons/tfi"
 import { TbCards } from "react-icons/tb"
-import { PiBookOpenText } from "react-icons/pi"
 import Videos from "./videos/Videos"
 import LessonSlider from "./slider/LessonSlider"
 import FlashcardGame from "./flashcards/FlashcardGame"
-import Dictations from "./dictations/Dictations"
 import { ILesson } from "@/types"
 
 interface IProps {
@@ -27,11 +25,9 @@ interface IProps {
 const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 	// ** States and variables
 	const [lesson, setLesson] = useState<ILesson>()
-	const [changed, setChanged] = useState(false)
 	const router = useRouter()
 
 	// ** Functions
-	const toggleChange = () => setChanged((prev) => !prev)
 
 	const getLessonData = async () => {
 		try {
@@ -49,7 +45,7 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 
 	useEffect(() => {
 		getLessonData()
-	}, [changed])
+	}, [])
 
 	return (
 		<div className="w-full h-full py-[54px]">
@@ -148,22 +144,6 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 							<FlashcardGame
 								flashCards={lesson.flashcards}
 								source={sourceID}
-							/>
-						</Tab>
-					)}
-					{lesson?.dictations && (
-						<Tab
-							key="dictation"
-							title={
-								<div className="flex items-center gap-5">
-									<PiBookOpenText size={22} />
-									<span>دیکته(املا)</span>
-								</div>
-							}
-						>
-							<Dictations
-								dictations={lesson.dictations}
-								toggleChange={toggleChange}
 							/>
 						</Tab>
 					)}

@@ -5,6 +5,7 @@ import {
 	AllSourcesResponse,
 	ChatHistoryResponse,
 	ChatMessagesResponse,
+	HomeworkResponse,
 	ContactUsResponse,
 	DictationSubmissionResponse,
 	HomeResponse,
@@ -90,6 +91,10 @@ export const getChatMessages = async (
 	chat: number | string,
 ): Promise<AxiosResponse<ChatMessagesResponse, Error>> => {
 	return await api.get(`/pages/chat/${chat}`)
+}
+
+export const getHomework = async (): Promise<AxiosResponse<HomeworkResponse>> => {
+	return await api.get('/pages/homework')
 }
 
 // pages (no auth needed)

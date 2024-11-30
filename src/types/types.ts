@@ -93,3 +93,26 @@ export interface IFlashCard {
 	answer: string
 	img?: string
 }
+
+export interface IHomework {
+	id: number | string
+	title: string
+	description?: string
+	subject: string
+	lesson: string
+	teacher: string
+	due_date?: string
+	status: 'not_sent' | 'grading' | 'graded'
+}
+
+export interface ISubmission {
+	id: number | string
+	subject: string
+	lesson: string
+	homework_title: string
+	submitted_at: string
+	grade?: number | string
+	graded_at?: string
+	feedback?: string
+	file: string
+}

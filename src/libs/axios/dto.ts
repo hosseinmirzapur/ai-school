@@ -1,4 +1,4 @@
-import { IDailySchedule, IDictation, ILesson, ISubjectBook } from "@/types"
+import { IDailySchedule, IDictation, IHomework, ILesson, ISubjectBook, ISubmission } from "@/types"
 
 export interface HomeResponse {
 	profile: {
@@ -66,6 +66,11 @@ export interface ChatMessagesResponse {
 		has_file: boolean
 		has_voice: boolean
 	}[]
+}
+
+export interface HomeworkResponse {
+	homework: IHomework[]
+	submissions: ISubmission[]
 }
 
 export interface AboutUsResponse {
