@@ -116,3 +116,16 @@ export interface ISubmission {
 	feedback?: string
 	file: string
 }
+
+export interface IQuiz {
+	id: number | string
+	title: string
+	questions: IQuizQuestion[]
+}
+
+export interface IQuizQuestion {
+	id: number | string
+	text: string
+	type: 'multiple-choice' | 'true-false' | 'text'
+	options: string[]
+}
