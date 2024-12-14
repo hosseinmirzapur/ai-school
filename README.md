@@ -11,9 +11,12 @@ git clone git@github.com:hosseinmirzapur/ai-school.git
 
 cd ./ai-school
 
-npm install
+# If bun wasn't installed, install it via this command:
+curl -fsSL https://bun.sh/install | bash # (you don't need to run this if you already have bun installed)
 
-npm run dev
+bun install
+
+bun run dev
 ```
 
 ## Contribution Guide
