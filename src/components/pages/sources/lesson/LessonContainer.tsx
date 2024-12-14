@@ -71,7 +71,7 @@ const LessonContainer: React.FC<IProps> = ({ lessonID, sourceID }) => {
 						color="secondary"
 						variant="light"
 						startContent={<GoChevronRight size={22} />}
-						onClick={() => router.back()}
+						onPress={() => router.back()}
 					>
 						صفحه قبل
 					</Button>

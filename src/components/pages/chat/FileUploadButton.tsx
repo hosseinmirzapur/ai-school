@@ -64,10 +64,11 @@ const FileUploadButton: React.FC<IProps> = ({
 				<DropdownTrigger>{children}</DropdownTrigger>
 				<DropdownMenu>
 					<DropdownItem
+						key="image"
 						variant="shadow"
 						color="warning"
 						className="group"
-						onClick={handleImage}
+						onPress={handleImage}
 						startContent={
 							<MdImage
 								size={24}
@@ -78,10 +79,11 @@ const FileUploadButton: React.FC<IProps> = ({
 						آپلود عکس
 					</DropdownItem>
 					<DropdownItem
+						key="pdf"
 						variant="shadow"
 						color="danger"
 						className="group"
-						onClick={handlePDF}
+						onPress={handlePDF}
 						startContent={
 							<AiFillFilePdf
 								size={24}
@@ -92,10 +94,11 @@ const FileUploadButton: React.FC<IProps> = ({
 						آپلود pdf
 					</DropdownItem>
 					<DropdownItem
+						key="word"
 						variant="shadow"
 						color="primary"
 						className="group"
-						onClick={handleWord}
+						onPress={handleWord}
 						startContent={
 							<PiMicrosoftWordLogoFill
 								size={24}

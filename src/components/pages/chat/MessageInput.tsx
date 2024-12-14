@@ -99,7 +99,7 @@ const MessageInput: React.FC<IProps> = ({ append }) => {
 							color="secondary"
 							variant="light"
 							radius="full"
-							onClick={addMessage}
+							onPress={addMessage}
 							isDisabled={
 								inputTxt == null &&
 								inputFile == null &&

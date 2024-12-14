@@ -76,7 +76,7 @@ const UploadedFile: React.FC<IProps> = ({ file, empty }) => {
 							color="danger"
 							variant="shadow"
 							size="sm"
-							onClick={empty}
+							onPress={empty}
 						>
 							<AiOutlineCloseCircle size={24} />
 						</Button>

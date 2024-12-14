@@ -48,7 +48,7 @@ const EndText: React.FC<IProps> = ({ reset, text, source }) => {
 					color="secondary"
 					variant="shadow"
 					startContent={<MdReplay size={20} />}
-					onClick={reset}
+					onPress={reset}
 				>
 					بازی مجدد
 				</Button>
@@ -56,7 +56,7 @@ const EndText: React.FC<IProps> = ({ reset, text, source }) => {
 					color="primary"
 					variant="shadow"
 					startContent={<TiArrowBack size={20} />}
-					onClick={() => push(`/sources/${source}`)}
+					onPress={() => push(`/sources/${source}`)}
 				>
 					درس های دیگر
 				</Button>

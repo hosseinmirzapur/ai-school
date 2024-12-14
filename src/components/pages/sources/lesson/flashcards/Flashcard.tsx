@@ -89,13 +89,13 @@ const Flashcard: React.FC<IProps> = ({
 						<Button
 							className="bg-[#59f9a1] font-bold shadow-lg"
 							radius="full"
-							onClick={increment}
+							onPress={increment}
 						>
 							یاد گرفتم
 						</Button>
 						<Button
 							className="bg-danger-400 text-white font-bold shadow-lg"
-							onClick={() => onFault(item)}
+							onPress={() => onFault(item)}
 							radius="full"
 						>
 							اشتباه کردم
@@ -107,7 +107,7 @@ const Flashcard: React.FC<IProps> = ({
 							className="text-base font-bold"
 							color="secondary"
 							variant="ghost"
-							onClick={flip}
+							onPress={flip}
 							radius="full"
 						>
 							دیدن جواب

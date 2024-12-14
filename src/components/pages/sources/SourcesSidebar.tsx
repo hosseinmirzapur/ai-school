@@ -31,7 +31,7 @@ const SourcesSidebar = () => {
 			>
 				<Button
 					isIconOnly
-					onClick={toggleSidebar}
+					onPress={toggleSidebar}
 					color="primary"
 					variant="flat"
 					size="sm"

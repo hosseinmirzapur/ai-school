@@ -85,7 +85,7 @@ const VoiceRecorder: React.FC<IProps> = ({ fillRecordedBlob }) => {
 				className="rounded-full transition-all ease-in-out"
 				color="secondary"
 				variant={recording ? "shadow" : "light"}
-				onClick={() =>
+				onPress={() =>
 					recording
 						? stopRecording()
 						: recorded

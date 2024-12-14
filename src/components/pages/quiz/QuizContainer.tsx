@@ -110,14 +110,14 @@ const QuizContainer = () => {
 				<Button
 					autoFocus
 					disabled={currentQuestion === 0}
-					onClick={() => setCurrentQuestion((prev) => prev - 1)}
+					onPress={() => setCurrentQuestion((prev) => prev - 1)}
 				>
 					Previous
 				</Button>
 				{currentQuestion < ((quiz && quiz.questions.length - 1) || 0) ? (
 					<Button
 						autoFocus
-						onClick={() => setCurrentQuestion((prev) => prev + 1)}
+						onPress={() => setCurrentQuestion((prev) => prev + 1)}
 					>
 						Next
 					</Button>
@@ -128,7 +128,7 @@ const QuizContainer = () => {
 						disabled={
 							Object.keys(answers).length !== quiz?.questions.length
 						}
-						onClick={handleSubmit}
+						onPress={handleSubmit}
 					>
 						Submit
 					</Button>

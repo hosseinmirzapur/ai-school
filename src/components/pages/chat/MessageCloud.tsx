@@ -61,8 +61,9 @@ const MessageCloud: React.FC<IProps> = ({ message }) => {
 						</DropdownTrigger>
 						<DropdownMenu>
 							<DropdownItem
+								key="copy"
 								startContent={<GoCopy size={20} />}
-								onClick={() => copyMessageText(message)}
+								onPress={() => copyMessageText(message)}
 							>
 								کپی متن
 							</DropdownItem>
