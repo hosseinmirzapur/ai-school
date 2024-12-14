@@ -2,7 +2,7 @@ module.exports = {
 	apps: [
 		{
 			name: "ai-school", // Name of your app
-			script: "npm", // Run npm commands
+			script: "bun", // Run bun commands
 			args: "run start", // Run the start script
 			cwd: "/var/www/school/frontend", // Directory where your project is located
 			instances: 1, // Number of instances to run (use "max" for cluster mode)
