@@ -2,6 +2,7 @@
 
 import { IQuiz } from "@/types"
 import { motionFX } from "@/utils"
+import { Card, CardBody } from "@nextui-org/react"
 import { motion } from "framer-motion"
 
 interface IProps {
@@ -15,7 +16,11 @@ const OngoingQuiz: React.FC<IProps> = () => {
 			animate={motionFX.animate}
 			transition={motionFX.transition}
 		>
-			OngoingQuiz
+			<Card isPressable isHoverable>
+				<CardBody>
+					<span>برای شرکت در آزمون کلیک کنید</span>
+				</CardBody>
+			</Card>
 		</motion.div>
 	)
 }
