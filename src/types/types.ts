@@ -120,6 +120,7 @@ export interface ISubmission {
 export interface IQuiz {
 	id: number | string
 	title: string
+	status: 'upcoming' | 'completed' | 'ongoing'
 	questions: IQuizQuestion[]
 }
 

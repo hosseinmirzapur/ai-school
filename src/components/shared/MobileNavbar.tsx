@@ -15,7 +15,6 @@ import { useAuthStore } from "@/libs/store"
 import { logoutStudent } from "@/libs/axios"
 import { useRouter } from "next/navigation"
 import { handleError } from "@/libs/axios/helper"
-import { Toaster } from "react-hot-toast"
 
 const MobileNavbar = () => {
 	// ** States and variables
@@ -80,7 +79,6 @@ const MobileNavbar = () => {
 					)}
 				</NavbarMenu>
 			</Navbar>
-			<Toaster />
 		</>
 	)
 }

@@ -13,7 +13,6 @@ import { PiGearSixFill } from "react-icons/pi"
 import { AiOutlineExpandAlt, AiOutlineShrink } from "react-icons/ai"
 import { BsArrowLeft } from "react-icons/bs"
 import { handleError } from "@/libs/axios/helper"
-import { Toaster } from "react-hot-toast"
 import { logoutStudent } from "@/libs/axios"
 import { useAuthStore } from "@/libs/store"
 
@@ -139,7 +138,6 @@ const Navbar = () => {
 					)}
 				</div>
 			</div>
-			<Toaster />
 		</>
 	)
 }

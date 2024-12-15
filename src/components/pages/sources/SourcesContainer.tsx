@@ -32,7 +32,7 @@ const SourcesContainer = () => {
 
 	return (
 		<>
-			<div className="w-full py-[54px]">
+			<div className="w-full py-[32px]">
 				<div className="grid place-items-center bg-gradient-to-tr from-blue-200 to-red-200 w-11/12 min-h-screen mx-auto rounded-3xl shadow-md py-5 relative">
 					<div className="flex justify-center text-3xl text-[#4B185C] font-bold w-full my-5">
 						منابع آموزشی

@@ -1,4 +1,4 @@
-import { IDailySchedule, IDictation, IHomework, ILesson, ISubjectBook, ISubmission } from "@/types"
+import { IDailySchedule, IDictation, IHomework, ILesson, IQuiz, ISubjectBook, ISubmission } from "@/types"
 
 export interface HomeResponse {
 	profile: {
@@ -103,4 +103,8 @@ export interface NewChatResponse {
 
 export interface SendMessageResponse {
 	result: string | object
+}
+
+export interface AllQuizzesResponse {
+	quizzes: IQuiz[]
 }

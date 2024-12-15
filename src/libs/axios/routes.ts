@@ -7,7 +7,6 @@ import {
 	ChatMessagesResponse,
 	HomeworkResponse,
 	ContactUsResponse,
-	DictationSubmissionResponse,
 	HomeResponse,
 	LessonFlashcardsResponse,
 	LessonSlidersResponse,
@@ -19,6 +18,7 @@ import {
 	SendMessageResponse,
 	SettingsResponse,
 	WeeklyScheduleResponse,
+	AllQuizzesResponse,
 } from "./dto"
 
 // pages (auth needed)
@@ -122,14 +122,6 @@ export const logoutStudent = async () => {
 	return await api.post("/auth/logout")
 }
 
-// dictation submission
-export const dictationSubmit = async (
-	dictationID: string | number,
-	data: FormData | { text: string },
-): Promise<AxiosResponse<DictationSubmissionResponse>> => {
-	return await api.post(`/dictation/${dictationID}/submit`, data)
-}
-
 // chat
 export const createNewChat = async (
 	type: "casual" | "quiz",
@@ -142,4 +134,8 @@ export const sendMessageToChat = async (
 	data: FormData | { content: string },
 ): Promise<AxiosResponse<SendMessageResponse, Error>> => {
 	return await api.post(`/chat/${chat}/message`, data)
+}
+
+export const getAllQuizzes = async (): Promise<AxiosResponse<AllQuizzesResponse>> => {
+	return await api.get('/quizzes')
 }

@@ -1,6 +1,12 @@
 "use client"
 
-import { Button, Tooltip } from "@nextui-org/react"
+import {
+	Button,
+	Drawer,
+	DrawerBody,
+	DrawerContent,
+	DrawerHeader,
+} from "@nextui-org/react"
 import Link from "next/link"
 import { useState } from "react"
 import { CiMenuFries } from "react-icons/ci"
@@ -18,49 +24,51 @@ const SourcesSidebar = () => {
 	const toggleSidebar = () => setIsOpen(!isOpen)
 
 	return (
-		<div
-			className={`flex flex-col justify-center items-center p-3 absolute z-20 right-0 top-0 rounded-tr-3xl bg-gradient-to-b from-secondary-100 to-primary-100 transition-all duration-800 ${
-				isOpen
-					? "w-full shadow-lg rounded-t-3xl gap-10"
-					: "w-12 md:w-16 lg:w-20"
-			}`}
-		>
-			<Tooltip
-				content={isOpen ? "بستن منو" : "باز کردن منو"}
-				placement="left-end"
+		<>
+			<Button
+				onPress={toggleSidebar}
+				color="primary"
+				variant="flat"
+				size="lg"
 			>
-				<Button
-					isIconOnly
-					onPress={toggleSidebar}
-					color="primary"
-					variant="flat"
-					size="sm"
-				>
-					{isOpen ? (
-						<MdOutlineClose size={22} />
-					) : (
-						<CiMenuFries size={22} />
+				{isOpen ? <MdOutlineClose size={22} /> : <CiMenuFries size={22} />}
+				<span>امتحانات و تکالیف</span>
+			</Button>
+			<Drawer
+				isOpen={isOpen}
+				onOpenChange={toggleSidebar}
+				backdrop="blur"
+				classNames={{
+					base: "bg-gradient-to-bl from-secondary-200 to-primary-100",
+				}}
+				size="sm"
+				radius="none"
+			>
+				<DrawerContent>
+					{() => (
+						<>
+							<DrawerHeader>امتحانات و تکالیف</DrawerHeader>
+							<DrawerBody className="pt-16 space-y-5">
+								{navItems.map((item) =>
+									isOpen ? (
+										<Link
+											key={item.name}
+											href={item.href}
+											className="flex items-center justify-start p-3 gap-5 rounded-xl bg-secondary-100 hover:bg-primary-200 transition-all w-full shadow-lg"
+										>
+											{item.icon}
+											<span>{item.name}</span>
+										</Link>
+									) : (
+										<></>
+									),
+								)}
+							</DrawerBody>
+						</>
 					)}
-				</Button>
-			</Tooltip>
-
-			<nav className="grid grid-cols-2 w-11/12 mx-auto">
-				{navItems.map((item) =>
-					isOpen ? (
-						<Link
-							key={item.name}
-							href={item.href}
-							className="flex items-center justify-center p-2 gap-5 rounded hover:bg-primary-200 transition-all w-full"
-						>
-							{item.icon}
-							<span>{item.name}</span>
-						</Link>
-					) : (
-						<></>
-					),
-				)}
-			</nav>
-		</div>
+				</DrawerContent>
+			</Drawer>
+		</>
 	)
 }
 
