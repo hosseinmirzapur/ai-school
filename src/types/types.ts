@@ -121,6 +121,8 @@ export interface IQuiz {
 	id: number | string
 	title: string
 	status: 'upcoming' | 'completed' | 'ongoing'
+	description?: string
+	due_date?: string
 	questions: IQuizQuestion[]
 }
 

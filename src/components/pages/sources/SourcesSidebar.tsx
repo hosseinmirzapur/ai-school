@@ -27,7 +27,7 @@ const SourcesSidebar = () => {
 		<>
 			<Button
 				onPress={toggleSidebar}
-				color="primary"
+				color="secondary"
 				variant="flat"
 				size="lg"
 			>

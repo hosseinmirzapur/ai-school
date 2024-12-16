@@ -2,47 +2,82 @@
 
 import { IQuiz } from "@/types"
 import { motionFX } from "@/utils"
-import { Card, CardBody, CardHeader, Chip } from "@nextui-org/react"
+import {
+	Button,
+	Dropdown,
+	DropdownItem,
+	DropdownMenu,
+	DropdownTrigger,
+	Table,
+	TableBody,
+	TableCell,
+	TableColumn,
+	TableHeader,
+	TableRow,
+} from "@nextui-org/react"
 import { motion } from "framer-motion"
+import { Brain, CalendarCheck, EllipsisVertical } from "lucide-react"
 
 interface IProps {
 	quizzes: IQuiz[]
 }
 
-const UpcomingQuiz: React.FC<IProps> = () => {
+const columns: string[] = ["#", "عنوان", "توضیحات", "تاریخ برگزاری", "عملیات"]
+
+const UpcomingQuiz: React.FC<IProps> = ({ quizzes }) => {
 	return (
 		<motion.div
 			initial={motionFX.initial}
 			animate={motionFX.animate}
 			transition={motionFX.transition}
 		>
-			<Card className="mt-8">
-				<CardHeader>
-					<h2 className="text-2xl font-bold">Quiz Summary</h2>
-				</CardHeader>
-				<CardBody>
-					<div className="flex justify-around">
-						<div className="text-center">
-							<Chip color="primary" variant="shadow">
-								5
-							</Chip>
-							<p className="mt-2">Quizzes Completed</p>
-						</div>
-						<div className="text-center">
-							<Chip color="warning" variant="shadow">
-								2
-							</Chip>
-							<p className="mt-2">Quizzes Remaining</p>
-						</div>
-						<div className="text-center">
-							<Chip color="success" variant="shadow">
-								88%
-							</Chip>
-							<p className="mt-2">Average Score</p>
-						</div>
-					</div>
-				</CardBody>
-			</Card>
+			<Table color="secondary" isStriped>
+				<TableHeader>
+					{columns.map((column, index) => (
+						<TableColumn key={index}>{column}</TableColumn>
+					))}
+				</TableHeader>
+
+				<TableBody>
+					{quizzes.map((quiz, index) => (
+						<TableRow key={index}>
+							<TableCell>{index + 1}</TableCell>
+							<TableCell>{quiz.title}</TableCell>
+							<TableCell className="min-w-[150px] text-sm">
+								{quiz.description || "---"}
+							</TableCell>
+							<TableCell>{quiz.due_date || "---"}</TableCell>
+							<TableCell>
+								<Dropdown showArrow>
+									<DropdownTrigger>
+										<Button isIconOnly size="sm" variant="light">
+											<EllipsisVertical className="text-default-300" />
+										</Button>
+									</DropdownTrigger>
+									<DropdownMenu>
+										<DropdownItem
+											key="schedule"
+											startContent={<CalendarCheck />}
+											color="secondary"
+											variant="flat"
+										>
+											برنامه ریزی
+										</DropdownItem>
+										<DropdownItem
+											key={"study"}
+											startContent={<Brain />}
+											color="primary"
+											variant="flat"
+										>
+											تمرین برای آزمون
+										</DropdownItem>
+									</DropdownMenu>
+								</Dropdown>
+							</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
 		</motion.div>
 	)
 }

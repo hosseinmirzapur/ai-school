@@ -21,11 +21,11 @@ const SubjectBooks: React.FC<IProps> = ({ data }) => {
 		<>
 			<SourcesSidebar />
 
-			<div className="flex flex-col flex-wrap md:flex-row items-center justify-center gap-10 w-10/12 h-full">
+			<div className="flex flex-col flex-wrap md:flex-row items-center justify-center gap-10 w-10/12 h-full py-10">
 				{data.map((book, index) => (
 					<Link
 						key={index}
-						className="grid grid-cols-2 md:w-[280px] lg:w-[240px] min-h-[120px] max-h-[200px] rounded-[24px] py-2 px-1 gap-[16px] bg-white/60 shadow-md shadow-[#3F27661A] hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
+						className="grid grid-cols-2 w-[240px] h-[120px] rounded-[24px] py-2 px-1 gap-[16px] bg-white/60 shadow-md shadow-[#3F27661A] hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
 						href={`/sources/${book.id}`}
 					>
 						<div className="flex items-center justify-center text-base font-[700]">
